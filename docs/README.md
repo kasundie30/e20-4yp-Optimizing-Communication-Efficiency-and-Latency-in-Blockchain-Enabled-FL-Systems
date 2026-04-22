@@ -42,6 +42,8 @@ Credit card fraud detection (CCFD) in the banking sector faces a fundamental ten
 The HCFL framework achieves an average PR-AUC of 0.778, ROC-AUC of 0.974, and F1 Score of 0.830 over 10 federated rounds on the European Credit Card Fraud dataset (284,807 transactions, 0.17% fraud rate). Communication overhead is held constant at 0.490 MB/round, and end-to-end latency averages 3.55 seconds/round in simulation. The system demonstrably reduces inter-bank communication overhead relative to flat FL baselines while delivering competitive detection performance and providing a cryptographically verifiable audit trail suitable for regulatory compliance. Comparative evaluation against Baabdullah et al. (2024) and Aljunaid et al. (2025) confirms that HCFL achieves superior precision (0.905 average) and significantly lower communication-per-round while maintaining comparable recall.
 
 Keywords: Federated Learning, Credit Card Fraud Detection, Blockchain, Differential Privacy, Hierarchical Aggregation, Communication Efficiency, Hyperledger Fabric, IPFS.
+
+
 ---
 
 ## Research Problem
@@ -73,14 +75,15 @@ RQ3: Is it possible to integrate differential privacy into the local training st
 
 ## Objectives
 
-Primary Objective
+### Primary Objective
+
 To design, implement, and evaluate a Hierarchical Clustered Federated Learning (HCFL) framework for credit card fraud detection that simultaneously optimises:
 
-Inter-bank communication efficiency (minimise bytes exchanged per federated round)
-End-to-end latency per round (minimise wall-clock time from training start to global model update)
-Detection performance (maximise PR-AUC and F1 Score on imbalanced fraud data)
-Privacy guarantees (provide Differential Privacy for local training updates)
-Security and auditability (provide Byzantine fault tolerance and immutable audit records via blockchain)
+- Inter-bank communication efficiency (minimise bytes exchanged per federated round)
+- End-to-end latency per round (minimise wall-clock time from training start to global model update)
+- Detection performance (maximise PR-AUC and F1 Score on imbalanced fraud data)
+- Privacy guarantees (provide Differential Privacy for local training updates)
+- Security and auditability (provide Byzantine fault tolerance and immutable audit records via blockchain)
 
 | # | Objective | Success Criterion |
 |---|-----------|-------------------|
@@ -93,12 +96,15 @@ Security and auditability (provide Byzantine fault tolerance and immutable audit
 | O7 | Achieve communication overhead ≤ 0.50 MB/round | Demonstrated with precise per-transfer accounting |
 | O8 | Achieve end-to-end latency ≤ 120 s/round (SLA bound) in live mode | Demonstrated in simulation (3.55 s) and live mode (~33–37 s) |
 | O9 | Compare HCFL performance against two published baseline frameworks | Quantitative comparison with Baabdullah et al. (2024) and Aljunaid et al. (2025) |
+
 ---
 
 ## Methodology
 
-4.1 Dataset
+### 4.1 Dataset
+
 All experiments use the European Credit Card Fraud Detection dataset (Kaggle), the de-facto benchmark for tabular fraud detection research:
+
 | Property | Value |
 |----------|-------|
 | Total transactions | 284,807 |
