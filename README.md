@@ -1,16 +1,10 @@
 ___
-# Optimizing Communication Efficiency and Latency in Blockchain-Enabled Federated Learning Systems
+# HBFL-CCFD: Hierarchical Blockchain enabled Federated Learning framework for Credit Card Fraud Detection
 ___
 
-Credit card fraud detection (CCFD) in the banking sector faces a fundamental tension between the need for collaborative model training and strict data privacy regulations. Existing federated learning (FL) approaches that integrate blockchain for auditability treat all participants equally and do not address the hierarchical nature of real-world banking organisations, leading to suboptimal communication efficiency and round latency. This research presents the Hierarchical Clustered Federated Learning (HCFL) framework — a two-tier privacy-preserving FL system for credit card fraud detection that integrates Hyperledger Fabric blockchain, IPFS-based off-chain model storage, Differential Privacy (DP), and a novel Consensus-Based Federated Trust (CBFT) consensus protocol.
-
-
-
-#  Hierarchical Clustered Federated Learning (HCFL)
-### Privacy-Preserving Credit Card Fraud Detection with Blockchain
 
 ##  Overview
-This project introduces **HCFL (Hierarchical Clustered Federated Learning)** — a two-tier federated learning framework designed for **secure and efficient credit card fraud detection** across multiple banks.
+This project introduces **HBFL-CCFD: Hierarchical Blockchain enabled Federated Learning framework for Credit Card Fraud Detection** — a two-tier federated learning framework designed for **secure and efficient credit card fraud detection** across multiple banks.
 
 It combines:
 - Federated Learning (FL)
