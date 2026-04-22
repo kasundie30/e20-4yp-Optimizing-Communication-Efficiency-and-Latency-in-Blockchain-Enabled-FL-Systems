@@ -6,7 +6,7 @@ Credit card fraud detection (CCFD) in the banking sector faces a fundamental ten
 
 
 
-# 🏦 Hierarchical Clustered Federated Learning (HCFL)
+#  Hierarchical Clustered Federated Learning (HCFL)
 ### Privacy-Preserving Credit Card Fraud Detection with Blockchain
 
 ##  Overview
