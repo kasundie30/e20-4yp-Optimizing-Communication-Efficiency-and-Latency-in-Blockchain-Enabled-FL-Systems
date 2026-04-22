@@ -1,0 +1,246 @@
+## =============================================================
+##  configtx.yaml  — Hyperledger Fabric 2.5
+##  Hierarchical Clustered FL: BankA, BankB, BankC
+##  Channel: fraud-detection-global
+## =============================================================
+
+---
+################################################################################
+#   SECTION: Organizations
+#   MSP definitions for all four organizations (Orderer + 3 Banks)
+################################################################################
+Organizations:
+
+  # ── Orderer Org ────────────────────────────────────────────
+  - &OrdererOrg
+    Name: OrdererMSP
+    ID: OrdererMSP
+    MSPDir: crypto-config/ordererOrganizations/orderer.fabricfl.com/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('OrdererMSP.member')"
+      Writers:
+        Type: Signature
+        Rule: "OR('OrdererMSP.member')"
+      Admins:
+        Type: Signature
+        Rule: "OR('OrdererMSP.admin')"
+    OrdererEndpoints:
+      - orderer0.orderer.fabricfl.com:7050
+      - orderer1.orderer.fabricfl.com:7050
+      - orderer2.orderer.fabricfl.com:7050
+
+  # ── BankA — peer0=HQ, peer1=Backup HQ ──────────────────────
+  - &BankA
+    Name: BankAMSP
+    ID: BankAMSP
+    MSPDir: crypto-config/peerOrganizations/banka.fabricfl.com/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('BankAMSP.admin', 'BankAMSP.peer', 'BankAMSP.client')"
+      Writers:
+        Type: Signature
+        Rule: "OR('BankAMSP.admin', 'BankAMSP.client')"
+      Admins:
+        Type: Signature
+        Rule: "OR('BankAMSP.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('BankAMSP.peer')"
+    AnchorPeers:
+      # peer0 is the HQ — elected as the anchor peer for gossip
+      - Host: peer0.banka.fabricfl.com
+        Port: 7051
+
+  # ── BankB ──────────────────────────────────────────────────
+  - &BankB
+    Name: BankBMSP
+    ID: BankBMSP
+    MSPDir: crypto-config/peerOrganizations/bankb.fabricfl.com/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('BankBMSP.admin', 'BankBMSP.peer', 'BankBMSP.client')"
+      Writers:
+        Type: Signature
+        Rule: "OR('BankBMSP.admin', 'BankBMSP.client')"
+      Admins:
+        Type: Signature
+        Rule: "OR('BankBMSP.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('BankBMSP.peer')"
+    AnchorPeers:
+      - Host: peer0.bankb.fabricfl.com
+        Port: 8051
+
+  # ── BankC ──────────────────────────────────────────────────
+  - &BankC
+    Name: BankCMSP
+    ID: BankCMSP
+    MSPDir: crypto-config/peerOrganizations/bankc.fabricfl.com/msp
+    Policies:
+      Readers:
+        Type: Signature
+        Rule: "OR('BankCMSP.admin', 'BankCMSP.peer', 'BankCMSP.client')"
+      Writers:
+        Type: Signature
+        Rule: "OR('BankCMSP.admin', 'BankCMSP.client')"
+      Admins:
+        Type: Signature
+        Rule: "OR('BankCMSP.admin')"
+      Endorsement:
+        Type: Signature
+        Rule: "OR('BankCMSP.peer')"
+    AnchorPeers:
+      - Host: peer0.bankc.fabricfl.com
+        Port: 9051
+
+################################################################################
+#   SECTION: Capabilities
+#   Fabric 2.x capability flags
+################################################################################
+Capabilities:
+  Channel: &ChannelCapabilities
+    V2_0: true
+  Orderer: &OrdererCapabilities
+    V2_0: true
+  Application: &ApplicationCapabilities
+    V2_0: true
+
+################################################################################
+#   SECTION: Application defaults
+################################################################################
+Application: &ApplicationDefaults
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    LifecycleEndorsement:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Endorsement"
+    # Channel endorsement: at least 2 out of 3 bank MSPs must endorse
+    Endorsement:
+      Type: Signature
+      Rule: "OutOf(2, 'BankAMSP.peer', 'BankBMSP.peer', 'BankCMSP.peer')"
+  Capabilities:
+    <<: *ApplicationCapabilities
+
+################################################################################
+#   SECTION: Orderer defaults (Raft)
+################################################################################
+Orderer: &OrdererDefaults
+  OrdererType: etcdraft
+  Addresses:
+    - orderer0.orderer.fabricfl.com:7050
+    - orderer1.orderer.fabricfl.com:7050
+    - orderer2.orderer.fabricfl.com:7050
+  # Raft consensus configuration
+  EtcdRaft:
+    Consenters:
+      - Host: orderer0.orderer.fabricfl.com
+        Port: 7050
+        ClientTLSCert: crypto-config/ordererOrganizations/orderer.fabricfl.com/orderers/orderer0.orderer.fabricfl.com/tls/server.crt
+        ServerTLSCert: crypto-config/ordererOrganizations/orderer.fabricfl.com/orderers/orderer0.orderer.fabricfl.com/tls/server.crt
+      - Host: orderer1.orderer.fabricfl.com
+        Port: 7050
+        ClientTLSCert: crypto-config/ordererOrganizations/orderer.fabricfl.com/orderers/orderer1.orderer.fabricfl.com/tls/server.crt
+        ServerTLSCert: crypto-config/ordererOrganizations/orderer.fabricfl.com/orderers/orderer1.orderer.fabricfl.com/tls/server.crt
+      - Host: orderer2.orderer.fabricfl.com
+        Port: 7050
+        ClientTLSCert: crypto-config/ordererOrganizations/orderer.fabricfl.com/orderers/orderer2.orderer.fabricfl.com/tls/server.crt
+        ServerTLSCert: crypto-config/ordererOrganizations/orderer.fabricfl.com/orderers/orderer2.orderer.fabricfl.com/tls/server.crt
+    Options:
+      TickInterval: 500ms
+      ElectionTick: 10
+      HeartbeatTick: 1
+      MaxInflightBlocks: 5
+      SnapshotIntervalSize: 16 MB
+  BatchTimeout: 2s
+  BatchSize:
+    MaxMessageCount: 10
+    AbsoluteMaxBytes: 99 MB
+    PreferredMaxBytes: 512 KB
+  Organizations:
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+    BlockValidation:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+  Capabilities:
+    <<: *OrdererCapabilities
+
+################################################################################
+#   SECTION: Channel defaults
+################################################################################
+Channel: &ChannelDefaults
+  Policies:
+    Readers:
+      Type: ImplicitMeta
+      Rule: "ANY Readers"
+    Writers:
+      Type: ImplicitMeta
+      Rule: "ANY Writers"
+    Admins:
+      Type: ImplicitMeta
+      Rule: "MAJORITY Admins"
+  Capabilities:
+    <<: *ChannelCapabilities
+
+################################################################################
+#   SECTION: Profiles
+################################################################################
+Profiles:
+
+  # ── Genesis block for the Raft orderer system channel ───────
+  OrdererGenesis:
+    <<: *ChannelDefaults
+    Orderer:
+      <<: *OrdererDefaults
+      Organizations:
+        - *OrdererOrg
+      Capabilities:
+        <<: *OrdererCapabilities
+    Consortiums:
+      FraudDetectionConsortium:
+        Organizations:
+          - *BankA
+          - *BankB
+          - *BankC
+
+  # ── Application channel: fraud-detection-global ─────────────
+  # Fabric 2.5: no system channel — Consortium reference removed.
+  # configtxgen -outputBlock requires Orderer + Application sections.
+  FraudDetectionChannel:
+    <<: *ChannelDefaults
+    Orderer:
+      <<: *OrdererDefaults
+      Organizations:
+        - *OrdererOrg
+      Capabilities:
+        <<: *OrdererCapabilities
+    Application:
+      <<: *ApplicationDefaults
+      Organizations:
+        - *BankA
+        - *BankB
+        - *BankC
+      Capabilities:
+        <<: *ApplicationCapabilities

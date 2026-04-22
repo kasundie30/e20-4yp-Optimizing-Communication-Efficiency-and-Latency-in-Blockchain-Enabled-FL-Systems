@@ -1,0 +1,85 @@
+## =============================================================
+##  docker-compose-ca.yaml  — Fabric CA Services
+##  One CA per organization: BankA-CA, BankB-CA, BankC-CA, Orderer-CA
+## =============================================================
+
+version: '3.7'
+
+networks:
+  fabric_network:
+    name: fabric_network
+
+services:
+
+  ## ── Orderer CA ──────────────────────────────────────────────
+  ca.orderer.fabricfl.com:
+    image: hyperledger/fabric-ca:${CA_IMAGETAG}
+    container_name: ca.orderer.fabricfl.com
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca-orderer
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      # Admin credentials from .env
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server/ca/ca.orderer.fabricfl.com-key.pem
+      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server/ca/ca.orderer.fabricfl.com-cert.pem
+    ports:
+      - "10054:7054"
+    command: sh -c 'fabric-ca-server start -b ${ORDERER_CA_ADMIN_USER}:${ORDERER_CA_ADMIN_PASSWORD} -d'
+    volumes:
+      - ./crypto-config/ordererOrganizations/orderer.fabricfl.com:/etc/hyperledger/fabric-ca-server
+    networks:
+      - fabric_network
+
+  ## ── BankA CA ────────────────────────────────────────────────
+  ca.banka.fabricfl.com:
+    image: hyperledger/fabric-ca:${CA_IMAGETAG}
+    container_name: ca.banka.fabricfl.com
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca-banka
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server/ca/ca.banka.fabricfl.com-key.pem
+      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server/ca/ca.banka.fabricfl.com-cert.pem
+    ports:
+      - "7054:7054"
+    command: sh -c 'fabric-ca-server start -b ${BANKA_CA_ADMIN_USER}:${BANKA_CA_ADMIN_PASSWORD} -d'
+    volumes:
+      - ./crypto-config/peerOrganizations/banka.fabricfl.com:/etc/hyperledger/fabric-ca-server
+    networks:
+      - fabric_network
+
+  ## ── BankB CA ────────────────────────────────────────────────
+  ca.bankb.fabricfl.com:
+    image: hyperledger/fabric-ca:${CA_IMAGETAG}
+    container_name: ca.bankb.fabricfl.com
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca-bankb
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server/ca/ca.bankb.fabricfl.com-key.pem
+      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server/ca/ca.bankb.fabricfl.com-cert.pem
+    ports:
+      - "8054:7054"
+    command: sh -c 'fabric-ca-server start -b ${BANKB_CA_ADMIN_USER}:${BANKB_CA_ADMIN_PASSWORD} -d'
+    volumes:
+      - ./crypto-config/peerOrganizations/bankb.fabricfl.com:/etc/hyperledger/fabric-ca-server
+    networks:
+      - fabric_network
+
+  ## ── BankC CA ────────────────────────────────────────────────
+  ca.bankc.fabricfl.com:
+    image: hyperledger/fabric-ca:${CA_IMAGETAG}
+    container_name: ca.bankc.fabricfl.com
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca-bankc
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server/ca/ca.bankc.fabricfl.com-key.pem
+      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server/ca/ca.bankc.fabricfl.com-cert.pem
+    ports:
+      - "9054:7054"
+    command: sh -c 'fabric-ca-server start -b ${BANKC_CA_ADMIN_USER}:${BANKC_CA_ADMIN_PASSWORD} -d'
+    volumes:
+      - ./crypto-config/peerOrganizations/bankc.fabricfl.com:/etc/hyperledger/fabric-ca-server
+    networks:
+      - fabric_network

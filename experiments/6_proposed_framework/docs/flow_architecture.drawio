@@ -1,0 +1,257 @@
+<mxfile host="app.diagrams.net" modified="2026-03-17T05:00:00.000Z" agent="Antigravity" version="20.8.16" type="device">
+  <diagram id="hcflFlow" name="HCFL End-to-End Model Training Flow">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ═══════════════════ TITLE ═══════════════════ -->
+        <mxCell id="title" value="HCFL End-to-End Model Training Flow — Credit Card Fraud Detection" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="15" width="1500" height="45" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════ TECH STACK LEGEND ═══════════════════ -->
+        <mxCell id="legend_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="20" y="70" width="160" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="legend_title" value="Tech Stack" style="text;html=1;align=center;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="75" width="160" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg1" value="🔵 PyTorch (LSTMTabular)" style="text;html=1;fontSize=10;align=left;" vertex="1" parent="1">
+          <mxGeometry x="28" y="100" width="148" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg2" value="🟢 FedAvg aggregation" style="text;html=1;fontSize=10;align=left;" vertex="1" parent="1">
+          <mxGeometry x="28" y="120" width="148" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg3" value="🟣 IPFS (model storage)" style="text;html=1;fontSize=10;align=left;" vertex="1" parent="1">
+          <mxGeometry x="28" y="140" width="148" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg4" value="🔴 Hyperledger Fabric" style="text;html=1;fontSize=10;align=left;" vertex="1" parent="1">
+          <mxGeometry x="28" y="160" width="148" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg5" value="🟡 FastAPI (REST bridge)" style="text;html=1;fontSize=10;align=left;" vertex="1" parent="1">
+          <mxGeometry x="28" y="180" width="148" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg6" value="⚙️  Docker Compose" style="text;html=1;fontSize=10;align=left;" vertex="1" parent="1">
+          <mxGeometry x="28" y="200" width="148" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg7" value="🛡️  CBFT Consensus" style="text;html=1;fontSize=10;align=left;" vertex="1" parent="1">
+          <mxGeometry x="28" y="220" width="148" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="leg8" value="⚡  Differential Privacy" style="text;html=1;fontSize=10;align=left;" vertex="1" parent="1">
+          <mxGeometry x="28" y="240" width="148" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════ COLOR LEGEND ═══════════════════ -->
+        <mxCell id="color_legend" value="Yellow=Comm/Latency overhead  Red=Latency  Blue=Compute" style="text;html=1;align=center;fontSize=10;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="200" y="60" width="1500" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════ SWIMLANE 1: BRANCH NODES ═══════════════════ -->
+        <mxCell id="lane1" value="Branch Nodes (Client Nodes / Bank Branches)" style="swimlane;html=1;rounded=1;horizontal=0;startSize=35;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="200" y="85" width="420" height="940" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════ SWIMLANE 2: HQ AGENTS ═══════════════════ -->
+        <mxCell id="lane2" value="HQ Agents (fl-integration/hq_agent.py · round_coordinator.py)" style="swimlane;html=1;rounded=1;horizontal=0;startSize=35;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="640" y="85" width="420" height="940" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════ SWIMLANE 3: BLOCKCHAIN + IPFS ═══════════════════ -->
+        <mxCell id="lane3" value="Blockchain Infrastructure (api-server · fabric-network · IPFS)" style="swimlane;html=1;rounded=1;horizontal=0;startSize=35;fontStyle=1;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="85" width="500" height="940" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!--                    NODES — LANE 3 (starts top)             -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+
+        <!-- A: Start round -->
+        <mxCell id="A" value="&lt;b&gt;Start Round t&lt;/b&gt;&lt;br&gt;Fetch global model CID for round t-1&lt;br&gt;&lt;i&gt;GET /global-model/{round-1}&lt;/i&gt;&lt;br&gt;[FastAPI → Fabric chaincode]" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="lane3">
+          <mxGeometry x="40" y="60" width="420" height="75" as="geometry"/>
+        </mxCell>
+
+        <!-- B: Download from IPFS -->
+        <mxCell id="B" value="&lt;b&gt;[COMM+LAT] Download Global Model from IPFS&lt;/b&gt;&lt;br&gt;Verify SHA-256 hash against ledger record&lt;br&gt;&lt;i&gt;ipfs_download(cid) → torch.load → StateDict&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="lane3">
+          <mxGeometry x="40" y="155" width="420" height="75" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!--                    NODES — LANE 1                          -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+
+        <!-- C: Receive global model + local train -->
+        <mxCell id="C" value="&lt;b&gt;[COMM+LAT] Receive Global Model w(t-1)&lt;/b&gt;&lt;br&gt;Broadcast from HQ to branch nodes&lt;br&gt;&lt;i&gt;[Communication overhead]&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="lane1">
+          <mxGeometry x="30" y="185" width="360" height="65" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="D" value="&lt;b&gt;[LAT] Local Training — PyTorch&lt;/b&gt;&lt;br&gt;Model: LSTMTabular (30 features → hidden 30 → 1)&lt;br&gt;Dataset: CCFD Kaggle (fl-layer/model/dataset.py)&lt;br&gt;Differential Privacy noise injection (Opacus)&lt;br&gt;Loss: BCEWithLogitsLoss" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="lane1">
+          <mxGeometry x="30" y="270" width="360" height="105" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="E" value="&lt;b&gt;[COMM+LAT] Upload ΔW (weight delta) to HQ&lt;/b&gt;&lt;br&gt;Branch → HQ via (state_dict, num_samples)&lt;br&gt;&lt;i&gt;fl-layer/training/, resilience/deadline_collect.py&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="lane1">
+          <mxGeometry x="30" y="395" width="360" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════════════════════════════════════════════ -->
+        <!--                    NODES — LANE 2                          -->
+        <!-- ═══════════════════════════════════════════════════════════ -->
+
+        <!-- F: Deadline collect -->
+        <mxCell id="F" value="&lt;b&gt;Collect Branch Updates (with Deadline)&lt;/b&gt;&lt;br&gt;round_coordinator.py: wait_for_submissions()&lt;br&gt;Configurable deadline (fl.deadline_seconds)&lt;br&gt;Partial updates accepted on timeout" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="lane2">
+          <mxGeometry x="30" y="380" width="360" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- G: Intra-bank FedAvg -->
+        <mxCell id="G" value="&lt;b&gt;[COMPUTE] Intra-Bank FedAvg Aggregation&lt;/b&gt;&lt;br&gt;hq_agent.py: fedavg(branch_updates)&lt;br&gt;Blend with global: blend_with_global(beta=0.3)&lt;br&gt;&lt;i&gt;fl-layer/aggregation/fedavg.py&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="lane2">
+          <mxGeometry x="30" y="490" width="360" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- H: Validate PR-AUC -->
+        <mxCell id="H" value="&lt;b&gt;Evaluate Merged Model — PR-AUC&lt;/b&gt;&lt;br&gt;fl-layer/validation/validate_fast.py&lt;br&gt;evaluate_model(sample_fraction=0.15)&lt;br&gt;Metrics: PR-AUC, ROC-AUC, F1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="lane2">
+          <mxGeometry x="30" y="600" width="360" height="85" as="geometry"/>
+        </mxCell>
+
+        <!-- I: Decision diamond -->
+        <mxCell id="I" value="PR-AUC ≥ threshold?" style="shape=rhombus;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;" vertex="1" parent="lane2">
+          <mxGeometry x="130" y="705" width="170" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- J: Resilience / retry -->
+        <mxCell id="J" value="Resilience: Skip Submission&lt;br&gt;&lt;i&gt;fl-layer/resilience/backup_logic.py&lt;/i&gt;&lt;br&gt;Log warning, round closes without submit" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="lane2">
+          <mxGeometry x="30" y="815" width="360" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════ LANE 3 continued ═══════════════════ -->
+
+        <!-- K: Upload to IPFS -->
+        <mxCell id="K" value="&lt;b&gt;[COMM+LAT] Upload Intra-Aggregated Model to IPFS&lt;/b&gt;&lt;br&gt;torch.save → bytes → SHA-256 → ipfs_upload(bytes) → CID&lt;br&gt;&lt;i&gt;hq_agent.py step 5&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="lane3">
+          <mxGeometry x="40" y="250" width="420" height="75" as="geometry"/>
+        </mxCell>
+
+        <!-- L: Submit to Blockchain (CBFT Phase 1) -->
+        <mxCell id="L" value="&lt;b&gt;[LAT] POST /submit-update — CBFT Phase 1&lt;/b&gt;&lt;br&gt;FastAPI → Fabric chaincode: SubmitClusterUpdate&lt;br&gt;Payload: bank_id, round, model_cid, model_hash, val_score&lt;br&gt;Chaincode enforces val_score ≥ 0.7" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="lane3">
+          <mxGeometry x="40" y="345" width="420" height="85" as="geometry"/>
+        </mxCell>
+
+        <!-- M: Cross-bank peer verification (CBFT Phase 2 + 3) -->
+        <mxCell id="M" value="&lt;b&gt;[COMM+LAT] CBFT Phase 2 — Peer Verification&lt;/b&gt;&lt;br&gt;HQ agents download each other's models from IPFS&lt;br&gt;Evaluate: PR-AUC ≥ threshold → verified=True/False&lt;br&gt;POST /submit-verification → Fabric: SubmitVerification&lt;br&gt;&lt;b&gt;CBFT Phase 3 — Commit&lt;/b&gt;&lt;br&gt;Check quorum → POST /submit-commit → Fabric: SubmitCommit" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="lane3">
+          <mxGeometry x="40" y="450" width="420" height="130" as="geometry"/>
+        </mxCell>
+
+        <!-- N: CheckConsensus -->
+        <mxCell id="N" value="&lt;b&gt;Poll CheckConsensus&lt;/b&gt;&lt;br&gt;GET /check-consensus/{round}&lt;br&gt;Fabric: CheckConsensus chaincode query&lt;br&gt;Returns accepted_banks list (CBFT quorum)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="lane3">
+          <mxGeometry x="40" y="600" width="420" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- O: Global trust-weighted FedAvg -->
+        <mxCell id="O" value="&lt;b&gt;[COMPUTE] Global Trust-Weighted FedAvg&lt;/b&gt;&lt;br&gt;global_aggregator.py: aggregate_round()&lt;br&gt;Weight = trust_score × num_samples&lt;br&gt;GET /trust-scores → Fabric: GetTrustScores&lt;br&gt;Download + SHA-256 verify each bank's model from IPFS" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="lane3">
+          <mxGeometry x="40" y="700" width="420" height="105" as="geometry"/>
+        </mxCell>
+
+        <!-- P: Store global model -->
+        <mxCell id="P" value="&lt;b&gt;[LAT] Blockchain Commit — Global Model&lt;/b&gt;&lt;br&gt;torch.save → IPFS → global_cid + global_hash&lt;br&gt;POST /store-global-model → Fabric: StoreGlobalModel&lt;br&gt;Trust scores updated: UpdateTrustScore (+α / −β / floor ε)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="lane3">
+          <mxGeometry x="40" y="825" width="420" height="95" as="geometry"/>
+        </mxCell>
+
+        <!-- Q: Distribute new global model -->
+        <mxCell id="Q" value="&lt;b&gt;[COMM+LAT] Distribute New Global Model w(t)&lt;/b&gt;&lt;br&gt;Broadcast global_cid to all HQs → branches&lt;br&gt;Next round begins: t = t + 1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="lane3">
+          <mxGeometry x="40" y="940" width="420" height="65" as="geometry"/>
+        </mxCell>
+
+        <!-- ═══════════════════ EDGES ═══════════════════ -->
+
+        <!-- A → B -->
+        <mxCell id="e_AB" style="endArrow=block;html=1;" edge="1" parent="1" source="A" target="B">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- B → C  (across lanes) -->
+        <mxCell id="e_BC" value="broadcast global model" style="endArrow=block;html=1;fontSize=10;dashed=1;" edge="1" parent="1" source="B" target="C">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- C → D -->
+        <mxCell id="e_CD" style="endArrow=block;html=1;" edge="1" parent="1" source="C" target="D">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- D → E -->
+        <mxCell id="e_DE" style="endArrow=block;html=1;" edge="1" parent="1" source="D" target="E">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- E → F (across lanes) -->
+        <mxCell id="e_EF" value="(state_dict, n_samples)" style="endArrow=block;html=1;fontSize=10;dashed=1;" edge="1" parent="1" source="E" target="F">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- F → G -->
+        <mxCell id="e_FG" style="endArrow=block;html=1;" edge="1" parent="1" source="F" target="G">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- G → H -->
+        <mxCell id="e_GH" style="endArrow=block;html=1;" edge="1" parent="1" source="G" target="H">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- H → I -->
+        <mxCell id="e_HI" style="endArrow=block;html=1;" edge="1" parent="1" source="H" target="I">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- I → K (YES) -->
+        <mxCell id="e_IK" value="YES (submit)" style="endArrow=block;html=1;fontSize=11;fontStyle=1;" edge="1" parent="1" source="I" target="K">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- I → J (NO) -->
+        <mxCell id="e_IJ" value="NO (skip)" style="endArrow=block;html=1;fontSize=11;fontStyle=1;" edge="1" parent="1" source="I" target="J">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- K → L -->
+        <mxCell id="e_KL" style="endArrow=block;html=1;" edge="1" parent="1" source="K" target="L">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- L → M -->
+        <mxCell id="e_LM" style="endArrow=block;html=1;" edge="1" parent="1" source="L" target="M">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- M → N -->
+        <mxCell id="e_MN" style="endArrow=block;html=1;" edge="1" parent="1" source="M" target="N">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- N → O -->
+        <mxCell id="e_NO" style="endArrow=block;html=1;" edge="1" parent="1" source="N" target="O">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- O → P -->
+        <mxCell id="e_OP" style="endArrow=block;html=1;" edge="1" parent="1" source="O" target="P">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- P → Q -->
+        <mxCell id="e_PQ" style="endArrow=block;html=1;" edge="1" parent="1" source="P" target="Q">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Q → A  loop back (next round) -->
+        <mxCell id="e_QA" value="Next Round (t+1)" style="endArrow=block;html=1;fontSize=11;fontStyle=1;exitX=1;exitY=0.5;entryX=1;entryY=0.5;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="Q" target="A">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1620" y="972"/>
+              <mxPoint x="1620" y="97"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

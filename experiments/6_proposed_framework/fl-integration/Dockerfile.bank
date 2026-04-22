@@ -1,0 +1,23 @@
+# fl-integration/Dockerfile.bank
+# Dockerfile for a single bank HQ node
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y build-essential curl && rm -rf /var/lib/apt/lists/*
+
+# Copy existing dependencies from fl-layer
+COPY ../fl-layer/requirements.txt ./fl_requirements.txt
+RUN pip install --no-cache-dir -r fl_requirements.txt
+
+# Additional dependencies for integration
+RUN pip install fastapi uvicorn requests
+
+# Copy source code. Python module paths rely on this structure.
+COPY ../fl-layer /app/fl-layer
+COPY . /app/fl-integration
+
+WORKDIR /app/fl-integration/scripts
+
+# Run the distributed bank node
+CMD ["python3", "run_distributed.py"]

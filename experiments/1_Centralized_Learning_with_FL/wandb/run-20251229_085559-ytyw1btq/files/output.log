@@ -1,0 +1,21 @@
+Loaded: (284807, 31)
+Train size: (181584, 30), Val size: (45396, 30), Test size: (56746, 30)
+Train distribution after SMOTE: [181282 181282]
+Val distribution: [45320    76]
+Test distribution: [56651    95]
+Client 1: X=(36257, 30), y=(36257,)
+Client 2: X=(36257, 30), y=(36257,)
+Client 3: X=(36257, 30), y=(36257,)
+Client 4: X=(36257, 30), y=(36257,)
+Client 5: X=(36256, 30), y=(36256,)
+Client 6: X=(36256, 30), y=(36256,)
+Client 7: X=(36256, 30), y=(36256,)
+Client 8: X=(36256, 30), y=(36256,)
+Client 9: X=(36256, 30), y=(36256,)
+Client 10: X=(36256, 30), y=(36256,)
+Device: cuda
+Traceback (most recent call last):
+  File "/home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/Approach02.py", line 233, in <module>
+    models = [MLP(in_dim) for _ in range(num_clients)]
+                  ^^^^^^
+NameError: name 'in_dim' is not defined

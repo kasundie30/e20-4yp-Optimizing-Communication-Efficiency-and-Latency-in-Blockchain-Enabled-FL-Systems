@@ -1,0 +1,11 @@
+{"time":"2025-12-29T10:05:50.334816087Z","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2025-12-29T10:05:51.103573889Z","level":"INFO","msg":"stream: created new stream","id":"wjvj58pi"}
+{"time":"2025-12-29T10:05:51.104276557Z","level":"INFO","msg":"stream: started","id":"wjvj58pi"}
+{"time":"2025-12-29T10:05:51.103795417Z","level":"INFO","msg":"handler: started","stream_id":"wjvj58pi"}
+{"time":"2025-12-29T10:05:51.105315668Z","level":"INFO","msg":"writer: started","stream_id":"wjvj58pi"}
+{"time":"2025-12-29T10:05:51.105470233Z","level":"INFO","msg":"sender: started","stream_id":"wjvj58pi"}
+{"time":"2025-12-29T10:07:07.2534279Z","level":"INFO","msg":"stream: closing","id":"wjvj58pi"}
+{"time":"2025-12-29T10:07:08.777824675Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-29T10:07:09.599365079Z","level":"INFO","msg":"handler: closed","stream_id":"wjvj58pi"}
+{"time":"2025-12-29T10:07:09.599599908Z","level":"INFO","msg":"sender: closed","stream_id":"wjvj58pi"}
+{"time":"2025-12-29T10:07:09.59961939Z","level":"INFO","msg":"stream: closed","id":"wjvj58pi"}

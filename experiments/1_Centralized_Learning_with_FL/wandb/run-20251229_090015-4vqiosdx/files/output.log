@@ -1,0 +1,53 @@
+Loaded: (284807, 31)
+Train size: (181584, 30), Val size: (45396, 30), Test size: (56746, 30)
+Train distribution after SMOTE: [181282 181282]
+Val distribution: [45320    76]
+Test distribution: [56651    95]
+Client 1: X=(36257, 30), y=(36257,)
+Client 2: X=(36257, 30), y=(36257,)
+Client 3: X=(36257, 30), y=(36257,)
+Client 4: X=(36257, 30), y=(36257,)
+Client 5: X=(36256, 30), y=(36256,)
+Client 6: X=(36256, 30), y=(36256,)
+Client 7: X=(36256, 30), y=(36256,)
+Client 8: X=(36256, 30), y=(36256,)
+Client 9: X=(36256, 30), y=(36256,)
+Client 10: X=(36256, 30), y=(36256,)
+Device: cuda
+
+=== Round 1/15 ===
+
+=== Round 2/15 ===
+
+=== Round 3/15 ===
+
+=== Round 4/15 ===
+
+=== Round 5/15 ===
+
+=== Round 6/15 ===
+
+=== Round 7/15 ===
+
+=== Round 8/15 ===
+
+=== Round 9/15 ===
+
+=== Round 10/15 ===
+
+=== Round 11/15 ===
+
+=== Round 12/15 ===
+
+=== Round 13/15 ===
+
+=== Round 14/15 ===
+
+=== Round 15/15 ===
+
+Federated training complete.
+Traceback (most recent call last):
+  File "/home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/Approach02.py", line 283, in <module>
+    val_probs = predict_proba(global_model, X_val_scaled)
+                ^^^^^^^^^^^^^
+NameError: name 'predict_proba' is not defined

@@ -1,0 +1,34 @@
+# docker-compose.yml for HCFL Banks
+version: "3.8"
+
+x-bank-template: &bank
+  build:
+    context: ..
+    dockerfile: fl-integration/Dockerfile.bank
+  pull_policy: never
+  network_mode: "host" # Shares host network to hit Fabric API / IPFS
+  volumes:
+    - ../data/splits/fl_clients:/app/data
+    - ./logs:/app/logs
+
+services:
+  bank_a:
+    <<: *bank
+    environment:
+      - BANK_ID=BankA
+      - API_URL=http://127.0.0.1:8000
+      - IPFS_URL=http://127.0.0.1:5001
+
+  bank_b:
+    <<: *bank
+    environment:
+      - BANK_ID=BankB
+      - API_URL=http://127.0.0.1:8000
+      - IPFS_URL=http://127.0.0.1:5001
+
+  bank_c:
+    <<: *bank
+    environment:
+      - BANK_ID=BankC
+      - API_URL=http://127.0.0.1:8000
+      - IPFS_URL=http://127.0.0.1:5001

@@ -1,0 +1,602 @@
+2026-03-09 10:12:22,351 - INFO: Loading dataset from /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/data/splits/fl_clients/BankA/train_ready.csv
+2026-03-09 10:12:22,357 - INFO: Loading dataset from /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/data/splits/fl_clients/BankB/train_ready.csv
+2026-03-09 10:12:22,390 - INFO: Loading dataset from /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/data/splits/fl_clients/BankC/train_ready.csv
+2026-03-09 10:12:22,661 - INFO: ========== STARTING ROUND 401 ==========
+2026-03-09 10:12:22,661 - INFO: [BankA] Simulating branch training...
+2026-03-09 10:12:23,184 - INFO: [BankA] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:12:23,184 - INFO: === Round 401 start — 1 branch update(s) ===
+2026-03-09 10:12:26,154 - INFO: No global model recorded for round 400; fresh start.
+2026-03-09 10:12:26,157 - INFO: Round 401 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:12:26,227 - INFO: Uploaded CID=QmWez34xoKwyiLNZh4Eo2Aedk8LLupqcrmSxeBCkT3NqSx hash=a8657516eeb4f56b...
+2026-03-09 10:12:26,514 - INFO: Submitted update — tx_id=None
+2026-03-09 10:12:26,515 - INFO: [BankB] Simulating branch training...
+2026-03-09 10:12:26,738 - INFO: [BankB] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:12:26,738 - INFO: === Round 401 start — 1 branch update(s) ===
+2026-03-09 10:12:26,769 - INFO: No global model recorded for round 400; fresh start.
+2026-03-09 10:12:26,770 - INFO: Round 401 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:12:26,775 - INFO: Uploaded CID=QmW2GBVjFd2j81oazRyc1Doq6WBGG3j3N6ixdhzZ8Gv9ux hash=9849b62212ee087f...
+2026-03-09 10:12:26,859 - INFO: Submitted update — tx_id=None
+2026-03-09 10:12:26,859 - INFO: [BankC] Simulating branch training...
+2026-03-09 10:12:28,456 - INFO: [BankC] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:12:28,456 - INFO: === Round 401 start — 1 branch update(s) ===
+2026-03-09 10:12:28,486 - INFO: No global model recorded for round 400; fresh start.
+2026-03-09 10:12:28,486 - INFO: Round 401 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:12:28,490 - INFO: Uploaded CID=QmereKHhNa48JLvk2p6ZtwQqDp2JxbGc8yUnsA2ZdWjQHP hash=597b0cb74f8a122e...
+2026-03-09 10:12:28,608 - INFO: Submitted update — tx_id=None
+2026-03-09 10:12:28,609 - INFO: --- Round 401 cluster models submitted ---
+2026-03-09 10:12:28,609 - INFO: Waiting 10 seconds for models to settle on ledger before verification...
+2026-03-09 10:12:38,609 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-09 10:12:38,673 - INFO: Verifying BankB round 401: PR-AUC=0.8500 -> True
+2026-03-09 10:12:38,746 - INFO: Verifying BankC round 401: PR-AUC=0.8500 -> True
+2026-03-09 10:12:38,819 - INFO: Verifying BankA round 401: PR-AUC=0.8500 -> True
+2026-03-09 10:12:38,890 - INFO: Verifying BankC round 401: PR-AUC=0.8500 -> True
+2026-03-09 10:12:38,960 - INFO: Verifying BankA round 401: PR-AUC=0.8500 -> True
+2026-03-09 10:12:39,027 - INFO: Verifying BankB round 401: PR-AUC=0.8500 -> True
+2026-03-09 10:12:39,063 - INFO: Waiting 10 seconds for CBFT verification to finalize...
+2026-03-09 10:12:49,064 - INFO: --- Initiating CBFT Commits ---
+2026-03-09 10:12:49,152 - INFO: Committed to BankB round 401
+2026-03-09 10:12:49,226 - INFO: Committed to BankC round 401
+2026-03-09 10:12:49,302 - INFO: Committed to BankA round 401
+2026-03-09 10:12:49,376 - INFO: Committed to BankC round 401
+2026-03-09 10:12:49,454 - INFO: Committed to BankA round 401
+2026-03-09 10:12:49,530 - INFO: Committed to BankB round 401
+2026-03-09 10:12:49,530 - INFO: Waiting 10 seconds for CBFT commits to finalize...
+2026-03-09 10:12:59,530 - INFO: [GlobalAggregator] Performing cross-cluster aggregation...
+2026-03-09 10:12:59,531 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-09 10:12:59,587 - INFO: Consensus achieved: ['BankA', 'BankB', 'BankC'] (0.1s elapsed)
+2026-03-09 10:12:59,624 - INFO: Trust-weighted FedAvg over 3 models. Effective weights: {'BankA': '252.000', 'BankB': '9888.000', 'BankC': '89700.000'}
+2026-03-09 10:12:59,628 - INFO: Global model uploaded — CID=Qmd3y4yv2Vv3K3utnfYCr9WLRdAPVC6t2hD7Ywa6a1ktmt hash=5032d4b11c98bcf2...
+2026-03-09 10:12:59,671 - INFO: Global model stored on ledger.
+2026-03-09 10:12:59,671 - INFO: Round 401 Global CID: Qmd3y4yv2Vv3K3utnfYCr9WLRdAPVC6t2hD7Ywa6a1ktmt
+2026-03-09 10:12:59,787 - INFO: 
+2026-03-09 10:12:59,787 - INFO: ===> ROUND 401 GLOBAL EVALUATION <===
+2026-03-09 10:12:59,787 - INFO:   F1 Score : 0.9268
+2026-03-09 10:12:59,787 - INFO:   PR-AUC   : 0.9897
+2026-03-09 10:12:59,787 - INFO:   ROC-AUC  : 0.9851
+2026-03-09 10:12:59,787 - INFO:   Precision: 0.9500
+2026-03-09 10:12:59,787 - INFO:   Recall   : 0.9048
+2026-03-09 10:12:59,787 - INFO:   Comm Cost: 0.49 MB
+2026-03-09 10:12:59,787 - INFO:   E2E Latency: 37.01s
+2026-03-09 10:12:59,787 - INFO: =========================================
+
+2026-03-09 10:12:59,787 - INFO: ========== ROUND 401 COMPLETED in 37.01s ==========
+2026-03-09 10:12:59,787 - INFO: ========== STARTING ROUND 402 ==========
+2026-03-09 10:12:59,787 - INFO: [BankA] Simulating branch training...
+2026-03-09 10:12:59,811 - INFO: [BankA] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:12:59,811 - INFO: === Round 402 start — 1 branch update(s) ===
+2026-03-09 10:12:59,861 - INFO: No global model recorded for round 401; fresh start.
+2026-03-09 10:12:59,862 - INFO: Round 402 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:12:59,865 - INFO: Uploaded CID=QmcHDiZuZc6T5cyrswFn8x7ma56oe5B5tYFjLsqi9MP7TG hash=a2fd765eb2291d38...
+2026-03-09 10:12:59,901 - INFO: Submitted update — tx_id=None
+2026-03-09 10:12:59,901 - INFO: [BankB] Simulating branch training...
+2026-03-09 10:13:00,105 - INFO: [BankB] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:13:00,105 - INFO: === Round 402 start — 1 branch update(s) ===
+2026-03-09 10:13:00,138 - INFO: No global model recorded for round 401; fresh start.
+2026-03-09 10:13:00,138 - INFO: Round 402 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:13:00,142 - INFO: Uploaded CID=QmNcDQzvkQ3w8uFRN4gfZm6jrKeARHFMZp2AWsEebN3GST hash=0e494213aa502029...
+2026-03-09 10:13:00,180 - INFO: Submitted update — tx_id=None
+2026-03-09 10:13:00,180 - INFO: [BankC] Simulating branch training...
+2026-03-09 10:13:01,715 - INFO: [BankC] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:13:01,715 - INFO: === Round 402 start — 1 branch update(s) ===
+2026-03-09 10:13:01,744 - INFO: No global model recorded for round 401; fresh start.
+2026-03-09 10:13:01,745 - INFO: Round 402 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:13:01,748 - INFO: Uploaded CID=QmfPwzFacPLPbg112G7Gi2k2NKd744dvhT5agkuHxq4RDZ hash=270144b60b134e16...
+2026-03-09 10:13:01,785 - INFO: Submitted update — tx_id=None
+2026-03-09 10:13:01,786 - INFO: --- Round 402 cluster models submitted ---
+2026-03-09 10:13:01,786 - INFO: Waiting 10 seconds for models to settle on ledger before verification...
+2026-03-09 10:13:11,786 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-09 10:13:11,843 - INFO: Verifying BankB round 402: PR-AUC=0.8500 -> True
+2026-03-09 10:13:11,914 - INFO: Verifying BankC round 402: PR-AUC=0.8500 -> True
+2026-03-09 10:13:11,981 - INFO: Verifying BankA round 402: PR-AUC=0.8500 -> True
+2026-03-09 10:13:12,051 - INFO: Verifying BankC round 402: PR-AUC=0.8500 -> True
+2026-03-09 10:13:12,117 - INFO: Verifying BankA round 402: PR-AUC=0.8500 -> True
+2026-03-09 10:13:12,193 - INFO: Verifying BankB round 402: PR-AUC=0.8500 -> True
+2026-03-09 10:13:12,232 - INFO: Waiting 10 seconds for CBFT verification to finalize...
+2026-03-09 10:13:22,232 - INFO: --- Initiating CBFT Commits ---
+2026-03-09 10:13:22,329 - INFO: Committed to BankB round 402
+2026-03-09 10:13:22,403 - INFO: Committed to BankC round 402
+2026-03-09 10:13:22,484 - INFO: Committed to BankA round 402
+2026-03-09 10:13:22,553 - INFO: Committed to BankC round 402
+2026-03-09 10:13:22,620 - INFO: Committed to BankA round 402
+2026-03-09 10:13:22,691 - INFO: Committed to BankB round 402
+2026-03-09 10:13:22,691 - INFO: Waiting 10 seconds for CBFT commits to finalize...
+2026-03-09 10:13:32,691 - INFO: [GlobalAggregator] Performing cross-cluster aggregation...
+2026-03-09 10:13:32,692 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-09 10:13:32,749 - INFO: Consensus achieved: ['BankA', 'BankB', 'BankC'] (0.1s elapsed)
+2026-03-09 10:13:32,783 - INFO: Trust-weighted FedAvg over 3 models. Effective weights: {'BankA': '252.000', 'BankB': '9888.000', 'BankC': '89700.000'}
+2026-03-09 10:13:32,786 - INFO: Global model uploaded — CID=Qma7kN8DNg34kjbMs9bR2VdvVaKLro16iNb77w87LCfWbX hash=d889795a2e24efed...
+2026-03-09 10:13:32,829 - INFO: Global model stored on ledger.
+2026-03-09 10:13:32,829 - INFO: Round 402 Global CID: Qma7kN8DNg34kjbMs9bR2VdvVaKLro16iNb77w87LCfWbX
+2026-03-09 10:13:32,846 - INFO: 
+2026-03-09 10:13:32,846 - INFO: ===> ROUND 402 GLOBAL EVALUATION <===
+2026-03-09 10:13:32,846 - INFO:   F1 Score : 0.9565
+2026-03-09 10:13:32,846 - INFO:   PR-AUC   : 0.9982
+2026-03-09 10:13:32,846 - INFO:   ROC-AUC  : 0.9969
+2026-03-09 10:13:32,846 - INFO:   Precision: 0.9565
+2026-03-09 10:13:32,846 - INFO:   Recall   : 0.9565
+2026-03-09 10:13:32,847 - INFO:   Comm Cost: 0.49 MB
+2026-03-09 10:13:32,847 - INFO:   E2E Latency: 33.04s
+2026-03-09 10:13:32,847 - INFO: =========================================
+
+2026-03-09 10:13:32,847 - INFO: ========== ROUND 402 COMPLETED in 33.04s ==========
+2026-03-09 10:13:32,847 - INFO: ========== STARTING ROUND 403 ==========
+2026-03-09 10:13:32,847 - INFO: [BankA] Simulating branch training...
+2026-03-09 10:13:32,863 - INFO: [BankA] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:13:32,863 - INFO: === Round 403 start — 1 branch update(s) ===
+2026-03-09 10:13:32,901 - INFO: No global model recorded for round 402; fresh start.
+2026-03-09 10:13:32,902 - INFO: Round 403 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:13:32,905 - INFO: Uploaded CID=QmW2enSy8yTufqqjXavsnfVDtQk736dgh8HUdGnGxZHfTb hash=17f88ccc5d7d6bcc...
+2026-03-09 10:13:32,944 - INFO: Submitted update — tx_id=None
+2026-03-09 10:13:32,944 - INFO: [BankB] Simulating branch training...
+2026-03-09 10:13:33,128 - INFO: [BankB] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:13:33,128 - INFO: === Round 403 start — 1 branch update(s) ===
+2026-03-09 10:13:33,158 - INFO: No global model recorded for round 402; fresh start.
+2026-03-09 10:13:33,159 - INFO: Round 403 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:13:33,163 - INFO: Uploaded CID=QmRLBEdChALeEzqutngJzavWzypSULENs9YxnAxxLtM93C hash=a466e2278fc235f5...
+2026-03-09 10:13:33,201 - INFO: Submitted update — tx_id=None
+2026-03-09 10:13:33,201 - INFO: [BankC] Simulating branch training...
+2026-03-09 10:13:34,715 - INFO: [BankC] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:13:34,715 - INFO: === Round 403 start — 1 branch update(s) ===
+2026-03-09 10:13:34,745 - INFO: No global model recorded for round 402; fresh start.
+2026-03-09 10:13:34,745 - INFO: Round 403 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:13:34,753 - INFO: Uploaded CID=QmboZSCwuTHBxm2dbbMyLCR3ab9qu19EHXeomhc5ybDxZr hash=04f0c44f3c12b5cd...
+2026-03-09 10:13:34,790 - INFO: Submitted update — tx_id=None
+2026-03-09 10:13:34,790 - INFO: --- Round 403 cluster models submitted ---
+2026-03-09 10:13:34,790 - INFO: Waiting 10 seconds for models to settle on ledger before verification...
+2026-03-09 10:13:44,790 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-09 10:13:44,832 - INFO: Verifying BankB round 403: PR-AUC=0.8500 -> True
+2026-03-09 10:13:44,917 - INFO: Verifying BankC round 403: PR-AUC=0.8500 -> True
+2026-03-09 10:13:44,984 - INFO: Verifying BankA round 403: PR-AUC=0.8500 -> True
+2026-03-09 10:13:45,051 - INFO: Verifying BankC round 403: PR-AUC=0.8500 -> True
+2026-03-09 10:13:45,118 - INFO: Verifying BankA round 403: PR-AUC=0.8500 -> True
+2026-03-09 10:13:45,192 - INFO: Verifying BankB round 403: PR-AUC=0.8500 -> True
+2026-03-09 10:13:45,230 - INFO: Waiting 10 seconds for CBFT verification to finalize...
+2026-03-09 10:13:55,230 - INFO: --- Initiating CBFT Commits ---
+2026-03-09 10:13:55,321 - INFO: Committed to BankB round 403
+2026-03-09 10:13:55,392 - INFO: Committed to BankC round 403
+2026-03-09 10:13:55,471 - INFO: Committed to BankA round 403
+2026-03-09 10:13:55,548 - INFO: Committed to BankC round 403
+2026-03-09 10:13:55,625 - INFO: Committed to BankA round 403
+2026-03-09 10:13:55,696 - INFO: Committed to BankB round 403
+2026-03-09 10:13:55,696 - INFO: Waiting 10 seconds for CBFT commits to finalize...
+2026-03-09 10:14:05,697 - INFO: [GlobalAggregator] Performing cross-cluster aggregation...
+2026-03-09 10:14:05,697 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-09 10:14:05,767 - INFO: Consensus achieved: ['BankA', 'BankB', 'BankC'] (0.1s elapsed)
+2026-03-09 10:14:05,805 - INFO: Trust-weighted FedAvg over 3 models. Effective weights: {'BankA': '252.000', 'BankB': '9888.000', 'BankC': '89700.000'}
+2026-03-09 10:14:05,808 - INFO: Global model uploaded — CID=QmeZpYKitxZgV4U4ihKvxKnuByXJuUoTS1xtT1rqtZYijT hash=b9b975935c73e690...
+2026-03-09 10:14:05,849 - INFO: Global model stored on ledger.
+2026-03-09 10:14:05,849 - INFO: Round 403 Global CID: QmeZpYKitxZgV4U4ihKvxKnuByXJuUoTS1xtT1rqtZYijT
+2026-03-09 10:14:05,865 - INFO: 
+2026-03-09 10:14:05,865 - INFO: ===> ROUND 403 GLOBAL EVALUATION <===
+2026-03-09 10:14:05,866 - INFO:   F1 Score : 0.9444
+2026-03-09 10:14:05,866 - INFO:   PR-AUC   : 1.0000
+2026-03-09 10:14:05,866 - INFO:   ROC-AUC  : 1.0000
+2026-03-09 10:14:05,866 - INFO:   Precision: 0.8947
+2026-03-09 10:14:05,866 - INFO:   Recall   : 1.0000
+2026-03-09 10:14:05,866 - INFO:   Comm Cost: 0.49 MB
+2026-03-09 10:14:05,866 - INFO:   E2E Latency: 33.00s
+2026-03-09 10:14:05,866 - INFO: =========================================
+
+2026-03-09 10:14:05,866 - INFO: ========== ROUND 403 COMPLETED in 33.00s ==========
+2026-03-09 10:14:05,866 - INFO: ========== STARTING ROUND 404 ==========
+2026-03-09 10:14:05,866 - INFO: [BankA] Simulating branch training...
+2026-03-09 10:14:05,882 - INFO: [BankA] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:14:05,882 - INFO: === Round 404 start — 1 branch update(s) ===
+2026-03-09 10:14:05,919 - INFO: No global model recorded for round 403; fresh start.
+2026-03-09 10:14:05,919 - INFO: Round 404 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:14:05,924 - INFO: Uploaded CID=QmaG2jRid4icvxDt6fZBBGrNDNb79cceftCGaMPbJFp6u7 hash=5d3c7d18cfc95084...
+2026-03-09 10:14:05,969 - INFO: Submitted update — tx_id=None
+2026-03-09 10:14:05,969 - INFO: [BankB] Simulating branch training...
+2026-03-09 10:14:06,159 - INFO: [BankB] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:14:06,159 - INFO: === Round 404 start — 1 branch update(s) ===
+2026-03-09 10:14:06,189 - INFO: No global model recorded for round 403; fresh start.
+2026-03-09 10:14:06,190 - INFO: Round 404 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:14:06,194 - INFO: Uploaded CID=QmX9VthcRZbi2FGz64KbaRRX64HQ6wbduPaThCQs1H6Tas hash=d9797a2932c21c53...
+2026-03-09 10:14:06,232 - INFO: Submitted update — tx_id=None
+2026-03-09 10:14:06,232 - INFO: [BankC] Simulating branch training...
+2026-03-09 10:14:07,763 - INFO: [BankC] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:14:07,763 - INFO: === Round 404 start — 1 branch update(s) ===
+2026-03-09 10:14:07,794 - INFO: No global model recorded for round 403; fresh start.
+2026-03-09 10:14:07,795 - INFO: Round 404 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:14:07,798 - INFO: Uploaded CID=QmUng84PV98tyTYA5cnvgoozZEhD2TtVD5Bjf3A8HXs5Uo hash=03ac25b5aa65b6ae...
+2026-03-09 10:14:07,837 - INFO: Submitted update — tx_id=None
+2026-03-09 10:14:07,837 - INFO: --- Round 404 cluster models submitted ---
+2026-03-09 10:14:07,837 - INFO: Waiting 10 seconds for models to settle on ledger before verification...
+2026-03-09 10:14:17,837 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-09 10:14:17,871 - INFO: Verifying BankB round 404: PR-AUC=0.8500 -> True
+2026-03-09 10:14:17,939 - INFO: Verifying BankC round 404: PR-AUC=0.8500 -> True
+2026-03-09 10:14:18,013 - INFO: Verifying BankA round 404: PR-AUC=0.8500 -> True
+2026-03-09 10:14:18,351 - INFO: Verifying BankC round 404: PR-AUC=0.8500 -> True
+2026-03-09 10:14:18,426 - INFO: Verifying BankA round 404: PR-AUC=0.8500 -> True
+2026-03-09 10:14:18,493 - INFO: Verifying BankB round 404: PR-AUC=0.8500 -> True
+2026-03-09 10:14:18,530 - INFO: Waiting 10 seconds for CBFT verification to finalize...
+2026-03-09 10:14:28,530 - INFO: --- Initiating CBFT Commits ---
+2026-03-09 10:14:28,616 - INFO: Committed to BankB round 404
+2026-03-09 10:14:28,689 - INFO: Committed to BankC round 404
+2026-03-09 10:14:28,771 - INFO: Committed to BankA round 404
+2026-03-09 10:14:28,841 - INFO: Committed to BankC round 404
+2026-03-09 10:14:28,912 - INFO: Committed to BankA round 404
+2026-03-09 10:14:28,987 - INFO: Committed to BankB round 404
+2026-03-09 10:14:28,987 - INFO: Waiting 10 seconds for CBFT commits to finalize...
+2026-03-09 10:14:38,987 - INFO: [GlobalAggregator] Performing cross-cluster aggregation...
+2026-03-09 10:14:38,987 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-09 10:14:39,040 - INFO: Consensus achieved: ['BankA', 'BankB', 'BankC'] (0.1s elapsed)
+2026-03-09 10:14:39,081 - INFO: Trust-weighted FedAvg over 3 models. Effective weights: {'BankA': '252.000', 'BankB': '9888.000', 'BankC': '89700.000'}
+2026-03-09 10:14:39,087 - INFO: Global model uploaded — CID=QmecPtCgnwXsQLxoWEmhMYmkZgzpA6ydjf3Cej9UBoLmHk hash=9a3b3cbd19422971...
+2026-03-09 10:14:39,125 - INFO: Global model stored on ledger.
+2026-03-09 10:14:39,126 - INFO: Round 404 Global CID: QmecPtCgnwXsQLxoWEmhMYmkZgzpA6ydjf3Cej9UBoLmHk
+2026-03-09 10:14:39,142 - INFO: 
+2026-03-09 10:14:39,142 - INFO: ===> ROUND 404 GLOBAL EVALUATION <===
+2026-03-09 10:14:39,142 - INFO:   F1 Score : 0.9444
+2026-03-09 10:14:39,142 - INFO:   PR-AUC   : 0.9901
+2026-03-09 10:14:39,142 - INFO:   ROC-AUC  : 0.9883
+2026-03-09 10:14:39,142 - INFO:   Precision: 1.0000
+2026-03-09 10:14:39,142 - INFO:   Recall   : 0.8947
+2026-03-09 10:14:39,142 - INFO:   Comm Cost: 0.49 MB
+2026-03-09 10:14:39,142 - INFO:   E2E Latency: 33.26s
+2026-03-09 10:14:39,142 - INFO: =========================================
+
+2026-03-09 10:14:39,142 - INFO: ========== ROUND 404 COMPLETED in 33.26s ==========
+2026-03-09 10:14:39,142 - INFO: ========== STARTING ROUND 405 ==========
+2026-03-09 10:14:39,142 - INFO: [BankA] Simulating branch training...
+2026-03-09 10:14:39,158 - INFO: [BankA] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:14:39,158 - INFO: === Round 405 start — 1 branch update(s) ===
+2026-03-09 10:14:39,194 - INFO: No global model recorded for round 404; fresh start.
+2026-03-09 10:14:39,194 - INFO: Round 405 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:14:39,198 - INFO: Uploaded CID=QmWYD5b8GZ18BaGCA3z3cmurVQ43iQ3BycQZjequL4JmGS hash=0171b8c67757b552...
+2026-03-09 10:14:39,236 - INFO: Submitted update — tx_id=None
+2026-03-09 10:14:39,237 - INFO: [BankB] Simulating branch training...
+2026-03-09 10:14:39,422 - INFO: [BankB] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:14:39,422 - INFO: === Round 405 start — 1 branch update(s) ===
+2026-03-09 10:14:39,453 - INFO: No global model recorded for round 404; fresh start.
+2026-03-09 10:14:39,454 - INFO: Round 405 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:14:39,457 - INFO: Uploaded CID=QmaCpUApJaww8bGV1DF7z9ygREGosmeTEPNaRafJcaVr9H hash=7424bec21147e2f1...
+2026-03-09 10:14:39,495 - INFO: Submitted update — tx_id=None
+2026-03-09 10:14:39,496 - INFO: [BankC] Simulating branch training...
+2026-03-09 10:14:41,015 - INFO: [BankC] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:14:41,015 - INFO: === Round 405 start — 1 branch update(s) ===
+2026-03-09 10:14:41,045 - INFO: No global model recorded for round 404; fresh start.
+2026-03-09 10:14:41,046 - INFO: Round 405 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:14:41,049 - INFO: Uploaded CID=QmYG9TWYmXGs7vnAQimgT2oq9nAxKDVoEeAPSP4uUVJ64i hash=5ee62c91a5fb0c34...
+2026-03-09 10:14:41,086 - INFO: Submitted update — tx_id=None
+2026-03-09 10:14:41,087 - INFO: --- Round 405 cluster models submitted ---
+2026-03-09 10:14:41,087 - INFO: Waiting 10 seconds for models to settle on ledger before verification...
+2026-03-09 10:14:51,087 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-09 10:14:51,140 - INFO: Verifying BankB round 405: PR-AUC=0.8500 -> True
+2026-03-09 10:14:51,220 - INFO: Verifying BankC round 405: PR-AUC=0.8500 -> True
+2026-03-09 10:14:51,288 - INFO: Verifying BankA round 405: PR-AUC=0.8500 -> True
+2026-03-09 10:14:51,362 - INFO: Verifying BankC round 405: PR-AUC=0.8500 -> True
+2026-03-09 10:14:51,440 - INFO: Verifying BankA round 405: PR-AUC=0.8500 -> True
+2026-03-09 10:14:51,513 - INFO: Verifying BankB round 405: PR-AUC=0.8500 -> True
+2026-03-09 10:14:51,548 - INFO: Waiting 10 seconds for CBFT verification to finalize...
+2026-03-09 10:15:01,549 - INFO: --- Initiating CBFT Commits ---
+2026-03-09 10:15:01,645 - INFO: Committed to BankB round 405
+2026-03-09 10:15:01,718 - INFO: Committed to BankC round 405
+2026-03-09 10:15:01,788 - INFO: Committed to BankA round 405
+2026-03-09 10:15:01,860 - INFO: Committed to BankC round 405
+2026-03-09 10:15:01,942 - INFO: Committed to BankA round 405
+2026-03-09 10:15:02,018 - INFO: Committed to BankB round 405
+2026-03-09 10:15:02,018 - INFO: Waiting 10 seconds for CBFT commits to finalize...
+2026-03-09 10:15:12,019 - INFO: [GlobalAggregator] Performing cross-cluster aggregation...
+2026-03-09 10:15:12,019 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-09 10:15:12,064 - INFO: Consensus achieved: ['BankA', 'BankB', 'BankC'] (0.0s elapsed)
+2026-03-09 10:15:12,097 - INFO: Trust-weighted FedAvg over 3 models. Effective weights: {'BankA': '252.000', 'BankB': '9888.000', 'BankC': '89700.000'}
+2026-03-09 10:15:12,101 - INFO: Global model uploaded — CID=QmNURygb57z1ktXrsiskznhgkS7u62tZQSNhNgjtqWVS8J hash=3fa73763737b0cd2...
+2026-03-09 10:15:12,139 - INFO: Global model stored on ledger.
+2026-03-09 10:15:12,139 - INFO: Round 405 Global CID: QmNURygb57z1ktXrsiskznhgkS7u62tZQSNhNgjtqWVS8J
+2026-03-09 10:15:12,147 - INFO: 
+2026-03-09 10:15:12,147 - INFO: ===> ROUND 405 GLOBAL EVALUATION <===
+2026-03-09 10:15:12,147 - INFO:   F1 Score : 0.9268
+2026-03-09 10:15:12,147 - INFO:   PR-AUC   : 0.9935
+2026-03-09 10:15:12,147 - INFO:   ROC-AUC  : 0.9912
+2026-03-09 10:15:12,147 - INFO:   Precision: 0.9048
+2026-03-09 10:15:12,147 - INFO:   Recall   : 0.9500
+2026-03-09 10:15:12,147 - INFO:   Comm Cost: 0.49 MB
+2026-03-09 10:15:12,147 - INFO:   E2E Latency: 33.00s
+2026-03-09 10:15:12,147 - INFO: =========================================
+
+2026-03-09 10:15:12,147 - INFO: ========== ROUND 405 COMPLETED in 33.00s ==========
+2026-03-09 10:15:12,147 - INFO: ========== STARTING ROUND 406 ==========
+2026-03-09 10:15:12,147 - INFO: [BankA] Simulating branch training...
+2026-03-09 10:15:12,155 - INFO: [BankA] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:15:12,155 - INFO: === Round 406 start — 1 branch update(s) ===
+2026-03-09 10:15:12,185 - INFO: No global model recorded for round 405; fresh start.
+2026-03-09 10:15:12,185 - INFO: Round 406 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:15:12,190 - INFO: Uploaded CID=QmYVBVJ5HxqipweWY3uEoCm92rLHdBazVxErDrPPYToPHP hash=b553124ccfc9e2a3...
+2026-03-09 10:15:12,227 - INFO: Submitted update — tx_id=None
+2026-03-09 10:15:12,227 - INFO: [BankB] Simulating branch training...
+2026-03-09 10:15:12,404 - INFO: [BankB] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:15:12,404 - INFO: === Round 406 start — 1 branch update(s) ===
+2026-03-09 10:15:12,433 - INFO: No global model recorded for round 405; fresh start.
+2026-03-09 10:15:12,434 - INFO: Round 406 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:15:12,437 - INFO: Uploaded CID=QmZzMzea3PZmJgk9nfJHKpuik56TVf6cGEpBCN4fkCcqAv hash=846e1c2499d75f97...
+2026-03-09 10:15:12,474 - INFO: Submitted update — tx_id=None
+2026-03-09 10:15:12,474 - INFO: [BankC] Simulating branch training...
+2026-03-09 10:15:13,989 - INFO: [BankC] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:15:13,989 - INFO: === Round 406 start — 1 branch update(s) ===
+2026-03-09 10:15:14,021 - INFO: No global model recorded for round 405; fresh start.
+2026-03-09 10:15:14,021 - INFO: Round 406 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:15:14,025 - INFO: Uploaded CID=Qme8uJ9APrMfvpUXJTxyBuj3ahfjL8Gx646RhB8zzKBx8e hash=0490a1eaf46da018...
+2026-03-09 10:15:14,067 - INFO: Submitted update — tx_id=None
+2026-03-09 10:15:14,067 - INFO: --- Round 406 cluster models submitted ---
+2026-03-09 10:15:14,067 - INFO: Waiting 10 seconds for models to settle on ledger before verification...
+2026-03-09 10:15:24,067 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-09 10:15:24,119 - INFO: Verifying BankB round 406: PR-AUC=0.8500 -> True
+2026-03-09 10:15:24,197 - INFO: Verifying BankC round 406: PR-AUC=0.8500 -> True
+2026-03-09 10:15:24,264 - INFO: Verifying BankA round 406: PR-AUC=0.8500 -> True
+2026-03-09 10:15:24,331 - INFO: Verifying BankC round 406: PR-AUC=0.8500 -> True
+2026-03-09 10:15:24,401 - INFO: Verifying BankA round 406: PR-AUC=0.8500 -> True
+2026-03-09 10:15:24,472 - INFO: Verifying BankB round 406: PR-AUC=0.8500 -> True
+2026-03-09 10:15:24,509 - INFO: Waiting 10 seconds for CBFT verification to finalize...
+2026-03-09 10:15:34,509 - INFO: --- Initiating CBFT Commits ---
+2026-03-09 10:15:34,588 - INFO: Committed to BankB round 406
+2026-03-09 10:15:34,662 - INFO: Committed to BankC round 406
+2026-03-09 10:15:34,737 - INFO: Committed to BankA round 406
+2026-03-09 10:15:34,810 - INFO: Committed to BankC round 406
+2026-03-09 10:15:34,879 - INFO: Committed to BankA round 406
+2026-03-09 10:15:34,951 - INFO: Committed to BankB round 406
+2026-03-09 10:15:34,951 - INFO: Waiting 10 seconds for CBFT commits to finalize...
+2026-03-09 10:15:44,951 - INFO: [GlobalAggregator] Performing cross-cluster aggregation...
+2026-03-09 10:15:44,951 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-09 10:15:44,990 - INFO: Consensus achieved: ['BankA', 'BankB', 'BankC'] (0.0s elapsed)
+2026-03-09 10:15:45,023 - INFO: Trust-weighted FedAvg over 3 models. Effective weights: {'BankA': '252.000', 'BankB': '9888.000', 'BankC': '89700.000'}
+2026-03-09 10:15:45,026 - INFO: Global model uploaded — CID=QmU9Sh957xYXBYgPASJb3N7Jon3hDZRns5ZhVJdCHcGvSQ hash=7d0aec6a232702a6...
+2026-03-09 10:15:45,063 - INFO: Global model stored on ledger.
+2026-03-09 10:15:45,063 - INFO: Round 406 Global CID: QmU9Sh957xYXBYgPASJb3N7Jon3hDZRns5ZhVJdCHcGvSQ
+2026-03-09 10:15:45,077 - INFO: 
+2026-03-09 10:15:45,077 - INFO: ===> ROUND 406 GLOBAL EVALUATION <===
+2026-03-09 10:15:45,077 - INFO:   F1 Score : 0.9697
+2026-03-09 10:15:45,077 - INFO:   PR-AUC   : 0.9967
+2026-03-09 10:15:45,077 - INFO:   ROC-AUC  : 0.9971
+2026-03-09 10:15:45,077 - INFO:   Precision: 1.0000
+2026-03-09 10:15:45,077 - INFO:   Recall   : 0.9412
+2026-03-09 10:15:45,077 - INFO:   Comm Cost: 0.49 MB
+2026-03-09 10:15:45,077 - INFO:   E2E Latency: 32.92s
+2026-03-09 10:15:45,077 - INFO: =========================================
+
+2026-03-09 10:15:45,077 - INFO: ========== ROUND 406 COMPLETED in 32.92s ==========
+2026-03-09 10:15:45,077 - INFO: ========== STARTING ROUND 407 ==========
+2026-03-09 10:15:45,077 - INFO: [BankA] Simulating branch training...
+2026-03-09 10:15:45,090 - INFO: [BankA] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:15:45,090 - INFO: === Round 407 start — 1 branch update(s) ===
+2026-03-09 10:15:45,129 - INFO: No global model recorded for round 406; fresh start.
+2026-03-09 10:15:45,129 - INFO: Round 407 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:15:45,133 - INFO: Uploaded CID=QmQHAwVKL1de1ijKdSpPVJTmWBLeNgaWzzbVN5pkdZhC9Q hash=04abb84c90d07a21...
+2026-03-09 10:15:45,173 - INFO: Submitted update — tx_id=None
+2026-03-09 10:15:45,173 - INFO: [BankB] Simulating branch training...
+2026-03-09 10:15:45,347 - INFO: [BankB] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:15:45,347 - INFO: === Round 407 start — 1 branch update(s) ===
+2026-03-09 10:15:45,380 - INFO: No global model recorded for round 406; fresh start.
+2026-03-09 10:15:45,381 - INFO: Round 407 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:15:45,384 - INFO: Uploaded CID=QmSYRu8VftJcCobcX7Sw1dXiVKBBADR2igHHqHcBZ7eihR hash=d712be3ec8d063b3...
+2026-03-09 10:15:45,422 - INFO: Submitted update — tx_id=None
+2026-03-09 10:15:45,423 - INFO: [BankC] Simulating branch training...
+2026-03-09 10:15:46,976 - INFO: [BankC] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:15:46,976 - INFO: === Round 407 start — 1 branch update(s) ===
+2026-03-09 10:15:47,005 - INFO: No global model recorded for round 406; fresh start.
+2026-03-09 10:15:47,006 - INFO: Round 407 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:15:47,009 - INFO: Uploaded CID=QmSGs2F5ifNojhVrmDTkd9gNDa4Vt7LjF7hi6KpJomH8GC hash=bf06b9e3865667e4...
+2026-03-09 10:15:47,048 - INFO: Submitted update — tx_id=None
+2026-03-09 10:15:47,048 - INFO: --- Round 407 cluster models submitted ---
+2026-03-09 10:15:47,048 - INFO: Waiting 10 seconds for models to settle on ledger before verification...
+2026-03-09 10:15:57,048 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-09 10:15:57,096 - INFO: Verifying BankB round 407: PR-AUC=0.8500 -> True
+2026-03-09 10:15:57,162 - INFO: Verifying BankC round 407: PR-AUC=0.8500 -> True
+2026-03-09 10:15:57,243 - INFO: Verifying BankA round 407: PR-AUC=0.8500 -> True
+2026-03-09 10:15:57,311 - INFO: Verifying BankC round 407: PR-AUC=0.8500 -> True
+2026-03-09 10:15:57,385 - INFO: Verifying BankA round 407: PR-AUC=0.8500 -> True
+2026-03-09 10:15:57,451 - INFO: Verifying BankB round 407: PR-AUC=0.8500 -> True
+2026-03-09 10:15:57,486 - INFO: Waiting 10 seconds for CBFT verification to finalize...
+2026-03-09 10:16:07,486 - INFO: --- Initiating CBFT Commits ---
+2026-03-09 10:16:07,582 - INFO: Committed to BankB round 407
+2026-03-09 10:16:07,656 - INFO: Committed to BankC round 407
+2026-03-09 10:16:07,725 - INFO: Committed to BankA round 407
+2026-03-09 10:16:07,802 - INFO: Committed to BankC round 407
+2026-03-09 10:16:07,875 - INFO: Committed to BankA round 407
+2026-03-09 10:16:07,947 - INFO: Committed to BankB round 407
+2026-03-09 10:16:07,947 - INFO: Waiting 10 seconds for CBFT commits to finalize...
+2026-03-09 10:16:17,947 - INFO: [GlobalAggregator] Performing cross-cluster aggregation...
+2026-03-09 10:16:17,947 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-09 10:16:18,011 - INFO: Consensus achieved: ['BankA', 'BankB', 'BankC'] (0.1s elapsed)
+2026-03-09 10:16:18,044 - INFO: Trust-weighted FedAvg over 3 models. Effective weights: {'BankA': '252.000', 'BankB': '9888.000', 'BankC': '89700.000'}
+2026-03-09 10:16:18,047 - INFO: Global model uploaded — CID=QmSZ7okXC8FiabpsHkFpFh3bfNgRGtY6WrkEaJhtpv2hBd hash=92da3f71f7b364f6...
+2026-03-09 10:16:18,084 - INFO: Global model stored on ledger.
+2026-03-09 10:16:18,084 - INFO: Round 407 Global CID: QmSZ7okXC8FiabpsHkFpFh3bfNgRGtY6WrkEaJhtpv2hBd
+2026-03-09 10:16:18,102 - INFO: 
+2026-03-09 10:16:18,102 - INFO: ===> ROUND 407 GLOBAL EVALUATION <===
+2026-03-09 10:16:18,102 - INFO:   F1 Score : 0.9231
+2026-03-09 10:16:18,103 - INFO:   PR-AUC   : 0.9856
+2026-03-09 10:16:18,103 - INFO:   ROC-AUC  : 0.9904
+2026-03-09 10:16:18,103 - INFO:   Precision: 0.9231
+2026-03-09 10:16:18,103 - INFO:   Recall   : 0.9231
+2026-03-09 10:16:18,103 - INFO:   Comm Cost: 0.49 MB
+2026-03-09 10:16:18,103 - INFO:   E2E Latency: 33.01s
+2026-03-09 10:16:18,103 - INFO: =========================================
+
+2026-03-09 10:16:18,103 - INFO: ========== ROUND 407 COMPLETED in 33.01s ==========
+2026-03-09 10:16:18,103 - INFO: ========== STARTING ROUND 408 ==========
+2026-03-09 10:16:18,103 - INFO: [BankA] Simulating branch training...
+2026-03-09 10:16:18,125 - INFO: [BankA] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:16:18,125 - INFO: === Round 408 start — 1 branch update(s) ===
+2026-03-09 10:16:18,165 - INFO: No global model recorded for round 407; fresh start.
+2026-03-09 10:16:18,166 - INFO: Round 408 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:16:18,169 - INFO: Uploaded CID=QmQhxaZ7BUL6WnSs9LgA7vrAeLFE3FFX3bfL4pzWuesJj3 hash=deb763e0f9506c00...
+2026-03-09 10:16:18,211 - INFO: Submitted update — tx_id=None
+2026-03-09 10:16:18,211 - INFO: [BankB] Simulating branch training...
+2026-03-09 10:16:18,402 - INFO: [BankB] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:16:18,402 - INFO: === Round 408 start — 1 branch update(s) ===
+2026-03-09 10:16:18,433 - INFO: No global model recorded for round 407; fresh start.
+2026-03-09 10:16:18,434 - INFO: Round 408 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:16:18,437 - INFO: Uploaded CID=QmSooU3Whqh3MUjJvVLsvYxSLZU5R7xw3v55rKY8W458sT hash=0d0e49a2412a6fb4...
+2026-03-09 10:16:18,473 - INFO: Submitted update — tx_id=None
+2026-03-09 10:16:18,474 - INFO: [BankC] Simulating branch training...
+2026-03-09 10:16:20,039 - INFO: [BankC] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:16:20,039 - INFO: === Round 408 start — 1 branch update(s) ===
+2026-03-09 10:16:20,070 - INFO: No global model recorded for round 407; fresh start.
+2026-03-09 10:16:20,071 - INFO: Round 408 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:16:20,074 - INFO: Uploaded CID=QmcXdEnW7oSdsRQ3AZHqr4zG8ztYcdArwfEJybiBjYkk4B hash=4f04a7e4bad33a2c...
+2026-03-09 10:16:20,113 - INFO: Submitted update — tx_id=None
+2026-03-09 10:16:20,113 - INFO: --- Round 408 cluster models submitted ---
+2026-03-09 10:16:20,113 - INFO: Waiting 10 seconds for models to settle on ledger before verification...
+2026-03-09 10:16:30,113 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-09 10:16:30,166 - INFO: Verifying BankB round 408: PR-AUC=0.8500 -> True
+2026-03-09 10:16:30,237 - INFO: Verifying BankC round 408: PR-AUC=0.8500 -> True
+2026-03-09 10:16:30,304 - INFO: Verifying BankA round 408: PR-AUC=0.8500 -> True
+2026-03-09 10:16:30,389 - INFO: Verifying BankC round 408: PR-AUC=0.8500 -> True
+2026-03-09 10:16:30,463 - INFO: Verifying BankA round 408: PR-AUC=0.8500 -> True
+2026-03-09 10:16:30,538 - INFO: Verifying BankB round 408: PR-AUC=0.8500 -> True
+2026-03-09 10:16:30,577 - INFO: Waiting 10 seconds for CBFT verification to finalize...
+2026-03-09 10:16:40,577 - INFO: --- Initiating CBFT Commits ---
+2026-03-09 10:16:40,656 - INFO: Committed to BankB round 408
+2026-03-09 10:16:40,730 - INFO: Committed to BankC round 408
+2026-03-09 10:16:40,801 - INFO: Committed to BankA round 408
+2026-03-09 10:16:40,867 - INFO: Committed to BankC round 408
+2026-03-09 10:16:40,938 - INFO: Committed to BankA round 408
+2026-03-09 10:16:41,011 - INFO: Committed to BankB round 408
+2026-03-09 10:16:41,011 - INFO: Waiting 10 seconds for CBFT commits to finalize...
+2026-03-09 10:16:51,012 - INFO: [GlobalAggregator] Performing cross-cluster aggregation...
+2026-03-09 10:16:51,012 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-09 10:16:51,057 - INFO: Consensus achieved: ['BankA', 'BankB', 'BankC'] (0.0s elapsed)
+2026-03-09 10:16:51,090 - INFO: Trust-weighted FedAvg over 3 models. Effective weights: {'BankA': '252.000', 'BankB': '9888.000', 'BankC': '89700.000'}
+2026-03-09 10:16:51,094 - INFO: Global model uploaded — CID=QmPZmCo9zk91SE8hRBNgNLYc4SabAresgMoBCDwSDci4X4 hash=08d9eee0984da14f...
+2026-03-09 10:16:51,141 - INFO: Global model stored on ledger.
+2026-03-09 10:16:51,141 - INFO: Round 408 Global CID: QmPZmCo9zk91SE8hRBNgNLYc4SabAresgMoBCDwSDci4X4
+2026-03-09 10:16:51,162 - INFO: 
+2026-03-09 10:16:51,162 - INFO: ===> ROUND 408 GLOBAL EVALUATION <===
+2026-03-09 10:16:51,162 - INFO:   F1 Score : 1.0000
+2026-03-09 10:16:51,162 - INFO:   PR-AUC   : 1.0000
+2026-03-09 10:16:51,162 - INFO:   ROC-AUC  : 1.0000
+2026-03-09 10:16:51,162 - INFO:   Precision: 1.0000
+2026-03-09 10:16:51,162 - INFO:   Recall   : 1.0000
+2026-03-09 10:16:51,162 - INFO:   Comm Cost: 0.49 MB
+2026-03-09 10:16:51,162 - INFO:   E2E Latency: 33.04s
+2026-03-09 10:16:51,162 - INFO: =========================================
+
+2026-03-09 10:16:51,163 - INFO: ========== ROUND 408 COMPLETED in 33.04s ==========
+2026-03-09 10:16:51,163 - INFO: ========== STARTING ROUND 409 ==========
+2026-03-09 10:16:51,163 - INFO: [BankA] Simulating branch training...
+2026-03-09 10:16:51,184 - INFO: [BankA] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:16:51,184 - INFO: === Round 409 start — 1 branch update(s) ===
+2026-03-09 10:16:51,229 - INFO: No global model recorded for round 408; fresh start.
+2026-03-09 10:16:51,230 - INFO: Round 409 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:16:51,233 - INFO: Uploaded CID=QmUttDXwfc5NNjUmqbvbUjR6xpxhZHfZgGY6oMVSc5qb3W hash=b2e47dc8cb772a2f...
+2026-03-09 10:16:51,276 - INFO: Submitted update — tx_id=None
+2026-03-09 10:16:51,276 - INFO: [BankB] Simulating branch training...
+2026-03-09 10:16:51,458 - INFO: [BankB] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:16:51,458 - INFO: === Round 409 start — 1 branch update(s) ===
+2026-03-09 10:16:51,488 - INFO: No global model recorded for round 408; fresh start.
+2026-03-09 10:16:51,489 - INFO: Round 409 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:16:51,493 - INFO: Uploaded CID=QmTzyZuyMbRXnbo2VLjZ1uWRUkS34w7qFF3Hv5JmRVeZeV hash=380ffd54143f7fe7...
+2026-03-09 10:16:51,532 - INFO: Submitted update — tx_id=None
+2026-03-09 10:16:51,532 - INFO: [BankC] Simulating branch training...
+2026-03-09 10:16:53,061 - INFO: [BankC] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:16:53,061 - INFO: === Round 409 start — 1 branch update(s) ===
+2026-03-09 10:16:53,092 - INFO: No global model recorded for round 408; fresh start.
+2026-03-09 10:16:53,093 - INFO: Round 409 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:16:53,096 - INFO: Uploaded CID=QmZYdaiTrXXJe8rhPNCF7o2ZxhLRnyQ4TSSJQk3f3uTrgC hash=fa96991034eb3747...
+2026-03-09 10:16:53,134 - INFO: Submitted update — tx_id=None
+2026-03-09 10:16:53,134 - INFO: --- Round 409 cluster models submitted ---
+2026-03-09 10:16:53,134 - INFO: Waiting 10 seconds for models to settle on ledger before verification...
+2026-03-09 10:17:03,134 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-09 10:17:03,185 - INFO: Verifying BankB round 409: PR-AUC=0.8500 -> True
+2026-03-09 10:17:03,261 - INFO: Verifying BankC round 409: PR-AUC=0.8500 -> True
+2026-03-09 10:17:03,337 - INFO: Verifying BankA round 409: PR-AUC=0.8500 -> True
+2026-03-09 10:17:03,403 - INFO: Verifying BankC round 409: PR-AUC=0.8500 -> True
+2026-03-09 10:17:03,470 - INFO: Verifying BankA round 409: PR-AUC=0.8500 -> True
+2026-03-09 10:17:03,537 - INFO: Verifying BankB round 409: PR-AUC=0.8500 -> True
+2026-03-09 10:17:03,575 - INFO: Waiting 10 seconds for CBFT verification to finalize...
+2026-03-09 10:17:13,575 - INFO: --- Initiating CBFT Commits ---
+2026-03-09 10:17:13,669 - INFO: Committed to BankB round 409
+2026-03-09 10:17:13,742 - INFO: Committed to BankC round 409
+2026-03-09 10:17:13,823 - INFO: Committed to BankA round 409
+2026-03-09 10:17:13,903 - INFO: Committed to BankC round 409
+2026-03-09 10:17:13,985 - INFO: Committed to BankA round 409
+2026-03-09 10:17:14,052 - INFO: Committed to BankB round 409
+2026-03-09 10:17:14,052 - INFO: Waiting 10 seconds for CBFT commits to finalize...
+2026-03-09 10:17:24,053 - INFO: [GlobalAggregator] Performing cross-cluster aggregation...
+2026-03-09 10:17:24,053 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-09 10:17:24,100 - INFO: Consensus achieved: ['BankA', 'BankB', 'BankC'] (0.0s elapsed)
+2026-03-09 10:17:24,139 - INFO: Trust-weighted FedAvg over 3 models. Effective weights: {'BankA': '252.000', 'BankB': '9888.000', 'BankC': '89700.000'}
+2026-03-09 10:17:24,142 - INFO: Global model uploaded — CID=QmZacVgXjzag2cMsiEJvttAi11xpt7QU2t25XTgmwLLu3M hash=98b141024de5cb2d...
+2026-03-09 10:17:24,184 - INFO: Global model stored on ledger.
+2026-03-09 10:17:24,184 - INFO: Round 409 Global CID: QmZacVgXjzag2cMsiEJvttAi11xpt7QU2t25XTgmwLLu3M
+2026-03-09 10:17:24,198 - INFO: 
+2026-03-09 10:17:24,198 - INFO: ===> ROUND 409 GLOBAL EVALUATION <===
+2026-03-09 10:17:24,198 - INFO:   F1 Score : 0.8421
+2026-03-09 10:17:24,199 - INFO:   PR-AUC   : 0.9866
+2026-03-09 10:17:24,199 - INFO:   ROC-AUC  : 0.9853
+2026-03-09 10:17:24,199 - INFO:   Precision: 0.7619
+2026-03-09 10:17:24,199 - INFO:   Recall   : 0.9412
+2026-03-09 10:17:24,199 - INFO:   Comm Cost: 0.49 MB
+2026-03-09 10:17:24,199 - INFO:   E2E Latency: 33.02s
+2026-03-09 10:17:24,199 - INFO: =========================================
+
+2026-03-09 10:17:24,199 - INFO: ========== ROUND 409 COMPLETED in 33.02s ==========
+2026-03-09 10:17:24,199 - INFO: ========== STARTING ROUND 410 ==========
+2026-03-09 10:17:24,199 - INFO: [BankA] Simulating branch training...
+2026-03-09 10:17:24,213 - INFO: [BankA] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:17:24,213 - INFO: === Round 410 start — 1 branch update(s) ===
+2026-03-09 10:17:24,248 - INFO: No global model recorded for round 409; fresh start.
+2026-03-09 10:17:24,248 - INFO: Round 410 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:17:24,252 - INFO: Uploaded CID=Qma7B4vLLuYCPvstRbBRzYin8RPmPb6m59NYmM5D4X2n42 hash=a41dbabed66bf381...
+2026-03-09 10:17:24,291 - INFO: Submitted update — tx_id=None
+2026-03-09 10:17:24,291 - INFO: [BankB] Simulating branch training...
+2026-03-09 10:17:24,496 - INFO: [BankB] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:17:24,496 - INFO: === Round 410 start — 1 branch update(s) ===
+2026-03-09 10:17:24,527 - INFO: No global model recorded for round 409; fresh start.
+2026-03-09 10:17:24,527 - INFO: Round 410 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:17:24,531 - INFO: Uploaded CID=QmYA2JDqrRzsmdyXWMN7UCSJsKJsRGTAEo5cKjP4YfQvfX hash=616048013c62ab95...
+2026-03-09 10:17:24,569 - INFO: Submitted update — tx_id=None
+2026-03-09 10:17:24,569 - INFO: [BankC] Simulating branch training...
+2026-03-09 10:17:26,108 - INFO: [BankC] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-09 10:17:26,108 - INFO: === Round 410 start — 1 branch update(s) ===
+2026-03-09 10:17:26,137 - INFO: No global model recorded for round 409; fresh start.
+2026-03-09 10:17:26,138 - INFO: Round 410 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-09 10:17:26,141 - INFO: Uploaded CID=QmWq3JLTcPmXhEY1vAMQaTRsYTmHtSQnntgHm8zSy9aMHS hash=b2e197c605244cc9...
+2026-03-09 10:17:26,179 - INFO: Submitted update — tx_id=None
+2026-03-09 10:17:26,179 - INFO: --- Round 410 cluster models submitted ---
+2026-03-09 10:17:26,179 - INFO: Waiting 10 seconds for models to settle on ledger before verification...
+2026-03-09 10:17:36,179 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-09 10:17:36,233 - INFO: Verifying BankB round 410: PR-AUC=0.8500 -> True
+2026-03-09 10:17:36,305 - INFO: Verifying BankC round 410: PR-AUC=0.8500 -> True
+2026-03-09 10:17:36,373 - INFO: Verifying BankA round 410: PR-AUC=0.8500 -> True
+2026-03-09 10:17:36,439 - INFO: Verifying BankC round 410: PR-AUC=0.8500 -> True
+2026-03-09 10:17:36,509 - INFO: Verifying BankA round 410: PR-AUC=0.8500 -> True
+2026-03-09 10:17:36,579 - INFO: Verifying BankB round 410: PR-AUC=0.8500 -> True
+2026-03-09 10:17:36,620 - INFO: Waiting 10 seconds for CBFT verification to finalize...
+2026-03-09 10:17:46,620 - INFO: --- Initiating CBFT Commits ---
+2026-03-09 10:17:46,725 - INFO: Committed to BankB round 410
+2026-03-09 10:17:46,799 - INFO: Committed to BankC round 410
+2026-03-09 10:17:46,871 - INFO: Committed to BankA round 410
+2026-03-09 10:17:46,938 - INFO: Committed to BankC round 410
+2026-03-09 10:17:47,010 - INFO: Committed to BankA round 410
+2026-03-09 10:17:47,079 - INFO: Committed to BankB round 410
+2026-03-09 10:17:47,079 - INFO: Waiting 10 seconds for CBFT commits to finalize...
+2026-03-09 10:17:57,080 - INFO: [GlobalAggregator] Performing cross-cluster aggregation...
+2026-03-09 10:17:57,080 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-09 10:17:57,124 - INFO: Consensus achieved: ['BankA', 'BankB', 'BankC'] (0.0s elapsed)
+2026-03-09 10:17:57,157 - INFO: Trust-weighted FedAvg over 3 models. Effective weights: {'BankA': '252.000', 'BankB': '9888.000', 'BankC': '89700.000'}
+2026-03-09 10:17:57,160 - INFO: Global model uploaded — CID=QmejxpfkpEF1jRR3H1ETx7x92Sa8ngbkUw99EnD923YRnz hash=5c04d8317a5d6c42...
+2026-03-09 10:17:57,201 - INFO: Global model stored on ledger.
+2026-03-09 10:17:57,201 - INFO: Round 410 Global CID: QmejxpfkpEF1jRR3H1ETx7x92Sa8ngbkUw99EnD923YRnz
+2026-03-09 10:17:57,222 - INFO: 
+2026-03-09 10:17:57,222 - INFO: ===> ROUND 410 GLOBAL EVALUATION <===
+2026-03-09 10:17:57,222 - INFO:   F1 Score : 0.8667
+2026-03-09 10:17:57,222 - INFO:   PR-AUC   : 0.9694
+2026-03-09 10:17:57,222 - INFO:   ROC-AUC  : 0.9758
+2026-03-09 10:17:57,222 - INFO:   Precision: 0.8667
+2026-03-09 10:17:57,222 - INFO:   Recall   : 0.8667
+2026-03-09 10:17:57,222 - INFO:   Comm Cost: 0.49 MB
+2026-03-09 10:17:57,222 - INFO:   E2E Latency: 33.00s
+2026-03-09 10:17:57,223 - INFO: =========================================
+
+2026-03-09 10:17:57,223 - INFO: ========== ROUND 410 COMPLETED in 33.00s ==========
+2026-03-09 10:17:57,223 - INFO: 
+2026-03-09 10:17:57,223 - INFO: =================================
+2026-03-09 10:17:57,223 - INFO:    PERFORMANCE BENCHMARK STATS   
+2026-03-09 10:17:57,223 - INFO: =================================
+2026-03-09 10:17:57,223 - INFO: Total Rounds: 10
+2026-03-09 10:17:57,223 - INFO: Total Time: 334.56s
+2026-03-09 10:17:57,223 - INFO: Avg Round Latency: 33.43s
+2026-03-09 10:17:57,223 - INFO: =================================
+2026-03-09 10:17:57,223 - INFO: ✅ Latency SLA met (<= 120s)

@@ -1,0 +1,11 @@
+{"time":"2025-12-29T09:17:21.714336426Z","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2025-12-29T09:17:22.49657113Z","level":"INFO","msg":"stream: created new stream","id":"rp91lw2l"}
+{"time":"2025-12-29T09:17:22.496782738Z","level":"INFO","msg":"handler: started","stream_id":"rp91lw2l"}
+{"time":"2025-12-29T09:17:22.496906152Z","level":"INFO","msg":"stream: started","id":"rp91lw2l"}
+{"time":"2025-12-29T09:17:22.496948165Z","level":"INFO","msg":"writer: started","stream_id":"rp91lw2l"}
+{"time":"2025-12-29T09:17:22.496954963Z","level":"INFO","msg":"sender: started","stream_id":"rp91lw2l"}
+{"time":"2025-12-29T09:18:15.666602246Z","level":"INFO","msg":"stream: closing","id":"rp91lw2l"}
+{"time":"2025-12-29T09:18:17.153988534Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-29T09:18:17.872546465Z","level":"INFO","msg":"handler: closed","stream_id":"rp91lw2l"}
+{"time":"2025-12-29T09:18:17.87270579Z","level":"INFO","msg":"sender: closed","stream_id":"rp91lw2l"}
+{"time":"2025-12-29T09:18:17.872723368Z","level":"INFO","msg":"stream: closed","id":"rp91lw2l"}

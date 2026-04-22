@@ -1,0 +1,21 @@
+fl:
+  epochs: 1
+  learning_rate: 0.001
+  l2_norm_clip: 1.0
+  noise_multiplier: 0.05
+  deadline_seconds: 5.0
+  min_branches_required: 2
+  validation_threshold: 0.20
+  backup_beta: 0.3
+
+blockchain:
+  api_url: "http://localhost:8000"
+  bank_id: "BankA"
+  round_timeout_seconds: 60.0
+
+ipfs:
+  api_url: "http://127.0.0.1:5001"
+
+data:
+  base_path: "../data/processed/3_local_silo_balancing"
+  partition_prefix: "branch"

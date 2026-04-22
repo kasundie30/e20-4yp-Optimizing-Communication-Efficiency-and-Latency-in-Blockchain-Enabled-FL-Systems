@@ -1,0 +1,59 @@
+# docker/docker-compose.yml
+# Docker Compose for running the federated learning system
+# Spins up all 9 branch containers at once
+
+version: "3.8"
+
+x-branch-template: &branch
+  image: fyp-bank:latest
+  pull_policy: never
+  volumes:
+    - ../data/processed/3_local_silo_balancing:/data
+    # IMPORTANT: mount a round folder here (so outputs don't overwrite each other)
+    - ${LOGS_DIR:-../shared/round_0001}:/logs
+
+services:
+  brand_1_branch_0:
+    <<: *branch
+    environment:
+      - BANK_ID=brand_1_branch_0
+
+  brand_1_branch_1:
+    <<: *branch
+    environment:
+      - BANK_ID=brand_1_branch_1
+
+  brand_1_branch_2:
+    <<: *branch
+    environment:
+      - BANK_ID=brand_1_branch_2
+
+  brand_2_branch_0:
+    <<: *branch
+    environment:
+      - BANK_ID=brand_2_branch_0
+
+  brand_2_branch_1:
+    <<: *branch
+    environment:
+      - BANK_ID=brand_2_branch_1
+
+  brand_2_branch_2:
+    <<: *branch
+    environment:
+      - BANK_ID=brand_2_branch_2
+
+  brand_3_branch_0:
+    <<: *branch
+    environment:
+      - BANK_ID=brand_3_branch_0
+
+  brand_3_branch_1:
+    <<: *branch
+    environment:
+      - BANK_ID=brand_3_branch_1
+
+  brand_3_branch_2:
+    <<: *branch
+    environment:
+      - BANK_ID=brand_3_branch_2

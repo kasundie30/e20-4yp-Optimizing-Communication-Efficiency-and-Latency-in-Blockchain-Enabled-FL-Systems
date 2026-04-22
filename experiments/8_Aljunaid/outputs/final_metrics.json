@@ -1,0 +1,15 @@
+{
+  "round": 10,
+  "comm_mb": 2.155895233154297,
+  "e2e_sec": 14.786633880925365,
+  "best_client": 2,
+  "model_hash": "c871bfedfc866acec734aedd59b9a6e4ecfee8b766340c241cae3257889ce163",
+  "prauc": 0.8790543560820815,
+  "rocauc": 0.9806271534369184,
+  "f1": 0.5186915887850467,
+  "precision": 0.36038961038961037,
+  "recall": 0.925,
+  "avg_comm_mb": 1.4974754333496094,
+  "avg_e2e_sec": 19.925991591392084,
+  "chain_verified": true
+}

@@ -1,0 +1,29 @@
+Loaded: (284807, 31)
+Train size: (181584, 30), Val size: (45396, 30), Test size: (56746, 30)
+Train scaled shape: (181584, 30)
+Validation scaled shape: (45396, 30)
+Test scaled shape: (56746, 30)
+Train distribution after SMOTE: [181282 181282]
+Val distribution: [45320    76]
+Test distribution: [56651    95]
+/home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/.venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:54: FutureWarning: 'Series.swapaxes' is deprecated and will be removed in a future version. Please use 'Series.transpose' instead.
+  return bound(*args, **kwds)
+Client 1: Data Shape - (36257, 30), Labels Shape - (36257,)
+Client 2: Data Shape - (36257, 30), Labels Shape - (36257,)
+Client 3: Data Shape - (36257, 30), Labels Shape - (36257,)
+Client 4: Data Shape - (36257, 30), Labels Shape - (36257,)
+Client 5: Data Shape - (36256, 30), Labels Shape - (36256,)
+Client 6: Data Shape - (36256, 30), Labels Shape - (36256,)
+Client 7: Data Shape - (36256, 30), Labels Shape - (36256,)
+Client 8: Data Shape - (36256, 30), Labels Shape - (36256,)
+Client 9: Data Shape - (36256, 30), Labels Shape - (36256,)
+Client 10: Data Shape - (36256, 30), Labels Shape - (36256,)
+Device: cuda
+Traceback (most recent call last):
+  File "/home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/Approach01.py", line 139, in <module>
+    model = MLP()
+            ^^^^^
+  File "/home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/Approach01.py", line 128, in __init__
+    self.fc1 = nn.Linear(X_train.shape[1], 128)
+                         ^^^^^^^
+NameError: name 'X_train' is not defined

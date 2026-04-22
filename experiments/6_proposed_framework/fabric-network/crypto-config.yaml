@@ -1,0 +1,59 @@
+## =============================================================
+##  crypto-config.yaml  — Hyperledger Fabric 2.5
+##  Hierarchical Clustered FL: BankA, BankB, BankC + Orderer
+## =============================================================
+
+# --------------- Orderer Organization -------------------------
+OrdererOrgs:
+  - Name: Orderer
+    Domain: orderer.fabricfl.com
+    EnableNodeOUs: true
+    # 3 Raft orderer nodes for fault-tolerant transaction ordering
+    Specs:
+      - Hostname: orderer0
+        SANS:
+          - localhost
+      - Hostname: orderer1
+        SANS:
+          - localhost
+      - Hostname: orderer2
+        SANS:
+          - localhost
+
+# --------------- Peer Organizations ---------------------------
+PeerOrgs:
+
+  # ── BankA ──────────────────────────────────────────────────
+  # peer0 = HQ (primary committee member)
+  # peer1 = Backup HQ
+  - Name: BankA
+    Domain: banka.fabricfl.com
+    EnableNodeOUs: true
+    Template:
+      Count: 2           # peer0 and peer1
+      SANS:
+        - localhost
+    Users:
+      Count: 1           # 1 Admin user (plus the default Admin)
+
+  # ── BankB ──────────────────────────────────────────────────
+  - Name: BankB
+    Domain: bankb.fabricfl.com
+    EnableNodeOUs: true
+    Template:
+      Count: 2
+      SANS:
+        - localhost
+    Users:
+      Count: 1
+
+  # ── BankC ──────────────────────────────────────────────────
+  - Name: BankC
+    Domain: bankc.fabricfl.com
+    EnableNodeOUs: true
+    Template:
+      Count: 2
+      SANS:
+        - localhost
+    Users:
+      Count: 1

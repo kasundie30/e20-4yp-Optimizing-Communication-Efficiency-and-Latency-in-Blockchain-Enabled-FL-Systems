@@ -1,0 +1,84 @@
+_wandb:
+    value:
+        cli_version: 0.23.1
+        e:
+            muqi7lzbi491wt01az82a220z8pnd01d:
+                codePath: FYP-Group18/experiments/{ablation}/Centralized Learning with FL/Approach01.py
+                codePathLocal: Approach01.py
+                cpu_count: 32
+                cpu_count_logical: 64
+                cudaVersion: "13.0"
+                disk:
+                    /:
+                        total: "7539261915136"
+                        used: "867818455040"
+                email: e20285@eng.pdn.ac.lk
+                executable: /home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/.venv/bin/python
+                git:
+                    commit: 28e5939f1e895ea8d51acd190e3e21ce2838d146
+                    remote: git@github.com:cepdnaclk/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems.git
+                gpu: NVIDIA RTX 6000 Ada Generation
+                gpu_count: 3
+                gpu_nvidia:
+                    - architecture: Ada
+                      cudaCores: 18176
+                      memoryTotal: "51527024640"
+                      name: NVIDIA RTX 6000 Ada Generation
+                      uuid: GPU-858f439a-50ad-017a-ee98-77673962de41
+                    - architecture: Ada
+                      cudaCores: 18176
+                      memoryTotal: "51527024640"
+                      name: NVIDIA RTX 6000 Ada Generation
+                      uuid: GPU-9e037b54-3de6-c5c9-5e6c-4dc6475ae67f
+                    - architecture: Ada
+                      cudaCores: 18176
+                      memoryTotal: "51527024640"
+                      name: NVIDIA RTX 6000 Ada Generation
+                      uuid: GPU-ed5ed4a8-746d-ccb2-95f8-66bfc98d52f2
+                host: visionsrv
+                memory:
+                    total: "540459782144"
+                os: Linux-6.8.0-88-generic-x86_64-with-glibc2.39
+                program: /home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/Approach01.py
+                python: CPython 3.12.3
+                root: /home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL
+                startedAt: "2025-12-29T08:39:08.653563Z"
+                writerId: muqi7lzbi491wt01az82a220z8pnd01d
+        m: []
+        python_version: 3.12.3
+        t:
+            "2":
+                - 1
+                - 5
+                - 53
+            "3":
+                - 13
+                - 16
+            "4": 3.12.3
+            "5": 0.23.1
+            "12": 0.23.1
+            "13": linux-x86_64
+approach:
+    value: Approach1_MLP
+batch_size:
+    value: 32
+dp:
+    value: false
+fedavg:
+    value: true
+local_epochs:
+    value: 1
+lr:
+    value: 0.001
+model:
+    value: MLP
+num_clients:
+    value: 10
+num_rounds:
+    value: 5
+scaler:
+    value: StandardScaler
+smote:
+    value: true
+threshold:
+    value: 0.5

@@ -1,0 +1,18 @@
+{
+  "framework": "HCFL (Proposed)",
+  "dataset": "European Credit Card Fraud (Kaggle)",
+  "num_rounds": 10,
+  "num_banks": 3,
+  "model": "LSTM + DP-FedAvg",
+  "total_time_sec": 35.51894974708557,
+  "avg_pr_auc": 0.7780269294517188,
+  "avg_roc_auc": 0.9736947675831095,
+  "avg_f1": 0.829456253378463,
+  "avg_precision": 0.9049464934275164,
+  "avg_recall": 0.7670454545454546,
+  "avg_comm_mb": 0.4895782470703125,
+  "avg_e2e_sec": 3.551652765274048,
+  "best_pr_auc": 0.8028939327784329,
+  "best_f1": 0.8518518518518519,
+  "best_round": 9
+}

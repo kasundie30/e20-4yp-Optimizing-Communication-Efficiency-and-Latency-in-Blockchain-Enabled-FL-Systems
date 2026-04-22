@@ -1,0 +1,7 @@
+.venv
+.git
+fabric-network
+fabric-samples
+data/raw
+data/processed
+__pycache__

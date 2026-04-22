@@ -1,0 +1,7 @@
+/home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/.venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:54: FutureWarning: 'Series.swapaxes' is deprecated and will be removed in a future version. Please use 'Series.transpose' instead.
+  return bound(*args, **kwds)
+Round 1 | Val Loss: 0.4351 | Val Acc: 0.9482
+Round 2 | Val Loss: 0.1864 | Val Acc: 0.9741
+Round 3 | Val Loss: 0.1908 | Val Acc: 0.9396
+Round 4 | Val Loss: 0.1805 | Val Acc: 0.9334
+Round 5 | Val Loss: 0.1505 | Val Acc: 0.9423

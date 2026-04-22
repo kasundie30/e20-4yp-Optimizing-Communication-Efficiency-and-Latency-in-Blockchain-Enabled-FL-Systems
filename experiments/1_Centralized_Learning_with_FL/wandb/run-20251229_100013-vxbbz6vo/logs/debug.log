@@ -1,0 +1,23 @@
+2025-12-29 10:00:13,011 INFO    MainThread:735447 [wandb_setup.py:_flush():80] Current SDK version is 0.23.1
+2025-12-29 10:00:13,011 INFO    MainThread:735447 [wandb_setup.py:_flush():80] Configure stats pid to 735447
+2025-12-29 10:00:13,012 INFO    MainThread:735447 [wandb_setup.py:_flush():80] Loading settings from /home/e20fyptemp3/.config/wandb/settings
+2025-12-29 10:00:13,012 INFO    MainThread:735447 [wandb_setup.py:_flush():80] Loading settings from /home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/wandb/settings
+2025-12-29 10:00:13,012 INFO    MainThread:735447 [wandb_setup.py:_flush():80] Loading settings from environment variables
+2025-12-29 10:00:13,012 INFO    MainThread:735447 [wandb_init.py:setup_run_log_directory():714] Logging user logs to /home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/wandb/run-20251229_100013-vxbbz6vo/logs/debug.log
+2025-12-29 10:00:13,012 INFO    MainThread:735447 [wandb_init.py:setup_run_log_directory():715] Logging internal logs to /home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/wandb/run-20251229_100013-vxbbz6vo/logs/debug-internal.log
+2025-12-29 10:00:13,012 INFO    MainThread:735447 [wandb_init.py:init():841] calling init triggers
+2025-12-29 10:00:13,012 INFO    MainThread:735447 [wandb_init.py:init():846] wandb.init called with sweep_config: {}
+config: {'approach': 'Approach1_MLP', 'model': 'MLP', 'dp': False, 'num_clients': 10, 'num_rounds': 5, 'local_epochs': 1, 'lr': 0.001, 'batch_size': 32, 'fedavg': True, 'smote': True, 'scaler': 'StandardScaler', 'threshold': 0.5, '_wandb': {}}
+2025-12-29 10:00:13,012 INFO    MainThread:735447 [wandb_init.py:init():889] starting backend
+2025-12-29 10:00:13,232 INFO    MainThread:735447 [wandb_init.py:init():892] sending inform_init request
+2025-12-29 10:00:13,239 INFO    MainThread:735447 [wandb_init.py:init():900] backend started and connected
+2025-12-29 10:00:13,251 INFO    MainThread:735447 [wandb_init.py:init():970] updated telemetry
+2025-12-29 10:00:13,255 INFO    MainThread:735447 [wandb_init.py:init():994] communicating run to backend with 90.0 second timeout
+2025-12-29 10:00:14,603 INFO    MainThread:735447 [wandb_init.py:init():1041] starting run threads in backend
+2025-12-29 10:00:14,645 INFO    MainThread:735447 [wandb_run.py:_console_start():2521] atexit reg
+2025-12-29 10:00:14,645 INFO    MainThread:735447 [wandb_run.py:_redirect():2369] redirect: wrap_raw
+2025-12-29 10:00:14,645 INFO    MainThread:735447 [wandb_run.py:_redirect():2438] Wrapping output streams.
+2025-12-29 10:00:14,645 INFO    MainThread:735447 [wandb_run.py:_redirect():2461] Redirects installed.
+2025-12-29 10:00:14,650 INFO    MainThread:735447 [wandb_init.py:init():1081] run started, returning control to user process
+2025-12-29 10:00:18,358 INFO    wandb-AsyncioManager-main:735447 [service_client.py:_forward_responses():80] Reached EOF.
+2025-12-29 10:00:18,358 INFO    wandb-AsyncioManager-main:735447 [mailbox.py:close():137] Closing mailbox, abandoning 1 handles.
