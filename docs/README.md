@@ -127,6 +127,7 @@ Model size: ~50,000 parameters (~0.0489 MB serialised), deliberately minimal to 
 Optimizer: Adam, lr = 1×10⁻³, batch_size = 256, epochs = 1 per local round.
 LSTM was chosen over simpler feedforward networks because it naturally captures sequential dependencies within transaction streams. Unlike tree-based methods, LSTM is differentiable and compatible with both FedAvg weight averaging and gradient-based Differential Privacy. 
 
+<img width="1348" alt="solution architecture" src="https://github.com/cepdnaclk/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/blob/main/docs/images/System_overview.png "/>
 
 ### 4.3 Evaluation Metrics
 
@@ -145,6 +146,12 @@ Given the severe class imbalance (0.17% fraud), standard accuracy is uninformati
 ---
 
 ## System Architecture
+
+
+<img width="1348" alt="high level architecture" src="https://github.com/cepdnaclk/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/blob/main/docs/images/Two_tier_architecture.png" />
+
+<img width="1348" alt="work flow" src="https://github.com/cepdnaclk/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/blob/main/docs/images/Workflow_1.png" />
+
 
 The proposed architecture follows a **two-tier hierarchical design**.
 
