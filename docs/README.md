@@ -154,9 +154,7 @@ This implements **(ε, δ)-Differential Privacy**: the clipping bounds the maxim
 
 **Deadline-Aware Collection:** The HQ waits for branch updates up to a configurable deadline (`deadline_seconds = 5.0`). Stragglers are excluded rather than blocking the round. A minimum of 2 branch submissions is required to proceed.
 
-**Intra-Cluster FedAvg:** The HQ computes a sample-count-weighted average of branch model weights:
-
-θ_cluster = ( Σ(i=1 to B) n_i · θ_i ) / ( Σ(i=1 to B) n_i )
+**Intra-Cluster FedAvg:** The HQ computes a sample-count-weighted average of branch model weights: θ_cluster = ( Σ(i=1 to B) n_i · θ_i ) / ( Σ(i=1 to B) n_i )
 
 where:
 
@@ -181,9 +179,7 @@ Phase 1 (Propose): The SubmitClusterUpdate chaincode transaction is the implicit
 Phase 2 (Verify): Each peer HQ downloads other banks' models from IPFS by CID, recomputes SHA-256, compares against the on-chain hash, evaluates the model on its own validation data, and casts a True/False vote via POST /submit-verification. Self-verification is prohibited by both the API layer and chaincode enforcement (verifier_id ≠ target_bank_id).
 Phase 3 (Commit): When a quorum of ≥ 2 positive votes accumulates, the submitting HQ calls POST /submit-commit to mark the model as "Accepted" on the ledger.
 
-Trust-Weighted Global FedAvg: The Global Aggregator polls the ledger for the list of accepted banks, fetches each accepted model from IPFS (with final SHA-256 re-verification), and computes:
-
-θ_global = ( Σ(b ∈ accepted) w_b · θ_b ) / ( Σ(b ∈ accepted) w_b )
+Trust-Weighted Global FedAvg: The Global Aggregator polls the ledger for the list of accepted banks, fetches each accepted model from IPFS (with final SHA-256 re-verification), and computes: θ_global = ( Σ(b ∈ accepted) w_b · θ_b ) / ( Σ(b ∈ accepted) w_b )
 
 w_b = trust_score_b × n_b
 
