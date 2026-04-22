@@ -1,4 +1,3 @@
-<img width="1361" height="742" alt="System_overview" src="https://github.com/user-attachments/assets/bf101b7e-aaa1-4adf-9888-1598b039bc67" />
 ---
 layout: home
 permalink: index.html
