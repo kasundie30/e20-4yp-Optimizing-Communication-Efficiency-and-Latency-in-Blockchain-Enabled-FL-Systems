@@ -1,3 +1,4 @@
+<img width="1361" height="742" alt="System_overview" src="https://github.com/user-attachments/assets/bf101b7e-aaa1-4adf-9888-1598b039bc67" />
 ---
 layout: home
 permalink: index.html
@@ -36,8 +37,6 @@ title: Optimizing Communication Efficiency and Latency in Blockchain-Enabled Fed
 ---
 
 ## Abstract
-
-<img width="1360" height="762" alt="Image" src="https://github.com/user-attachments/assets/d05fa46b-1ba1-4a72-ac90-5a8ead5760a5" />
 
 Credit card fraud detection (CCFD) in the banking sector faces a fundamental tension between the need for collaborative model training and strict data privacy regulations. Existing federated learning (FL) approaches that integrate blockchain for auditability treat all participants equally and do not address the hierarchical nature of real-world banking organisations, leading to suboptimal communication efficiency and round latency. This research presents the Hierarchical Clustered Federated Learning (HCFL) framework — a two-tier privacy-preserving FL system for credit card fraud detection that integrates Hyperledger Fabric blockchain, IPFS-based off-chain model storage, Differential Privacy (DP), and a novel Consensus-Based Federated Trust (CBFT) consensus protocol.
 
@@ -129,7 +128,6 @@ Model size: ~50,000 parameters (~0.0489 MB serialised), deliberately minimal to 
 Optimizer: Adam, lr = 1×10⁻³, batch_size = 256, epochs = 1 per local round.
 LSTM was chosen over simpler feedforward networks because it naturally captures sequential dependencies within transaction streams. Unlike tree-based methods, LSTM is differentiable and compatible with both FedAvg weight averaging and gradient-based Differential Privacy. 
 
-<img width="1348" alt="solution architecture" src="https://github.com/cepdnaclk/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/blob/main/docs/images/System_overview.png "/>
 
 ### 4.3 Evaluation Metrics
 
@@ -149,16 +147,9 @@ Given the severe class imbalance (0.17% fraud), standard accuracy is uninformati
 
 ## System Architecture
 
-
-<img width="1348" alt="high level architecture" src="https://github.com/cepdnaclk/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/blob/main/docs/images/Two_tier_architecture.png" />
-
-
-<img width="1348" alt="work flow" src="https://github.com/cepdnaclk/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/blob/main/docs/images/Workflow_1.png" />
-
+<img width="1360" height="762" alt="Image" src="https://github.com/user-attachments/assets/d05fa46b-1ba1-4a72-ac90-5a8ead5760a5" />
 
 The proposed architecture follows a **two-tier hierarchical design**.
-
-![Two-tier Hierarchical Architecture](docs/images/Two_tier_architecture.png)
 
 
 
@@ -172,7 +163,7 @@ Each participating financial institution is treated as an independent cluster. A
 
 Branch nodes perform local model training on private transaction datasets. The HQ collects branch updates and generates a cluster-level aggregated model. The Backup node remains synchronized with the HQ and can take over in the event of HQ failure, reducing the risk of a single point of failure.
 
-<img src="docs/images/Two_tier_architecture.png" alt="Two-tier Hierarchical Architecture" width="100%">
+<img width="1361" height="742" alt="Image" src="https://github.com/user-attachments/assets/327997f5-2d00-4c0b-809e-325dd2c78f3d" />
 
 ### Tier 2 – Blockchain / Inter-Cluster Layer
 
@@ -189,8 +180,8 @@ By limiting blockchain participation to HQ nodes instead of all branch nodes, th
 ### Off-Chain Storage
 
 To avoid storing large model files directly on-chain, model artifacts are uploaded to **IPFS**, and only compact metadata such as CID, hash, validation status, and trust information are stored on the blockchain ledger.
-
 ---
+<img width="7606" height="8192" alt="Image" src="https://github.com/user-attachments/assets/abdeafc0-1baf-4ce1-a948-a14f397f6f58" />
 
 ## Experimental Setup and Implementation
 
