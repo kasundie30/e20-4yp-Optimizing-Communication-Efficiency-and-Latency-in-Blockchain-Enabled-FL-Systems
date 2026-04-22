@@ -216,9 +216,7 @@ The experimental setup consists of:
 
 ## Results and Analysis
 
-## 7. Results and Analysis
-
-### 7.1 Proposed HCFL Framework — Per-Round Results
+### Proposed HCFL Framework — Per-Round Results
 
 Training over 10 federated rounds on 240,000 training samples across 3 banks, evaluated on a held-out global test set of 43,208 transactions:
 
@@ -237,9 +235,9 @@ Training over 10 federated rounds on 240,000 training samples across 3 banks, ev
 
 PR-AUC jumps from **0.662** (Round 1) to **0.763** (Round 2, +15.3%) once global model blending activates, then stabilises above **0.800** from Round 7 onwards. Communication overhead is constant at **0.4896 MB/round**. Total evaluation time: **35.5 seconds**.
 
-### 7.2 Baseline Results Summary
+### Baseline Results Summary
 
-#### Baabdullah et al. (2024) — Flat FL + LSTM, 40% dataset sample (~113,922 training / ~34,177 test)
+##### Baabdullah et al. (2024) — Flat FL + LSTM, 40% dataset sample (~113,922 training / ~34,177 test)
 
 | Metric | Round 1 | Round 10 | Average |
 |--------|---------|----------|---------|
@@ -253,7 +251,7 @@ PR-AUC jumps from **0.662** (Round 1) to **0.763** (Round 2, +15.3%) once global
 
 **Blockchain integrity:** VERIFIED (10 blocks).
 
-#### Aljunaid et al. (2025) — XFL + GBM, best-model selection; model size grows +20 trees/round
+##### Aljunaid et al. (2025) — XFL + GBM, best-model selection; model size grows +20 trees/round
 
 | Metric | Round 1 | Round 10 | Average |
 |--------|---------|----------|---------|
@@ -267,7 +265,7 @@ PR-AUC jumps from **0.662** (Round 1) to **0.763** (Round 2, +15.3%) once global
 
 **Blockchain integrity:** VERIFIED (10 blocks).
 
-### 7.3 Cross-Framework Comparison
+### Cross-Framework Comparison
 
 #### Detection Performance
 
@@ -313,7 +311,7 @@ In live mode (Fabric + IPFS), HCFL measured **~33–37 s/round**, within the **1
 
 ## Impact and Limitations
 
-8.1 Research Impact
+### Research Impact
 Communication Efficiency: The HCFL two-tier hierarchy is the primary architectural contribution to communication efficiency. By ensuring that only one consolidated cluster model per bank reaches the global tier (rather than all branch-level models), inter-bank communication is reduced by a factor of the number of branches per bank. As banks scale to dozens of regional branches, this compression benefit grows proportionally.
 
 Security and Auditability: The CBFT consensus protocol, implemented as on-chain chaincode, provides the first blockchain-enforced cross-bank model verification in the FL-for-CCFD domain (among the compared works). This directly addresses the model poisoning threat that is absent from both baseline frameworks. The immutable audit trail produced by Hyperledger Fabric provides regulators with cryptographically verifiable evidence of model provenance.
@@ -324,7 +322,7 @@ Scalability in Communication: HCFL's constant 0.490 MB/round communication cost 
 
 Precision for Banking Operations: HCFL's average Precision of 0.905 means that 90.5% of transactions flagged as fraudulent are genuinely fraudulent. This directly translates to operational value: fewer false alarms, reduced analyst burden, and maintained customer experience for legitimate cardholders.
 
-8.2 Limitations
+### Limitations
 1. Simulation vs. Live Mode Gap: The standalone evaluation (3.55 s/round) significantly underestimates live mode latency (~33–37 s/round), which is dominated by the 30-second Raft ordering settlement wait in Hyperledger Fabric. In production banking, this round latency would be further influenced by network topology, endorsement policy complexity, and peer count. The system meets the 120-second SLA bound, but real-time fraud alerting (sub-second decisions) requires a parallel scoring service, not a federated training loop.
 
 2. Fixed Number of Banks: The current CBFT protocol is calibrated for exactly 3 banks (quorum = 2). Adding a fourth bank requires reconfiguring chaincode constants and re-deploying the network. Dynamic consortium membership — where banks can join or leave between rounds — is not currently supported.
