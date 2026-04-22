@@ -1,0 +1,74 @@
+Loaded: (284807, 31)
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 284807 entries, 0 to 284806
+Data columns (total 31 columns):
+ #   Column  Non-Null Count   Dtype
+---  ------  --------------   -----
+ 0   Time    284807 non-null  float64
+ 1   V1      284807 non-null  float64
+ 2   V2      284807 non-null  float64
+ 3   V3      284807 non-null  float64
+ 4   V4      284807 non-null  float64
+ 5   V5      284807 non-null  float64
+ 6   V6      284807 non-null  float64
+ 7   V7      284807 non-null  float64
+ 8   V8      284807 non-null  float64
+ 9   V9      284807 non-null  float64
+ 10  V10     284807 non-null  float64
+ 11  V11     284807 non-null  float64
+ 12  V12     284807 non-null  float64
+ 13  V13     284807 non-null  float64
+ 14  V14     284807 non-null  float64
+ 15  V15     284807 non-null  float64
+ 16  V16     284807 non-null  float64
+ 17  V17     284807 non-null  float64
+ 18  V18     284807 non-null  float64
+ 19  V19     284807 non-null  float64
+ 20  V20     284807 non-null  float64
+ 21  V21     284807 non-null  float64
+ 22  V22     284807 non-null  float64
+ 23  V23     284807 non-null  float64
+ 24  V24     284807 non-null  float64
+ 25  V25     284807 non-null  float64
+ 26  V26     284807 non-null  float64
+ 27  V27     284807 non-null  float64
+ 28  V28     284807 non-null  float64
+ 29  Amount  284807 non-null  float64
+ 30  Class   284807 non-null  int64
+dtypes: float64(30), int64(1)
+memory usage: 67.4 MB
+(283726, 30)
+Class distribution after SMOTE:
+Class
+0    283253
+1    283253
+Name: count, dtype: int64
+Training data shape: (453204, 30)
+Test data shape: (113302, 30)
+/home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/.venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:54: FutureWarning: 'Series.swapaxes' is deprecated and will be removed in a future version. Please use 'Series.transpose' instead.
+  return bound(*args, **kwds)
+Client 1: Data Shape - (45321, 30), Labels Shape - (45321,)
+Client 2: Data Shape - (45321, 30), Labels Shape - (45321,)
+Client 3: Data Shape - (45321, 30), Labels Shape - (45321,)
+Client 4: Data Shape - (45321, 30), Labels Shape - (45321,)
+Client 5: Data Shape - (45320, 30), Labels Shape - (45320,)
+Client 6: Data Shape - (45320, 30), Labels Shape - (45320,)
+Client 7: Data Shape - (45320, 30), Labels Shape - (45320,)
+Client 8: Data Shape - (45320, 30), Labels Shape - (45320,)
+Client 9: Data Shape - (45320, 30), Labels Shape - (45320,)
+Client 10: Data Shape - (45320, 30), Labels Shape - (45320,)
+Round 1
+Global eval — loss: 1.1674, acc: 0.4983
+Round 2
+Global eval — loss: 1.6797, acc: 0.4983
+Round 3
+Global eval — loss: 2.1224, acc: 0.5013
+Round 4
+Global eval — loss: 2.4416, acc: 0.5062
+Round 5
+Global eval — loss: 2.8580, acc: 0.5128
+Traceback (most recent call last):
+  File "/home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/Approach01.py", line 256, in <module>
+    val_probs = predict_proba(global_model, X_val_scaled)
+                                            ^^^^^^^^^^^^
+NameError: name 'X_val_scaled' is not defined

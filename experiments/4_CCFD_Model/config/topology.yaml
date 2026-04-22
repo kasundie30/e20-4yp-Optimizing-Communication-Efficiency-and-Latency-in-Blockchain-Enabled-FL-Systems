@@ -1,0 +1,24 @@
+# config/topology.yaml
+# Who are the brands, branches, HQ nodes
+
+brands:
+  brand_1:
+    hq: brand_1_branch_0
+    backup: brand_1_branch_1
+    branches:
+      - brand_1_branch_0
+      - brand_1_branch_1
+      - brand_1_branch_2
+
+  brand_2:
+    hq: brand_2_branch_0
+    backup: brand_2_branch_1
+    branches:
+      - brand_2_branch_0
+      - brand_2_branch_1
+      - brand_2_branch_2
+
+  brand_3:
+    hq: brand_3_branch_0
+    backup: brand_3_branch_1
+    branches: [brand_3_branch_0, brand_3_branch_1, brand_3_branch_2]

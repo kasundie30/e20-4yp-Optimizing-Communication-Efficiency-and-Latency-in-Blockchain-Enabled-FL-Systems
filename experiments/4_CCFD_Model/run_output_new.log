@@ -1,0 +1,556 @@
+time="2026-03-08T11:27:03+05:30" level=warning msg="/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-03-08T11:27:03+05:30" level=warning msg="No services to build"
+Attaching to brand_1_branch_0-1, brand_1_branch_1-1, brand_1_branch_2-1, brand_2_branch_0-1, brand_2_branch_1-1, brand_2_branch_2-1, brand_3_branch_0-1, brand_3_branch_1-1, brand_3_branch_2-1
+ Container docker-brand_1_branch_1-1 Starting 
+ Container docker-brand_1_branch_2-1 Starting 
+ Container docker-brand_2_branch_2-1 Starting 
+ Container docker-brand_3_branch_1-1 Starting 
+ Container docker-brand_3_branch_2-1 Starting 
+ Container docker-brand_3_branch_0-1 Starting 
+ Container docker-brand_1_branch_0-1 Starting 
+ Container docker-brand_2_branch_1-1 Starting 
+ Container docker-brand_2_branch_0-1 Starting 
+ Container docker-brand_2_branch_2-1 Started 
+ Container docker-brand_1_branch_1-1 Started 
+ Container docker-brand_1_branch_0-1 Started 
+ Container docker-brand_2_branch_1-1 Started 
+ Container docker-brand_2_branch_0-1 Started 
+ Container docker-brand_1_branch_2-1 Started 
+ Container docker-brand_3_branch_1-1 Started 
+ Container docker-brand_3_branch_0-1 Started 
+ Container docker-brand_3_branch_2-1 Started 
+[Kbrand_1_branch_0-1 exited with code 0
+[Kbrand_2_branch_2-1 exited with code 0
+[Kbrand_3_branch_1-1 exited with code 0
+[Kbrand_2_branch_0-1 exited with code 0
+[Kbrand_3_branch_2-1 exited with code 0
+[Kbrand_1_branch_1-1 exited with code 0
+[Kbrand_3_branch_0-1 exited with code 0
+[Kbrand_2_branch_1-1 exited with code 0
+[Kbrand_1_branch_2-1 exited with code 0
+/media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+/media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[HQ-P2] round_dir=/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0001
+[HQ-P2] deadline_sec=25 min_required=2
+[HQ-P2] validation metric=prauc thr=0.2 frac=0.15
+[HQ-P2] data_root=data/processed/3_local_silo_balancing
+[HQ-P2] output=/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0001/brand_models
+[HQ-P2] brand=brand_1: ACCEPTED -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0001/brand_models/brand_1.pt | metrics={'precision': 1.0, 'recall': 0.47368421052631576, 'f1': 0.6428571428571429, 'prauc': 0.8331417474244298} | score=2.550
+[HQ-P2] brand=brand_2: validation failed -> EXCLUDED | metrics={'precision': 0.0, 'recall': 0.0, 'f1': 0.0, 'prauc': 0.0}
+[HQ-P2] brand=brand_3: ACCEPTED -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0001/brand_models/brand_3.pt | metrics={'precision': 0.9975614331269931, 'recall': 0.7876184834123223, 'f1': 0.8802449722750972, 'prauc': 0.9657757380598881} | score=1.050
+[HQ-P2] done.
+[GLOBAL-P2] used brands: ['brand_1', 'brand_3']
+[GLOBAL-P2] wrote global model: /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0001/global_model.pt
+time="2026-03-08T11:30:03+05:30" level=warning msg="/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container docker-brand_2_branch_0-1 Stopping 
+ Container docker-brand_1_branch_1-1 Stopping 
+ Container docker-brand_2_branch_1-1 Stopping 
+ Container docker-brand_3_branch_1-1 Stopping 
+ Container docker-brand_2_branch_2-1 Stopping 
+ Container docker-brand_1_branch_0-1 Stopping 
+ Container docker-brand_3_branch_0-1 Stopping 
+ Container docker-brand_3_branch_2-1 Stopping 
+ Container docker-brand_1_branch_2-1 Stopping 
+ Container docker-brand_1_branch_1-1 Stopped 
+ Container docker-brand_1_branch_1-1 Removing 
+ Container docker-brand_2_branch_2-1 Stopped 
+ Container docker-brand_2_branch_2-1 Removing 
+ Container docker-brand_3_branch_0-1 Stopped 
+ Container docker-brand_3_branch_0-1 Removing 
+ Container docker-brand_2_branch_0-1 Stopped 
+ Container docker-brand_2_branch_0-1 Removing 
+ Container docker-brand_3_branch_1-1 Stopped 
+ Container docker-brand_3_branch_1-1 Removing 
+ Container docker-brand_2_branch_1-1 Stopped 
+ Container docker-brand_2_branch_1-1 Removing 
+ Container docker-brand_3_branch_2-1 Stopped 
+ Container docker-brand_3_branch_2-1 Removing 
+ Container docker-brand_1_branch_0-1 Stopped 
+ Container docker-brand_1_branch_0-1 Removing 
+ Container docker-brand_1_branch_2-1 Stopped 
+ Container docker-brand_1_branch_2-1 Removing 
+ Container docker-brand_2_branch_2-1 Removed 
+ Container docker-brand_1_branch_2-1 Removed 
+ Container docker-brand_3_branch_0-1 Removed 
+ Container docker-brand_2_branch_1-1 Removed 
+ Container docker-brand_1_branch_1-1 Removed 
+ Container docker-brand_2_branch_0-1 Removed 
+ Container docker-brand_1_branch_0-1 Removed 
+ Container docker-brand_3_branch_2-1 Removed 
+ Container docker-brand_3_branch_1-1 Removed 
+ Network docker_default Removing 
+ Network docker_default Removed 
+time="2026-03-08T11:30:03+05:30" level=warning msg="/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-03-08T11:30:03+05:30" level=warning msg="No services to build"
+ Network docker_default Creating 
+ Network docker_default Created 
+ Container docker-brand_1_branch_1-1 Creating 
+ Container docker-brand_3_branch_0-1 Creating 
+ Container docker-brand_1_branch_0-1 Creating 
+ Container docker-brand_3_branch_2-1 Creating 
+ Container docker-brand_2_branch_2-1 Creating 
+ Container docker-brand_2_branch_1-1 Creating 
+ Container docker-brand_2_branch_0-1 Creating 
+ Container docker-brand_1_branch_2-1 Creating 
+ Container docker-brand_3_branch_1-1 Creating 
+ Container docker-brand_3_branch_0-1 Created 
+ Container docker-brand_1_branch_1-1 Created 
+ Container docker-brand_1_branch_2-1 Created 
+ Container docker-brand_3_branch_2-1 Created 
+ Container docker-brand_2_branch_1-1 Created 
+ Container docker-brand_2_branch_0-1 Created 
+ Container docker-brand_3_branch_1-1 Created 
+ Container docker-brand_2_branch_2-1 Created 
+ Container docker-brand_1_branch_0-1 Created 
+Attaching to brand_1_branch_0-1, brand_1_branch_1-1, brand_1_branch_2-1, brand_2_branch_0-1, brand_2_branch_1-1, brand_2_branch_2-1, brand_3_branch_0-1, brand_3_branch_1-1, brand_3_branch_2-1
+ Container docker-brand_1_branch_0-1 Starting 
+ Container docker-brand_2_branch_0-1 Starting 
+ Container docker-brand_2_branch_1-1 Starting 
+ Container docker-brand_3_branch_0-1 Starting 
+ Container docker-brand_1_branch_2-1 Starting 
+ Container docker-brand_2_branch_2-1 Starting 
+ Container docker-brand_3_branch_2-1 Starting 
+ Container docker-brand_3_branch_1-1 Starting 
+ Container docker-brand_1_branch_1-1 Starting 
+ Container docker-brand_2_branch_0-1 Started 
+ Container docker-brand_2_branch_1-1 Started 
+ Container docker-brand_3_branch_2-1 Started 
+ Container docker-brand_3_branch_0-1 Started 
+ Container docker-brand_1_branch_0-1 Started 
+ Container docker-brand_2_branch_2-1 Started 
+ Container docker-brand_1_branch_1-1 Started 
+ Container docker-brand_3_branch_1-1 Started 
+ Container docker-brand_1_branch_2-1 Started 
+[Kbrand_1_branch_0-1 exited with code 0
+[Kbrand_2_branch_2-1 exited with code 0
+[Kbrand_3_branch_1-1 exited with code 0
+[Kbrand_2_branch_0-1 exited with code 0
+[Kbrand_3_branch_2-1 exited with code 0
+[Kbrand_1_branch_1-1 exited with code 0
+[Kbrand_2_branch_1-1 exited with code 0
+[Kbrand_3_branch_0-1 exited with code 0
+[Kbrand_1_branch_2-1 exited with code 0
+/media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+/media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[HQ-P2] round_dir=/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0002
+[HQ-P2] deadline_sec=25 min_required=2
+[HQ-P2] validation metric=prauc thr=0.2 frac=0.15
+[HQ-P2] data_root=data/processed/3_local_silo_balancing
+[HQ-P2] output=/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0002/brand_models
+[HQ-P2] brand=brand_1: ACCEPTED -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0002/brand_models/brand_1.pt | metrics={'precision': 1.0, 'recall': 0.6, 'f1': 0.75, 'prauc': 0.9545461543932283} | score=2.600
+[HQ-P2] brand=brand_2: validation failed -> EXCLUDED | metrics={'precision': 0.0, 'recall': 0.0, 'f1': 0.0, 'prauc': 0.0}
+[HQ-P2] brand=brand_3: ACCEPTED -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0002/brand_models/brand_3.pt | metrics={'precision': 0.9958021536776784, 'recall': 0.8194653048963653, 'f1': 0.8990689626761144, 'prauc': 0.9744842627395727} | score=1.100
+[HQ-P2] done.
+[GLOBAL-P2] used brands: ['brand_1', 'brand_3']
+[GLOBAL-P2] wrote global model: /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0002/global_model.pt
+time="2026-03-08T11:32:55+05:30" level=warning msg="/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container docker-brand_2_branch_1-1 Stopping 
+ Container docker-brand_1_branch_0-1 Stopping 
+ Container docker-brand_2_branch_0-1 Stopping 
+ Container docker-brand_3_branch_2-1 Stopping 
+ Container docker-brand_3_branch_0-1 Stopping 
+ Container docker-brand_1_branch_1-1 Stopping 
+ Container docker-brand_3_branch_1-1 Stopping 
+ Container docker-brand_1_branch_2-1 Stopping 
+ Container docker-brand_2_branch_2-1 Stopping 
+ Container docker-brand_1_branch_0-1 Stopped 
+ Container docker-brand_1_branch_0-1 Removing 
+ Container docker-brand_2_branch_1-1 Stopped 
+ Container docker-brand_2_branch_1-1 Removing 
+ Container docker-brand_1_branch_1-1 Stopped 
+ Container docker-brand_1_branch_1-1 Removing 
+ Container docker-brand_2_branch_0-1 Stopped 
+ Container docker-brand_2_branch_0-1 Removing 
+ Container docker-brand_2_branch_2-1 Stopped 
+ Container docker-brand_2_branch_2-1 Removing 
+ Container docker-brand_3_branch_1-1 Stopped 
+ Container docker-brand_3_branch_1-1 Removing 
+ Container docker-brand_1_branch_2-1 Stopped 
+ Container docker-brand_1_branch_2-1 Removing 
+ Container docker-brand_3_branch_0-1 Stopped 
+ Container docker-brand_3_branch_0-1 Removing 
+ Container docker-brand_3_branch_2-1 Stopped 
+ Container docker-brand_3_branch_2-1 Removing 
+ Container docker-brand_2_branch_0-1 Removed 
+ Container docker-brand_1_branch_0-1 Removed 
+ Container docker-brand_3_branch_1-1 Removed 
+ Container docker-brand_3_branch_2-1 Removed 
+ Container docker-brand_1_branch_2-1 Removed 
+ Container docker-brand_2_branch_2-1 Removed 
+ Container docker-brand_2_branch_1-1 Removed 
+ Container docker-brand_3_branch_0-1 Removed 
+ Container docker-brand_1_branch_1-1 Removed 
+ Network docker_default Removing 
+ Network docker_default Removed 
+time="2026-03-08T11:32:56+05:30" level=warning msg="/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-03-08T11:32:56+05:30" level=warning msg="No services to build"
+ Network docker_default Creating 
+ Network docker_default Created 
+ Container docker-brand_3_branch_0-1 Creating 
+ Container docker-brand_2_branch_0-1 Creating 
+ Container docker-brand_3_branch_1-1 Creating 
+ Container docker-brand_3_branch_2-1 Creating 
+ Container docker-brand_1_branch_1-1 Creating 
+ Container docker-brand_2_branch_2-1 Creating 
+ Container docker-brand_2_branch_1-1 Creating 
+ Container docker-brand_1_branch_2-1 Creating 
+ Container docker-brand_1_branch_0-1 Creating 
+ Container docker-brand_3_branch_2-1 Created 
+ Container docker-brand_1_branch_0-1 Created 
+ Container docker-brand_2_branch_1-1 Created 
+ Container docker-brand_3_branch_1-1 Created 
+ Container docker-brand_2_branch_0-1 Created 
+ Container docker-brand_1_branch_2-1 Created 
+ Container docker-brand_3_branch_0-1 Created 
+ Container docker-brand_1_branch_1-1 Created 
+ Container docker-brand_2_branch_2-1 Created 
+Attaching to brand_1_branch_0-1, brand_1_branch_1-1, brand_1_branch_2-1, brand_2_branch_0-1, brand_2_branch_1-1, brand_2_branch_2-1, brand_3_branch_0-1, brand_3_branch_1-1, brand_3_branch_2-1
+ Container docker-brand_2_branch_1-1 Starting 
+ Container docker-brand_1_branch_1-1 Starting 
+ Container docker-brand_1_branch_2-1 Starting 
+ Container docker-brand_2_branch_0-1 Starting 
+ Container docker-brand_3_branch_0-1 Starting 
+ Container docker-brand_3_branch_1-1 Starting 
+ Container docker-brand_2_branch_2-1 Starting 
+ Container docker-brand_3_branch_2-1 Starting 
+ Container docker-brand_1_branch_0-1 Starting 
+ Container docker-brand_2_branch_1-1 Started 
+ Container docker-brand_3_branch_0-1 Started 
+ Container docker-brand_3_branch_2-1 Started 
+ Container docker-brand_1_branch_0-1 Started 
+ Container docker-brand_3_branch_1-1 Started 
+ Container docker-brand_1_branch_1-1 Started 
+ Container docker-brand_1_branch_2-1 Started 
+ Container docker-brand_2_branch_2-1 Started 
+ Container docker-brand_2_branch_0-1 Started 
+[Kbrand_1_branch_0-1 exited with code 0
+[Kbrand_2_branch_2-1 exited with code 0
+[Kbrand_3_branch_1-1 exited with code 0
+[Kbrand_2_branch_0-1 exited with code 0
+[Kbrand_3_branch_2-1 exited with code 0
+[Kbrand_1_branch_1-1 exited with code 0
+[Kbrand_2_branch_1-1 exited with code 0
+[Kbrand_3_branch_0-1 exited with code 0
+[Kbrand_1_branch_2-1 exited with code 0
+/media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+/media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[HQ-P2] round_dir=/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0003
+[HQ-P2] deadline_sec=25 min_required=2
+[HQ-P2] validation metric=prauc thr=0.2 frac=0.15
+[HQ-P2] data_root=data/processed/3_local_silo_balancing
+[HQ-P2] output=/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0003/brand_models
+[HQ-P2] brand=brand_1: ACCEPTED -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0003/brand_models/brand_1.pt | metrics={'precision': 1.0, 'recall': 0.4444444444444444, 'f1': 0.6153846153846154, 'prauc': 0.9669753086419755} | score=2.650
+[HQ-P2] brand=brand_2: validation failed -> EXCLUDED | metrics={'precision': 0.0, 'recall': 0.0, 'f1': 0.0, 'prauc': 0.0}
+[HQ-P2] brand=brand_3: ACCEPTED -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0003/brand_models/brand_3.pt | metrics={'precision': 0.9956363636363637, 'recall': 0.8147597083767296, 'f1': 0.896162343507078, 'prauc': 0.9767767791272263} | score=1.150
+[HQ-P2] done.
+[GLOBAL-P2] used brands: ['brand_1', 'brand_3']
+[GLOBAL-P2] wrote global model: /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0003/global_model.pt
+time="2026-03-08T11:35:39+05:30" level=warning msg="/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container docker-brand_2_branch_0-1 Stopping 
+ Container docker-brand_2_branch_2-1 Stopping 
+ Container docker-brand_3_branch_0-1 Stopping 
+ Container docker-brand_1_branch_0-1 Stopping 
+ Container docker-brand_3_branch_1-1 Stopping 
+ Container docker-brand_2_branch_1-1 Stopping 
+ Container docker-brand_1_branch_2-1 Stopping 
+ Container docker-brand_3_branch_2-1 Stopping 
+ Container docker-brand_1_branch_1-1 Stopping 
+ Container docker-brand_3_branch_0-1 Stopped 
+ Container docker-brand_3_branch_0-1 Removing 
+ Container docker-brand_3_branch_2-1 Stopped 
+ Container docker-brand_3_branch_2-1 Removing 
+ Container docker-brand_1_branch_0-1 Stopped 
+ Container docker-brand_2_branch_2-1 Stopped 
+ Container docker-brand_2_branch_2-1 Removing 
+ Container docker-brand_3_branch_1-1 Stopped 
+ Container docker-brand_3_branch_1-1 Removing 
+ Container docker-brand_2_branch_0-1 Stopped 
+ Container docker-brand_2_branch_0-1 Removing 
+ Container docker-brand_1_branch_2-1 Stopped 
+ Container docker-brand_1_branch_2-1 Removing 
+ Container docker-brand_1_branch_0-1 Removing 
+ Container docker-brand_2_branch_1-1 Stopped 
+ Container docker-brand_2_branch_1-1 Removing 
+ Container docker-brand_1_branch_1-1 Stopped 
+ Container docker-brand_1_branch_1-1 Removing 
+ Container docker-brand_3_branch_2-1 Removed 
+ Container docker-brand_1_branch_1-1 Removed 
+ Container docker-brand_3_branch_0-1 Removed 
+ Container docker-brand_3_branch_1-1 Removed 
+ Container docker-brand_2_branch_1-1 Removed 
+ Container docker-brand_1_branch_2-1 Removed 
+ Container docker-brand_2_branch_2-1 Removed 
+ Container docker-brand_2_branch_0-1 Removed 
+ Container docker-brand_1_branch_0-1 Removed 
+ Network docker_default Removing 
+ Network docker_default Removed 
+time="2026-03-08T11:35:39+05:30" level=warning msg="/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-03-08T11:35:40+05:30" level=warning msg="No services to build"
+ Network docker_default Creating 
+ Network docker_default Created 
+ Container docker-brand_2_branch_0-1 Creating 
+ Container docker-brand_3_branch_1-1 Creating 
+ Container docker-brand_3_branch_0-1 Creating 
+ Container docker-brand_2_branch_1-1 Creating 
+ Container docker-brand_2_branch_2-1 Creating 
+ Container docker-brand_1_branch_1-1 Creating 
+ Container docker-brand_1_branch_2-1 Creating 
+ Container docker-brand_3_branch_2-1 Creating 
+ Container docker-brand_1_branch_0-1 Creating 
+ Container docker-brand_2_branch_1-1 Created 
+ Container docker-brand_1_branch_1-1 Created 
+ Container docker-brand_3_branch_2-1 Created 
+ Container docker-brand_3_branch_1-1 Created 
+ Container docker-brand_2_branch_0-1 Created 
+ Container docker-brand_2_branch_2-1 Created 
+ Container docker-brand_1_branch_2-1 Created 
+ Container docker-brand_3_branch_0-1 Created 
+ Container docker-brand_1_branch_0-1 Created 
+Attaching to brand_1_branch_0-1, brand_1_branch_1-1, brand_1_branch_2-1, brand_2_branch_0-1, brand_2_branch_1-1, brand_2_branch_2-1, brand_3_branch_0-1, brand_3_branch_1-1, brand_3_branch_2-1
+ Container docker-brand_2_branch_0-1 Starting 
+ Container docker-brand_2_branch_2-1 Starting 
+ Container docker-brand_1_branch_2-1 Starting 
+ Container docker-brand_2_branch_1-1 Starting 
+ Container docker-brand_3_branch_2-1 Starting 
+ Container docker-brand_1_branch_1-1 Starting 
+ Container docker-brand_3_branch_0-1 Starting 
+ Container docker-brand_1_branch_0-1 Starting 
+ Container docker-brand_3_branch_1-1 Starting 
+ Container docker-brand_2_branch_0-1 Started 
+ Container docker-brand_3_branch_2-1 Started 
+ Container docker-brand_2_branch_1-1 Started 
+ Container docker-brand_1_branch_2-1 Started 
+ Container docker-brand_2_branch_2-1 Started 
+ Container docker-brand_1_branch_1-1 Started 
+ Container docker-brand_1_branch_0-1 Started 
+ Container docker-brand_3_branch_1-1 Started 
+ Container docker-brand_3_branch_0-1 Started 
+[Kbrand_1_branch_0-1 exited with code 0
+[Kbrand_2_branch_2-1 exited with code 0
+[Kbrand_2_branch_0-1 exited with code 0
+[Kbrand_3_branch_1-1 exited with code 0
+[Kbrand_3_branch_2-1 exited with code 0
+[Kbrand_1_branch_1-1 exited with code 0
+[Kbrand_2_branch_1-1 exited with code 0
+[Kbrand_3_branch_0-1 exited with code 0
+[Kbrand_1_branch_2-1 exited with code 0
+/media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+/media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[HQ-P2] round_dir=/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0004
+[HQ-P2] deadline_sec=25 min_required=2
+[HQ-P2] validation metric=prauc thr=0.2 frac=0.15
+[HQ-P2] data_root=data/processed/3_local_silo_balancing
+[HQ-P2] output=/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0004/brand_models
+[HQ-P2] brand=brand_1: ACCEPTED -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0004/brand_models/brand_1.pt | metrics={'precision': 1.0, 'recall': 0.5263157894736842, 'f1': 0.6896551724137931, 'prauc': 0.9232956055152537} | score=2.700
+[HQ-P2] brand=brand_2: validation failed -> EXCLUDED | metrics={'precision': 0.0, 'recall': 0.0, 'f1': 0.0, 'prauc': 0.0}
+[HQ-P2] brand=brand_3: ACCEPTED -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0004/brand_models/brand_3.pt | metrics={'precision': 0.9949266171407863, 'recall': 0.8149302463639062, 'f1': 0.8959778085991679, 'prauc': 0.979881843746167} | score=1.200
+[HQ-P2] done.
+[GLOBAL-P2] used brands: ['brand_1', 'brand_3']
+[GLOBAL-P2] wrote global model: /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0004/global_model.pt
+time="2026-03-08T11:38:26+05:30" level=warning msg="/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container docker-brand_1_branch_0-1 Stopping 
+ Container docker-brand_3_branch_2-1 Stopping 
+ Container docker-brand_3_branch_0-1 Stopping 
+ Container docker-brand_1_branch_2-1 Stopping 
+ Container docker-brand_3_branch_1-1 Stopping 
+ Container docker-brand_2_branch_1-1 Stopping 
+ Container docker-brand_2_branch_2-1 Stopping 
+ Container docker-brand_1_branch_1-1 Stopping 
+ Container docker-brand_1_branch_0-1 Stopped 
+ Container docker-brand_1_branch_0-1 Removing 
+ Container docker-brand_2_branch_0-1 Stopping 
+ Container docker-brand_3_branch_1-1 Stopped 
+ Container docker-brand_3_branch_1-1 Removing 
+ Container docker-brand_3_branch_0-1 Stopped 
+ Container docker-brand_3_branch_0-1 Removing 
+ Container docker-brand_3_branch_2-1 Stopped 
+ Container docker-brand_3_branch_2-1 Removing 
+ Container docker-brand_2_branch_1-1 Stopped 
+ Container docker-brand_2_branch_1-1 Removing 
+ Container docker-brand_1_branch_2-1 Stopped 
+ Container docker-brand_1_branch_2-1 Removing 
+ Container docker-brand_2_branch_2-1 Stopped 
+ Container docker-brand_2_branch_2-1 Removing 
+ Container docker-brand_2_branch_0-1 Stopped 
+ Container docker-brand_2_branch_0-1 Removing 
+ Container docker-brand_1_branch_1-1 Stopped 
+ Container docker-brand_1_branch_1-1 Removing 
+ Container docker-brand_1_branch_0-1 Removed 
+ Container docker-brand_2_branch_0-1 Removed 
+ Container docker-brand_1_branch_2-1 Removed 
+ Container docker-brand_3_branch_1-1 Removed 
+ Container docker-brand_1_branch_1-1 Removed 
+ Container docker-brand_3_branch_2-1 Removed 
+ Container docker-brand_3_branch_0-1 Removed 
+ Container docker-brand_2_branch_1-1 Removed 
+ Container docker-brand_2_branch_2-1 Removed 
+ Network docker_default Removing 
+ Network docker_default Removed 
+time="2026-03-08T11:38:27+05:30" level=warning msg="/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-03-08T11:38:27+05:30" level=warning msg="No services to build"
+ Network docker_default Creating 
+ Network docker_default Created 
+ Container docker-brand_1_branch_2-1 Creating 
+ Container docker-brand_2_branch_1-1 Creating 
+ Container docker-brand_3_branch_1-1 Creating 
+ Container docker-brand_1_branch_0-1 Creating 
+ Container docker-brand_2_branch_0-1 Creating 
+ Container docker-brand_3_branch_0-1 Creating 
+ Container docker-brand_2_branch_2-1 Creating 
+ Container docker-brand_3_branch_2-1 Creating 
+ Container docker-brand_1_branch_1-1 Creating 
+ Container docker-brand_2_branch_1-1 Created 
+ Container docker-brand_2_branch_2-1 Created 
+ Container docker-brand_1_branch_1-1 Created 
+ Container docker-brand_3_branch_2-1 Created 
+ Container docker-brand_1_branch_0-1 Created 
+ Container docker-brand_1_branch_2-1 Created 
+ Container docker-brand_3_branch_1-1 Created 
+ Container docker-brand_2_branch_0-1 Created 
+ Container docker-brand_3_branch_0-1 Created 
+Attaching to brand_1_branch_0-1, brand_1_branch_1-1, brand_1_branch_2-1, brand_2_branch_0-1, brand_2_branch_1-1, brand_2_branch_2-1, brand_3_branch_0-1, brand_3_branch_1-1, brand_3_branch_2-1
+ Container docker-brand_3_branch_1-1 Starting 
+ Container docker-brand_3_branch_0-1 Starting 
+ Container docker-brand_1_branch_0-1 Starting 
+ Container docker-brand_3_branch_2-1 Starting 
+ Container docker-brand_2_branch_2-1 Starting 
+ Container docker-brand_2_branch_1-1 Starting 
+ Container docker-brand_1_branch_1-1 Starting 
+ Container docker-brand_2_branch_0-1 Starting 
+ Container docker-brand_1_branch_2-1 Starting 
+ Container docker-brand_3_branch_0-1 Started 
+ Container docker-brand_1_branch_2-1 Started 
+ Container docker-brand_2_branch_1-1 Started 
+ Container docker-brand_3_branch_1-1 Started 
+ Container docker-brand_2_branch_2-1 Started 
+ Container docker-brand_1_branch_1-1 Started 
+ Container docker-brand_3_branch_2-1 Started 
+ Container docker-brand_1_branch_0-1 Started 
+ Container docker-brand_2_branch_0-1 Started 
+[Kbrand_1_branch_0-1 exited with code 0
+[Kbrand_2_branch_2-1 exited with code 0
+[Kbrand_3_branch_1-1 exited with code 0
+[Kbrand_2_branch_0-1 exited with code 0
+[Kbrand_3_branch_2-1 exited with code 0
+[Kbrand_1_branch_1-1 exited with code 0
+[Kbrand_3_branch_0-1 exited with code 0
+[Kbrand_2_branch_1-1 exited with code 0
+[Kbrand_1_branch_2-1 exited with code 0
+/media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+/media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+[HQ-P2] round_dir=/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0005
+[HQ-P2] deadline_sec=25 min_required=2
+[HQ-P2] validation metric=prauc thr=0.2 frac=0.15
+[HQ-P2] data_root=data/processed/3_local_silo_balancing
+[HQ-P2] output=/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0005/brand_models
+[HQ-P2] brand=brand_1: ACCEPTED -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0005/brand_models/brand_1.pt | metrics={'precision': 1.0, 'recall': 0.5789473684210527, 'f1': 0.7333333333333333, 'prauc': 0.9521962279478164} | score=2.750
+[HQ-P2] brand=brand_2: validation failed -> EXCLUDED | metrics={'precision': 0.0, 'recall': 0.0, 'f1': 0.0, 'prauc': 0.0}
+[HQ-P2] brand=brand_3: ACCEPTED -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0005/brand_models/brand_3.pt | metrics={'precision': 0.9955357142857143, 'recall': 0.825681279620853, 'f1': 0.9026878238341969, 'prauc': 0.9849928432731798} | score=1.250
+[HQ-P2] done.
+[GLOBAL-P2] used brands: ['brand_1', 'brand_3']
+[GLOBAL-P2] wrote global model: /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0005/global_model.pt
+time="2026-03-08T11:41:06+05:30" level=warning msg="/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container docker-brand_2_branch_1-1 Stopping 
+ Container docker-brand_2_branch_0-1 Stopping 
+ Container docker-brand_1_branch_0-1 Stopping 
+ Container docker-brand_1_branch_2-1 Stopping 
+ Container docker-brand_3_branch_0-1 Stopping 
+ Container docker-brand_1_branch_1-1 Stopping 
+ Container docker-brand_2_branch_2-1 Stopping 
+ Container docker-brand_3_branch_2-1 Stopping 
+ Container docker-brand_3_branch_1-1 Stopping 
+ Container docker-brand_3_branch_0-1 Stopped 
+ Container docker-brand_3_branch_0-1 Removing 
+ Container docker-brand_3_branch_2-1 Stopped 
+ Container docker-brand_3_branch_2-1 Removing 
+ Container docker-brand_3_branch_1-1 Stopped 
+ Container docker-brand_3_branch_1-1 Removing 
+ Container docker-brand_1_branch_2-1 Stopped 
+ Container docker-brand_1_branch_2-1 Removing 
+ Container docker-brand_1_branch_0-1 Stopped 
+ Container docker-brand_1_branch_0-1 Removing 
+ Container docker-brand_2_branch_0-1 Stopped 
+ Container docker-brand_2_branch_0-1 Removing 
+ Container docker-brand_2_branch_2-1 Stopped 
+ Container docker-brand_2_branch_2-1 Removing 
+ Container docker-brand_2_branch_1-1 Stopped 
+ Container docker-brand_2_branch_1-1 Removing 
+ Container docker-brand_1_branch_1-1 Stopped 
+ Container docker-brand_1_branch_1-1 Removing 
+ Container docker-brand_3_branch_2-1 Removed 
+ Container docker-brand_3_branch_0-1 Removed 
+ Container docker-brand_1_branch_2-1 Removed 
+ Container docker-brand_2_branch_2-1 Removed 
+ Container docker-brand_1_branch_1-1 Removed 
+ Container docker-brand_3_branch_1-1 Removed 
+ Container docker-brand_2_branch_0-1 Removed 
+ Container docker-brand_2_branch_1-1 Removed 
+ Container docker-brand_1_branch_0-1 Removed 
+ Network docker_default Removing 
+ Network docker_default Removed 
+[INFO] project_root = /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model
+[INFO] shared_root  = /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared
+[INFO] rounds       = 5
+[INFO] brands       = ['brand_1', 'brand_2', 'brand_3']
+[ROUND 0001] placed global model -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0001/global_model.pt
+
+[CMD] docker compose -f /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml up --build --remove-orphans
+
+[CMD] /media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/bin/python3 -m src.aggregation.hq_aggregate --round_dir /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0001 --topology /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/config/topology.yaml
+
+[CMD] /media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/bin/python3 -m src.aggregation.global_aggregate --round_dir /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0001 --topology /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/config/topology.yaml
+[ROUND 0001] new global model -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0001/global_model.pt
+
+[CMD] docker compose -f /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml down
+[ROUND 0002] placed global model -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0002/global_model.pt
+
+[CMD] docker compose -f /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml up --build --remove-orphans
+
+[CMD] /media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/bin/python3 -m src.aggregation.hq_aggregate --round_dir /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0002 --topology /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/config/topology.yaml
+
+[CMD] /media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/bin/python3 -m src.aggregation.global_aggregate --round_dir /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0002 --topology /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/config/topology.yaml
+[ROUND 0002] new global model -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0002/global_model.pt
+
+[CMD] docker compose -f /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml down
+[ROUND 0003] placed global model -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0003/global_model.pt
+
+[CMD] docker compose -f /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml up --build --remove-orphans
+
+[CMD] /media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/bin/python3 -m src.aggregation.hq_aggregate --round_dir /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0003 --topology /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/config/topology.yaml
+
+[CMD] /media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/bin/python3 -m src.aggregation.global_aggregate --round_dir /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0003 --topology /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/config/topology.yaml
+[ROUND 0003] new global model -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0003/global_model.pt
+
+[CMD] docker compose -f /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml down
+[ROUND 0004] placed global model -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0004/global_model.pt
+
+[CMD] docker compose -f /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml up --build --remove-orphans
+
+[CMD] /media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/bin/python3 -m src.aggregation.hq_aggregate --round_dir /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0004 --topology /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/config/topology.yaml
+
+[CMD] /media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/bin/python3 -m src.aggregation.global_aggregate --round_dir /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0004 --topology /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/config/topology.yaml
+[ROUND 0004] new global model -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0004/global_model.pt
+
+[CMD] docker compose -f /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml down
+[ROUND 0005] placed global model -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0005/global_model.pt
+
+[CMD] docker compose -f /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml up --build --remove-orphans
+
+[CMD] /media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/bin/python3 -m src.aggregation.hq_aggregate --round_dir /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0005 --topology /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/config/topology.yaml
+
+[CMD] /media/fyp-group-18/1TB-Hard/FYP-Group18/.venv/bin/python3 -m src.aggregation.global_aggregate --round_dir /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0005 --topology /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/config/topology.yaml
+[ROUND 0005] new global model -> /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/shared/round_0005/global_model.pt
+
+[CMD] docker compose -f /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/4_CCFD_Model/docker/docker-compose.yml down
+
+[DONE] All rounds completed.

@@ -1,0 +1,11 @@
+{"time":"2025-12-29T09:00:15.767524814Z","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2025-12-29T09:00:16.543839577Z","level":"INFO","msg":"stream: created new stream","id":"4vqiosdx"}
+{"time":"2025-12-29T09:00:16.544008115Z","level":"INFO","msg":"handler: started","stream_id":"4vqiosdx"}
+{"time":"2025-12-29T09:00:16.544156478Z","level":"INFO","msg":"stream: started","id":"4vqiosdx"}
+{"time":"2025-12-29T09:00:16.54425167Z","level":"INFO","msg":"writer: started","stream_id":"4vqiosdx"}
+{"time":"2025-12-29T09:00:16.544264188Z","level":"INFO","msg":"sender: started","stream_id":"4vqiosdx"}
+{"time":"2025-12-29T09:01:37.885925739Z","level":"INFO","msg":"stream: closing","id":"4vqiosdx"}
+{"time":"2025-12-29T09:01:39.355272932Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-12-29T09:01:40.091799479Z","level":"INFO","msg":"handler: closed","stream_id":"4vqiosdx"}
+{"time":"2025-12-29T09:01:40.091979904Z","level":"INFO","msg":"sender: closed","stream_id":"4vqiosdx"}
+{"time":"2025-12-29T09:01:40.091996546Z","level":"INFO","msg":"stream: closed","id":"4vqiosdx"}

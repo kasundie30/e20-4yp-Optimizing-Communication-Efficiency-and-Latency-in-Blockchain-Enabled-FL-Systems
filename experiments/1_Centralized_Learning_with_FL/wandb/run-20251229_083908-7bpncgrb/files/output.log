@@ -1,0 +1,9 @@
+Loaded: (284807, 31)
+Device: cuda
+
+=== Round 1/5 ===
+Traceback (most recent call last):
+  File "/home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/Approach01.py", line 218, in <module>
+    client_data[i],
+    ^^^^^^^^^^^
+NameError: name 'client_data' is not defined

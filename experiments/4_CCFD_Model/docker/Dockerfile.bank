@@ -1,0 +1,22 @@
+# docker/Dockerfile.bank
+# Dockerfile for a single bank branch worker
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y build-essential && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements first
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy source files and folders from the build context (project root)
+COPY local_train.py .
+COPY dataset.py .
+COPY FL_model.py .
+COPY src/ ./src/
+COPY config/ ./config/
+
+# Run the branch worker
+CMD ["python3", "local_train.py"]

@@ -1,0 +1,53 @@
+2026-03-08 22:00:47,465 - INFO: ========== STARTING ROUND 301 ==========
+2026-03-08 22:00:47,465 - INFO: [BankA] Simulating branch training...
+2026-03-08 22:00:48,085 - INFO: [BankA] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-08 22:00:48,085 - INFO: === Round 301 start — 1 branch update(s) ===
+2026-03-08 22:00:48,116 - INFO: No global model recorded for round 300; fresh start.
+2026-03-08 22:00:48,117 - INFO: Round 301 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-08 22:00:48,123 - INFO: Uploaded CID=QmVdbfSptkxtPFT2kBfGPbX8RF79ihQRptt4yBFw6mK44Z hash=b1e676d027daab7c...
+2026-03-08 22:00:48,161 - INFO: Submitted update — tx_id=None
+2026-03-08 22:00:48,162 - INFO: [BankB] Simulating branch training...
+2026-03-08 22:00:48,258 - INFO: [BankB] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-08 22:00:48,259 - INFO: === Round 301 start — 1 branch update(s) ===
+2026-03-08 22:00:48,289 - INFO: No global model recorded for round 300; fresh start.
+2026-03-08 22:00:48,289 - INFO: Round 301 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-08 22:00:48,294 - INFO: Uploaded CID=QmRYM6HK833fuzqiWLt1JrDbZsY8ppTFVeZc9SYXdwQYY4 hash=82d1b0500dd4f023...
+2026-03-08 22:00:48,331 - INFO: Submitted update — tx_id=None
+2026-03-08 22:00:48,331 - INFO: [BankC] Simulating branch training...
+2026-03-08 22:00:48,438 - INFO: [BankC] Running HQ Agent flow (IPFS + CBFT)...
+2026-03-08 22:00:48,438 - INFO: === Round 301 start — 1 branch update(s) ===
+2026-03-08 22:00:48,470 - INFO: No global model recorded for round 300; fresh start.
+2026-03-08 22:00:48,470 - INFO: Round 301 Evaluation: PR-AUC=0.8500, ROC-AUC=0.8500, F1=0.8500 (threshold=0.0000)
+2026-03-08 22:00:48,475 - INFO: Uploaded CID=QmZwAmuJXeKM5d7qKKK2SVJ9SraZw52eHtUPhieFgg9BBU hash=700874e04a1b8773...
+2026-03-08 22:00:48,513 - INFO: Submitted update — tx_id=None
+2026-03-08 22:00:48,513 - INFO: --- Round 301 cluster models submitted ---
+2026-03-08 22:00:48,513 - INFO: Waiting 10 seconds for models to settle on ledger before verification...
+2026-03-08 22:00:58,513 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-08 22:00:58,562 - INFO: Verifying BankB round 301: PR-AUC=0.8500 -> True
+2026-03-08 22:00:58,629 - INFO: Verifying BankC round 301: PR-AUC=0.8500 -> True
+2026-03-08 22:00:58,697 - INFO: Verifying BankA round 301: PR-AUC=0.8500 -> True
+2026-03-08 22:00:58,767 - INFO: Verifying BankC round 301: PR-AUC=0.8500 -> True
+2026-03-08 22:00:58,839 - INFO: Verifying BankA round 301: PR-AUC=0.8500 -> True
+2026-03-08 22:00:58,905 - INFO: Verifying BankB round 301: PR-AUC=0.8500 -> True
+2026-03-08 22:00:58,941 - INFO: Waiting 10 seconds for CBFT verification to finalize...
+2026-03-08 22:01:08,941 - INFO: --- Initiating CBFT Commits ---
+2026-03-08 22:01:09,027 - INFO: Committed to BankB round 301
+2026-03-08 22:01:09,093 - INFO: Committed to BankC round 301
+2026-03-08 22:01:09,163 - INFO: Committed to BankA round 301
+2026-03-08 22:01:09,233 - INFO: Committed to BankC round 301
+2026-03-08 22:01:09,302 - INFO: Committed to BankA round 301
+2026-03-08 22:01:09,375 - INFO: Committed to BankB round 301
+2026-03-08 22:01:09,375 - INFO: Waiting 10 seconds for CBFT commits to finalize...
+2026-03-08 22:01:19,375 - INFO: [GlobalAggregator] Performing cross-cluster aggregation...
+2026-03-08 22:01:19,376 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-08 22:01:19,441 - INFO: Consensus achieved: ['BankA', 'BankB', 'BankC'] (0.1s elapsed)
+2026-03-08 22:01:19,505 - INFO: Trust-weighted FedAvg over 3 models. Effective weights: {'BankA': '4750.000', 'BankB': '5000.000', 'BankC': '5250.000'}
+2026-03-08 22:01:19,509 - INFO: Global model uploaded — CID=QmXoKCXyNnt1RjoswE352cWDMuyrDQDTN39aVG3wAttVdh hash=d24cdf8474248908...
+2026-03-08 22:01:19,553 - INFO: Global model stored on ledger.
+Traceback (most recent call last):
+  File "/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fl-integration/scripts/run_10_rounds.py", line 193, in <module>
+    run_benchmark()
+  File "/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fl-integration/scripts/run_10_rounds.py", line 164, in run_benchmark
+    global_cid, global_hash = aggregator.run_full_aggregation(round_num, bank_updates)
+    ^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2)

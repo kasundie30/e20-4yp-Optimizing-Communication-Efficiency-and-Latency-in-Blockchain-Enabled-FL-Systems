@@ -1,0 +1,54 @@
+{
+  "os":  "Linux-6.8.0-88-generic-x86_64-with-glibc2.39",
+  "python":  "CPython 3.12.3",
+  "startedAt":  "2025-12-29T09:23:53.584120Z",
+  "program":  "/home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/Approach01.py",
+  "codePath":  "FYP-Group18/experiments/{ablation}/Centralized Learning with FL/Approach01.py",
+  "codePathLocal":  "Approach01.py",
+  "git":  {
+    "remote":  "git@github.com:cepdnaclk/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems.git",
+    "commit":  "28e5939f1e895ea8d51acd190e3e21ce2838d146"
+  },
+  "email":  "e20285@eng.pdn.ac.lk",
+  "root":  "/home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL",
+  "host":  "visionsrv",
+  "executable":  "/home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/.venv/bin/python",
+  "cpu_count":  32,
+  "cpu_count_logical":  64,
+  "gpu":  "NVIDIA RTX 6000 Ada Generation",
+  "gpu_count":  3,
+  "disk":  {
+    "/":  {
+      "total":  "7539261915136",
+      "used":  "867829800960"
+    }
+  },
+  "memory":  {
+    "total":  "540459782144"
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA RTX 6000 Ada Generation",
+      "memoryTotal":  "51527024640",
+      "cudaCores":  18176,
+      "architecture":  "Ada",
+      "uuid":  "GPU-858f439a-50ad-017a-ee98-77673962de41"
+    },
+    {
+      "name":  "NVIDIA RTX 6000 Ada Generation",
+      "memoryTotal":  "51527024640",
+      "cudaCores":  18176,
+      "architecture":  "Ada",
+      "uuid":  "GPU-9e037b54-3de6-c5c9-5e6c-4dc6475ae67f"
+    },
+    {
+      "name":  "NVIDIA RTX 6000 Ada Generation",
+      "memoryTotal":  "51527024640",
+      "cudaCores":  18176,
+      "architecture":  "Ada",
+      "uuid":  "GPU-ed5ed4a8-746d-ccb2-95f8-66bfc98d52f2"
+    }
+  ],
+  "cudaVersion":  "13.0",
+  "writerId":  "va9109vnb96m6d4i0mql6ydhypfszrne"
+}

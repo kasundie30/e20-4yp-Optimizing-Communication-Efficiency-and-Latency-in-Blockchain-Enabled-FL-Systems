@@ -1,0 +1,316 @@
+[
+  {
+    "round": 4,
+    "latency_sec": 39.51815128326416,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmRG9GvyLVigbLVF5hJCWN16P8WEiM7qEHc1L4SjAzWb6e",
+    "pr_auc": 0.7715809167194416,
+    "roc_auc": 0.9564477782918419,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 5,
+    "latency_sec": 39.877071380615234,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmaJ1xKgCg532Wvq2fZQytB8qkYdeK2kCQ3VknpPvGpiFM",
+    "pr_auc": 0.7636291648156216,
+    "roc_auc": 0.966411755944836,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 6,
+    "latency_sec": 39.703284740448,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmXjLxgzPP55ReZUnaG5nfkUjUVDbzjiS93HTeHAcmycfh",
+    "pr_auc": 0.7833330607737681,
+    "roc_auc": 0.9543551891615543,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 7,
+    "latency_sec": 43.81049966812134,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "Qmd2w8GZgwPmCw1tGokNQ8SbuYL16YnMS9jAMcaPD6iC44",
+    "pr_auc": 0.678191576869034,
+    "roc_auc": 0.9286266483504876,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 8,
+    "latency_sec": 43.84387278556824,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmXEAsEXMcBSCAwN5ENDokHmxr8eXzitLkNX3RABu8EuSg",
+    "pr_auc": 0.6895590898309059,
+    "roc_auc": 0.90367144852034,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 9,
+    "latency_sec": 43.83720064163208,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmXHVuibimtRFEUrXyezWtNU32D33b46P9Ux8wnux2xfwq",
+    "pr_auc": 0.7088067693782554,
+    "roc_auc": 0.8484056922755159,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 10,
+    "latency_sec": 43.610162019729614,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmPouMwzLYyV6evWTuPmYNaD4sgsQ6MuFG7dizLzbabBkK",
+    "pr_auc": 0.6083121206905749,
+    "roc_auc": 0.9001378070653552,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 11,
+    "latency_sec": 43.76399636268616,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmWjQw2rBTnX1W37yPXF5nescGNBsPLiGp6ezL49yrcidA",
+    "pr_auc": 0.7150763083731855,
+    "roc_auc": 0.9380487459649478,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 12,
+    "latency_sec": 39.80040240287781,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmdragSG2ENqeWYEx1tofTgZjkcgwCXXMZizZVVBX24vsq",
+    "pr_auc": 0.8031646945418284,
+    "roc_auc": 0.9668146009734828,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 13,
+    "latency_sec": 39.72996377944946,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmXeVouD9bBenGbyLpvrVLEQCkRJMBhmP5LmkU4q3zeKTE",
+    "pr_auc": 0.8084305751776153,
+    "roc_auc": 0.9582427559194849,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 14,
+    "latency_sec": 43.46942400932312,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmXXSBCAVGZw8c97HN8EB2a4ZMWBVZBfvH3MQRAWFQUtmK",
+    "pr_auc": 0.6827753470186597,
+    "roc_auc": 0.944597387356555,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 15,
+    "latency_sec": 39.97242999076843,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmTb9aVgRjvf241zMB1G7XSeCG5gtYX6pzpF5Uq2PG88GN",
+    "pr_auc": 0.7511895289550559,
+    "roc_auc": 0.9632364630338521,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 16,
+    "latency_sec": 39.87059307098389,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmXo11GKx8JUAcFDLie1VUFaFunKx13EYmtduqMWDc1gfK",
+    "pr_auc": 0.7614607272801116,
+    "roc_auc": 0.9559527053862664,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 17,
+    "latency_sec": 39.69904160499573,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmQ3kEA7TRif3TNFESe8UP68bWSFMBSUoFERzVah557xoy",
+    "pr_auc": 0.785772863291838,
+    "roc_auc": 0.9472283575436462,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 18,
+    "latency_sec": 43.48696160316467,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmQe25dGPDUoFRKjahEsbDxvLZKJaDRsUheWAHM9y5ZZv5",
+    "pr_auc": 0.6388683494583386,
+    "roc_auc": 0.8643634916510334,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 19,
+    "latency_sec": 168.39055967330933,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "error": "aggregation_failed"
+  },
+  {
+    "round": 20,
+    "latency_sec": 42.903156042099,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmcTU4opStLYjK3uxSfLXE7Ai8JumtumeWMf9faBgpQJ5y",
+    "pr_auc": 0.7371136598495658,
+    "roc_auc": 0.9495372893745035,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 21,
+    "latency_sec": 43.83802080154419,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmfSm1RcZ8Nf5EGbh133NFQt8CCAbwVSgk7JDwiKjCNTqC",
+    "pr_auc": 0.6775583157366508,
+    "roc_auc": 0.9409527027455256,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 22,
+    "latency_sec": 43.54002928733826,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmSrF8iz2k4kNfuZWJhbav6G8h6BQJPFmzX9PDCo9z2wyu",
+    "pr_auc": 0.7218237802446582,
+    "roc_auc": 0.8660832081622133,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  },
+  {
+    "round": 23,
+    "latency_sec": 39.768516302108765,
+    "banks_submitted": [
+      "BankA",
+      "BankB",
+      "BankC"
+    ],
+    "global_cid": "QmbxJtetBRzCZW5sEZvc16Yy2JbsMNQYjN13XaV3jtcnVe",
+    "pr_auc": 0.7757065855170122,
+    "roc_auc": 0.9666973520762561,
+    "f1": 0.008113590263691683,
+    "precision": 0.004073319755600814,
+    "recall": 1.0,
+    "comm_cost_mb": 0.4895782470703125
+  }
+]
