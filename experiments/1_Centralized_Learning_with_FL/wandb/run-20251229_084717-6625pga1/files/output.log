@@ -1,0 +1,6 @@
+Loaded: (284807, 31)
+Traceback (most recent call last):
+  File "/home/e20fyptemp3/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/FYP-Group18/experiments/{ablation}/Centralized Learning with FL/Approach01.py", line 78, in <module>
+    client_data = np.array_split(X_train_res, num_clients)  # Split the training data into `num_clients` parts
+                                 ^^^^^^^^^^^
+NameError: name 'X_train_res' is not defined

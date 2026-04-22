@@ -1,0 +1,48 @@
+# All training/validation/scoring hyperparameters
+
+# config/config.yaml
+# Phase 2 settings: deadline (straggler cutoff), validation gate, backup recovery,
+# score updates, and mock-ledger batching.
+
+phase2:
+  # 1) Straggler cutoff at HQ: wait max this many seconds for branch model files
+  deadline_sec: 25
+
+  # Minimum number of branch models required to form a brand model
+  # (set to 1 if you want brand to proceed even with one branch)
+  min_models_required: 2
+
+  # 2) Fast validation: validate on a small subset of the HQ (or bank) data
+  fast_val_fraction: 0.15     # use 15% subset
+  metric: "prauc"             # prauc | recall | f1
+
+  # Thresholds for acceptance
+  threshold:
+    prauc: 0.20
+    recall: 0.60
+    f1: 0.10
+
+  # 3) Backup recovery: if validation fails, blend with previous global model:
+  # w_alt = beta*w_prev_global + (1-beta)*w_brand
+  blend_beta: 0.70
+
+  # 4) Mock ledger batching: "commit" every k rounds (write buffered logs)
+  ledger_commit_every_k: 3
+
+scoring:
+  # Score starts here for each brand
+  init_score: 1.0
+
+  # Score boundaries (prevents permanent exclusion)
+  floor: 0.2
+  max: 3.0
+
+  # Score update
+  reward: 0.05
+  penalty: 0.10
+
+paths:
+  # where scores/ledger will be stored (relative to project root)
+  score_file: "shared/scores.json"
+  ledger_buffer: "shared/ledger_buffer.jsonl"
+  ledger_committed: "shared/ledger_committed.jsonl"

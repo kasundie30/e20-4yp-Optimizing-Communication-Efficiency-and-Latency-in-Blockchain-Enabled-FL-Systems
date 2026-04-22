@@ -1,0 +1,254 @@
+================================================================================
+  HCFL Fraud Detection — Blockchain Layer
+  Dependencies & Reproduction Guide
+  Generated: 2026-03-07
+================================================================================
+
+This file lists every dependency needed to reproduce the blockchain layer on
+a fresh machine, organized by Phase. Versions listed are the ones tested and
+verified on this machine.
+
+================================================================================
+PHASE 1 — Fabric Network Setup
+================================================================================
+
+System Tools
+  docker          >= 24.0       (with docker-compose plugin v2.x)
+  bash            any
+
+Hyperledger Fabric Binaries v2.5.9
+  Install script: fabric-samples install script
+    curl -sSL https://bit.ly/2ysbOFE | bash -s -- 2.5.9 1.5.11
+
+  Binaries (placed in fabric-samples/bin/):
+    peer
+    orderer
+    cryptogen
+    configtxgen
+    osnadmin
+
+Docker Images (pulled automatically by network.sh)
+  hyperledger/fabric-peer:2.5.9
+  hyperledger/fabric-orderer:2.5.9
+  hyperledger/fabric-tools:2.5.9
+  couchdb:3.3.2
+
+Reproduce:
+  cd fabric-network
+  ./scripts/network.sh up
+  ./scripts/createChannel.sh
+  ./scripts/deployChaincode.sh
+
+================================================================================
+PHASE 2 — CBFT Chaincode (Go)
+================================================================================
+
+Language
+  go >= 1.21.x
+
+Go Modules (go.mod / vendor/)
+  github.com/hyperledger/fabric-contract-api-go    v1.2.1
+  github.com/hyperledger/fabric-chaincode-go       v0.0.0-20230228194215-b84622ba6a7a
+  github.com/stretchr/testify                      v1.8.2
+  github.com/hyperledger/fabric-protos-go          v0.3.0
+  google.golang.org/grpc                           v1.53.0
+  google.golang.org/protobuf                       v1.28.1
+
+Install & Test:
+  cd fabric-network/chaincode/cbft
+  go mod tidy
+  go test -v ./...
+
+================================================================================
+PHASE 3 — IPFS Model Storage Layer
+================================================================================
+
+IPFS Daemon
+  kubo (go-ipfs) v0.33.0  (Linux amd64 binary)
+  Download: https://dist.ipfs.tech/kubo/v0.33.0/kubo_v0.33.0_linux-amd64.tar.gz
+  Install:  cp kubo/ipfs ~/.local/bin/
+  Init:     ipfs init
+  Start:    ipfs daemon &
+
+Python (inside .venv)
+  python                 3.12.3
+  requests               2.32.5
+  pytest                 9.0.2
+  idna                   3.11
+  certifi                2026.2.25
+  charset-normalizer     3.4.5
+  urllib3                2.6.3
+
+Reproduce:
+  source .venv/bin/activate
+  pip install requests pytest
+  cd fabric-network/ipfs
+  python -m pytest test_ipfs_client.py -v
+
+================================================================================
+PHASE 4 — FastAPI REST Interface
+================================================================================
+
+Python (inside .venv)
+  python                 3.12.3
+  fastapi                0.135.1
+  uvicorn[standard]      0.41.0     (includes uvloop, websockets, httptools)
+  pydantic               2.12.5
+  pydantic-core          2.41.5
+  httpx                  0.28.1
+  pytest                 9.0.2
+  pytest-asyncio         1.3.0
+  anyio                  4.12.1
+  starlette              0.52.1
+  python-dotenv          1.2.2
+  pyyaml                 6.0.3
+  typing-extensions      4.15.0
+  annotated-types        0.7.0
+
+Note: No separate Fabric Python SDK is needed. The API server invokes the
+peer CLI binary directly via subprocess (compatible with Fabric 2.5).
+
+Reproduce:
+  source .venv/bin/activate
+  pip install fastapi "uvicorn[standard]" pydantic httpx pytest pytest-asyncio
+  # Prerequisites: Fabric network running (Phase 1), chaincode deployed (Phase 2)
+  cd api-server
+  python -m pytest tests/unit/ -v                    # 16 unit tests
+  python -m pytest tests/integration/ -v             # 6 live network tests
+  # Start server:
+  uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+================================================================================
+FULL REPRODUCTION SEQUENCE (fresh machine)
+================================================================================
+
+1. Install Docker + fabric-samples/bin (Phase 1)
+2. Install Go >= 1.21 (Phase 2)
+3. Install IPFS (Phase 3)
+4. Create Python 3.12 venv:
+     python3 -m venv .venv && source .venv/bin/activate
+5. Install Python deps:
+     pip install requests pytest fastapi "uvicorn[standard]" pydantic httpx pytest-asyncio
+6. Start network:
+     cd fabric-network && ./scripts/network.sh up
+     ./scripts/createChannel.sh && ./scripts/deployChaincode.sh
+7. Start IPFS daemon:
+     ipfs daemon &
+8. Run all tests:
+     cd chaincode/cbft && go test -v ./...
+     cd ../../ipfs && python -m pytest test_ipfs_client.py -v
+     cd ../../api-server && python -m pytest tests/ -v
+================================================================================
+PHASE 5 — FL Layer Extraction, Reconstruction & Validation
+================================================================================
+
+Python (inside .venv)
+  python                 3.12.3
+  torch                  2.10.0     (includes CUDA 12 libs — CPU-only used here)
+  scikit-learn           1.8.0
+  scipy                  1.17.1
+  numpy                  2.4.2
+  pandas                 3.0.1
+  pytest                 9.0.2
+
+Note: fl-layer/ has ZERO imports from CCFD-FL-layer/. It runs entirely
+without Docker, Fabric, or IPFS (pure Python + PyTorch).
+
+Directory structure:
+  fl-layer/
+    model/FL_model.py          # LSTMTabular (arch unchanged, .pt compatible)
+    model/dataset.py           # Parameterised loader, overlap-safe partitions
+    training/local_train.py    # DP training loop: clip → noise → step
+    aggregation/fedavg.py      # Pure weighted FedAvg, ModelKeyMismatchError
+    validation/validate_fast.py # PR-AUC evaluator (float return, no threshold)
+    resilience/deadline_collect.py  # Injectable collect_fn deadline waiter
+    resilience/backup_logic.py      # Pure beta-blend: beta*global+(1-beta)*brand
+
+Reproduce:
+  source .venv/bin/activate
+  pip install torch scikit-learn pandas numpy pytest
+  cd fl-layer
+  python -m pytest tests/ -v --tb=short
+  # Expected: 30/30 passed in ~6s
+
+================================================================================
+PHASE 6 — FL-Blockchain Integration Layer
+================================================================================
+
+Python (inside .venv)
+  requests               2.31.0
+
+Note: fl-integration/ sits between fl-layer/ and the blockchain.
+It uses standard HTTP interactions mapped to the api-server (Phase 4).
+
+Directory structure:
+  fl-integration/
+    api_client.py              # HTTP shim abstracting the FastAPI server
+    hq_agent.py                # Single bank's round workflow (fetch, evaluate, submit)
+    global_aggregator.py       # Consensus-polls, downloads, trust-weighted FedAvg
+    round_coordinator.py       # Round timeout and agent orchestration
+
+Reproduce:
+  source .venv/bin/activate
+  pip install requests pytest torch scikit-learn
+  cd fl-integration
+  python -m pytest tests/ -v --tb=short
+  # Expected: 28/28 passed in ~3s
+
+================================================================================
+PHASE 7 — Pre-Integration Setup (Configuration & Logging)
+================================================================================
+
+Python (inside .venv)
+  pydantic
+  pydantic-settings
+  pyyaml
+
+Note: fl-integration handles runtime configurations from fl_config.yaml and
+emits structured JSON logs.
+
+Reproduce:
+  source .venv/bin/activate
+  pip install pydantic pydantic-settings pyyaml
+  cd fl-integration
+  python -m pytest tests/ -v
+
+================================================================================
+PHASE 8 — Network Initialization, Evaluation Metrics, and Visualization
+================================================================================
+
+Python (inside .venv)
+  pandas
+  matplotlib
+  seaborn
+
+Note: Requires bash scripts running in the background (`start_system.sh`). 
+
+Reproduce:
+  source .venv/bin/activate
+  pip install pandas matplotlib seaborn
+  cd fl-integration/scripts
+  python plot_metrics.py --log-dir ../logs
+
+================================================================================
+PHASE 9 — CBFT Full Participation & Byzantine Testing
+================================================================================
+
+Python (inside .venv)
+  pytest         # (Already installed in earlier phases)
+  torch          # (Already installed)
+
+Note: This phase focuses on consensus mechanisms. Tested using `pytest` to simulate 
+byzantine scenarios (poisoned weights) and replay attacks without requiring a live 
+network for the unit tests. Chaincode testing utilizes Go test utility.
+
+Reproduce:
+  source .venv/bin/activate
+  # FL Integration Tests
+  cd fl-integration
+  python -m pytest tests/test_hq_agent.py tests/test_byzantine_attack.py tests/test_security_mechanisms.py -v --tb=short
+
+  # Chaincode tests
+  cd ../fabric-network/chaincode/cbft
+  go test -v ./...
+================================================================================

@@ -1,0 +1,1825 @@
+[0;32m[OK][0m    Data splits verified for BankA, BankB, BankC.
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[1;34m[INFO][0m   PHASE 1 — Starting Backend Infrastructure    
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+========================================
+    HCFL Framework Setup & Start        
+========================================
+[1/3] Starting Hyperledger Fabric Network...
+[0;32m[INFO][0m  == STEP 1: Generating crypto material with cryptogen ==
+[0;32m[INFO][0m  Crypto material already exists — skipping cryptogen.
+[0;32m[INFO][0m  == STEP 2: Creating channel-artifacts directory ==
+[0;32m[INFO][0m  == STEP 3: Starting all Docker containers ==
+time="2026-03-17T08:38:22+05:30" level=warning msg="/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fabric-network/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-03-17T08:38:23+05:30" level=warning msg="No services to build"
+ Container couchdb1.bankc Running 
+ Container couchdb0.banka Running 
+ Container orderer1.orderer.fabricfl.com Running 
+ Container orderer0.orderer.fabricfl.com Running 
+ Container couchdb0.bankb Running 
+ Container couchdb1.bankb Running 
+ Container couchdb0.bankc Running 
+ Container orderer2.orderer.fabricfl.com Running 
+ Container peer0.bankb.fabricfl.com Running 
+ Container peer0.banka.fabricfl.com Running 
+ Container couchdb1.banka Running 
+ Container peer1.bankc.fabricfl.com Running 
+ Container peer1.bankb.fabricfl.com Running 
+ Container peer0.bankc.fabricfl.com Running 
+ Container peer1.banka.fabricfl.com Running 
+ Container cli Running 
+[0;32m[INFO][0m  == Network is UP. Run scripts/createChannel.sh next. ==
+[0;32m[INFO][0m  == STEP 1: Generating channel genesis block for 'fraud-detection-global' ==
+[34m2026-03-17 08:38:33.587 +0530 0001 INFO[0m [common.tools.configtxgen] [34;1mmain[0m -> Loading configuration
+[34m2026-03-17 08:38:33.617 +0530 0002 INFO[0m [common.tools.configtxgen.localconfig] [34;1mcompleteInitialization[0m -> orderer type: etcdraft
+[34m2026-03-17 08:38:33.617 +0530 0003 INFO[0m [common.tools.configtxgen.localconfig] [34;1mLoad[0m -> Loaded configuration: /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fabric-network/configtx.yaml
+[34m2026-03-17 08:38:33.635 +0530 0004 INFO[0m [common.tools.configtxgen] [34;1mdoOutputBlock[0m -> Generating genesis block
+[34m2026-03-17 08:38:33.635 +0530 0005 INFO[0m [common.tools.configtxgen] [34;1mdoOutputBlock[0m -> Creating application channel genesis block
+[34m2026-03-17 08:38:33.636 +0530 0006 INFO[0m [common.tools.configtxgen] [34;1mdoOutputBlock[0m -> Writing genesis block
+[0;32m[INFO][0m  Channel genesis block written to: /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fabric-network/channel-artifacts/fraud-detection-global_genesis.block
+[0;32m[INFO][0m  == STEP 2: Joining orderers to channel 'fraud-detection-global' via osnadmin ==
+[0;32m[INFO][0m    Joining orderer0.orderer.fabricfl.com (admin port 7053)...
+[0;32m[INFO][0m    orderer0.orderer.fabricfl.com already a member of channel (skipping).
+[0;32m[INFO][0m    Joining orderer1.orderer.fabricfl.com (admin port 8053)...
+[0;32m[INFO][0m    orderer1.orderer.fabricfl.com already a member of channel (skipping).
+[0;32m[INFO][0m    Joining orderer2.orderer.fabricfl.com (admin port 9053)...
+[0;32m[INFO][0m    orderer2.orderer.fabricfl.com already a member of channel (skipping).
+[0;32m[INFO][0m  All orderers joined channel 'fraud-detection-global'.
+[0;32m[INFO][0m  == STEP 3: Joining all 6 peers to channel 'fraud-detection-global' ==
+[0;32m[INFO][0m    peer0.banka already joined channel (skipping).
+[0;32m[INFO][0m    peer1.banka already joined channel (skipping).
+[0;32m[INFO][0m    peer0.bankb already joined channel (skipping).
+[0;32m[INFO][0m    peer1.bankb already joined channel (skipping).
+[0;32m[INFO][0m    peer0.bankc already joined channel (skipping).
+[0;32m[INFO][0m    peer1.bankc already joined channel (skipping).
+[0;32m[INFO][0m  == STEP 4: Updating anchor peers (peer0 = HQ anchor for each org) ==
+[0;32m[INFO][0m    Setting anchor peer peer0.banka.fabricfl.com:7051 for BankAMSP...
+[0;32m[INFO][0m    Anchor peer already set for BankAMSP — skipping.
+[0;32m[INFO][0m    Setting anchor peer peer0.bankb.fabricfl.com:8051 for BankBMSP...
+[0;32m[INFO][0m    Anchor peer already set for BankBMSP — skipping.
+[0;32m[INFO][0m    Setting anchor peer peer0.bankc.fabricfl.com:9051 for BankCMSP...
+[0;32m[INFO][0m    Anchor peer already set for BankCMSP — skipping.
+[0;32m[INFO][0m  == Channel setup complete. All 6 peers joined, anchor peers configured. ==
+[0;32m[INFO][0m  Next step: run scripts/deployChaincode.sh
+[0;32m[INFO][0m  == STEP 1: Packaging chaincode 'cbft-fl' from /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fabric-network/chaincode/cbft ==
+[0;32m[INFO][0m  Chaincode packaged: /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fabric-network/cbft-fl.tar.gz
+[0;32m[INFO][0m  == STEP 2: Installing chaincode on all 6 peers ==
+[0;32m[INFO][0m    Installing on peer0.banka...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer0.banka
+[0;32m[INFO][0m    Installation step finished for peer0.banka
+[0;32m[INFO][0m    Installing on peer1.banka...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer1.banka
+[0;32m[INFO][0m    Installation step finished for peer1.banka
+[0;32m[INFO][0m    Installing on peer0.bankb...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer0.bankb
+[0;32m[INFO][0m    Installation step finished for peer0.bankb
+[0;32m[INFO][0m    Installing on peer1.bankb...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer1.bankb
+[0;32m[INFO][0m    Installation step finished for peer1.bankb
+[0;32m[INFO][0m    Installing on peer0.bankc...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer0.bankc
+[0;32m[INFO][0m    Installation step finished for peer0.bankc
+[0;32m[INFO][0m    Installing on peer1.bankc...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer1.bankc
+[0;32m[INFO][0m    Installation step finished for peer1.bankc
+[0;32m[INFO][0m  == STEP 3: Querying installed chaincode to get package ID ==
+[0;32m[INFO][0m  Package ID: cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723
+[0;32m[INFO][0m  == STEP 4: Approving chaincode definition for each org ==
+[0;32m[INFO][0m    Approving for banka...
+[34m2026-03-17 08:38:39.873 +0530 0001 INFO[0m [chaincodeCmd] [34;1mClientWait[0m -> txid [5ccbb7b088652d2169ce636f720424c3f294631d4b462adc823245dad78c14df] committed with status (ENDORSEMENT_POLICY_FAILURE) at peer0.banka.fabricfl.com:7051
+Error: transaction invalidated with status (ENDORSEMENT_POLICY_FAILURE)
+[0;32m[OK][0m    Infrastructure started.
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[1;34m[INFO][0m   PHASE 2 — Waiting for API Server to be Ready
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[1;33m[WARN][0m  API not ready yet... retrying in 5s (0/60s)
+[1;33m[WARN][0m  API not ready yet... retrying in 5s (5/60s)
+[1;33m[WARN][0m  API not ready yet... retrying in 5s (10/60s)
+[1;33m[WARN][0m  API not ready yet... retrying in 5s (15/60s)
+[1;33m[WARN][0m  API not ready yet... retrying in 5s (20/60s)
+[1;33m[WARN][0m  API not ready yet... retrying in 5s (25/60s)
+[1;33m[WARN][0m  API not ready yet... retrying in 5s (30/60s)
+[1;33m[WARN][0m  API not ready yet... retrying in 5s (35/60s)
+[1;33m[WARN][0m  API not ready yet... retrying in 5s (40/60s)
+[1;33m[WARN][0m  API not ready yet... retrying in 5s (45/60s)
+[1;33m[WARN][0m  API not ready yet... retrying in 5s (50/60s)
+[1;33m[WARN][0m  API not ready yet... retrying in 5s (55/60s)
+[0;31m[ERROR][0m API server did not become healthy within 60s.
+[0;32m[OK][0m    Data splits verified for BankA, BankB, BankC.
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[1;34m[INFO][0m   PHASE 1 — Starting Backend Infrastructure    
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+========================================
+    HCFL Framework Setup & Start        
+========================================
+[1/3] Starting Hyperledger Fabric Network...
+[0;32m[INFO][0m  == STEP 1: Generating crypto material with cryptogen ==
+[0;32m[INFO][0m  Crypto material already exists — skipping cryptogen.
+[0;32m[INFO][0m  == STEP 2: Creating channel-artifacts directory ==
+[0;32m[INFO][0m  == STEP 3: Starting all Docker containers ==
+time="2026-03-17T08:45:31+05:30" level=warning msg="/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fabric-network/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-03-17T08:45:31+05:30" level=warning msg="No services to build"
+ Container couchdb0.bankc Running 
+ Container couchdb1.banka Running 
+ Container peer0.bankc.fabricfl.com Running 
+ Container peer1.banka.fabricfl.com Running 
+ Container couchdb1.bankb Running 
+ Container couchdb1.bankc Running 
+ Container couchdb0.banka Running 
+ Container orderer0.orderer.fabricfl.com Running 
+ Container couchdb0.bankb Running 
+ Container peer1.bankb.fabricfl.com Running 
+ Container peer1.bankc.fabricfl.com Running 
+ Container orderer2.orderer.fabricfl.com Running 
+ Container orderer1.orderer.fabricfl.com Running 
+ Container peer0.bankb.fabricfl.com Running 
+ Container peer0.banka.fabricfl.com Running 
+ Container cli Running 
+[0;32m[INFO][0m  == Network is UP. Run scripts/createChannel.sh next. ==
+[0;32m[INFO][0m  == STEP 1: Generating channel genesis block for 'fraud-detection-global' ==
+[34m2026-03-17 08:45:41.817 +0530 0001 INFO[0m [common.tools.configtxgen] [34;1mmain[0m -> Loading configuration
+[34m2026-03-17 08:45:41.830 +0530 0002 INFO[0m [common.tools.configtxgen.localconfig] [34;1mcompleteInitialization[0m -> orderer type: etcdraft
+[34m2026-03-17 08:45:41.830 +0530 0003 INFO[0m [common.tools.configtxgen.localconfig] [34;1mLoad[0m -> Loaded configuration: /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fabric-network/configtx.yaml
+[34m2026-03-17 08:45:41.831 +0530 0004 INFO[0m [common.tools.configtxgen] [34;1mdoOutputBlock[0m -> Generating genesis block
+[34m2026-03-17 08:45:41.831 +0530 0005 INFO[0m [common.tools.configtxgen] [34;1mdoOutputBlock[0m -> Creating application channel genesis block
+[34m2026-03-17 08:45:41.831 +0530 0006 INFO[0m [common.tools.configtxgen] [34;1mdoOutputBlock[0m -> Writing genesis block
+[0;32m[INFO][0m  Channel genesis block written to: /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fabric-network/channel-artifacts/fraud-detection-global_genesis.block
+[0;32m[INFO][0m  == STEP 2: Joining orderers to channel 'fraud-detection-global' via osnadmin ==
+[0;32m[INFO][0m    Joining orderer0.orderer.fabricfl.com (admin port 7053)...
+[0;32m[INFO][0m    orderer0.orderer.fabricfl.com already a member of channel (skipping).
+[0;32m[INFO][0m    Joining orderer1.orderer.fabricfl.com (admin port 8053)...
+[0;32m[INFO][0m    orderer1.orderer.fabricfl.com already a member of channel (skipping).
+[0;32m[INFO][0m    Joining orderer2.orderer.fabricfl.com (admin port 9053)...
+[0;32m[INFO][0m    orderer2.orderer.fabricfl.com already a member of channel (skipping).
+[0;32m[INFO][0m  All orderers joined channel 'fraud-detection-global'.
+[0;32m[INFO][0m  == STEP 3: Joining all 6 peers to channel 'fraud-detection-global' ==
+[0;32m[INFO][0m    peer0.banka already joined channel (skipping).
+[0;32m[INFO][0m    peer1.banka already joined channel (skipping).
+[0;32m[INFO][0m    peer0.bankb already joined channel (skipping).
+[0;32m[INFO][0m    peer1.bankb already joined channel (skipping).
+[0;32m[INFO][0m    peer0.bankc already joined channel (skipping).
+[0;32m[INFO][0m    peer1.bankc already joined channel (skipping).
+[0;32m[INFO][0m  == STEP 4: Updating anchor peers (peer0 = HQ anchor for each org) ==
+[0;32m[INFO][0m    Setting anchor peer peer0.banka.fabricfl.com:7051 for BankAMSP...
+[0;32m[INFO][0m    Anchor peer already set for BankAMSP — skipping.
+[0;32m[INFO][0m    Setting anchor peer peer0.bankb.fabricfl.com:8051 for BankBMSP...
+[0;32m[INFO][0m    Anchor peer already set for BankBMSP — skipping.
+[0;32m[INFO][0m    Setting anchor peer peer0.bankc.fabricfl.com:9051 for BankCMSP...
+[0;32m[INFO][0m    Anchor peer already set for BankCMSP — skipping.
+[0;32m[INFO][0m  == Channel setup complete. All 6 peers joined, anchor peers configured. ==
+[0;32m[INFO][0m  Next step: run scripts/deployChaincode.sh
+[0;32m[INFO][0m  == STEP 1: Packaging chaincode 'cbft-fl' from /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fabric-network/chaincode/cbft ==
+[0;32m[INFO][0m  Chaincode packaged: /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fabric-network/cbft-fl.tar.gz
+[0;32m[INFO][0m  == STEP 2: Installing chaincode on all 6 peers ==
+[0;32m[INFO][0m    Installing on peer0.banka...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer0.banka
+[0;32m[INFO][0m    Installation step finished for peer0.banka
+[0;32m[INFO][0m    Installing on peer1.banka...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer1.banka
+[0;32m[INFO][0m    Installation step finished for peer1.banka
+[0;32m[INFO][0m    Installing on peer0.bankb...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer0.bankb
+[0;32m[INFO][0m    Installation step finished for peer0.bankb
+[0;32m[INFO][0m    Installing on peer1.bankb...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer1.bankb
+[0;32m[INFO][0m    Installation step finished for peer1.bankb
+[0;32m[INFO][0m    Installing on peer0.bankc...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer0.bankc
+[0;32m[INFO][0m    Installation step finished for peer0.bankc
+[0;32m[INFO][0m    Installing on peer1.bankc...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer1.bankc
+[0;32m[INFO][0m    Installation step finished for peer1.bankc
+[0;32m[INFO][0m  == STEP 3: Querying installed chaincode to get package ID ==
+[0;32m[INFO][0m  Package ID: cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723
+[0;32m[INFO][0m  Chaincode 'cbft-fl' already committed at sequence 1 — skipping approve/commit/InitLedger.
+[2/3] Starting IPFS Daemon...
+IPFS started (PID: 267840)
+[3/3] Starting REST API Server...
+API Server started (PID: 267897)
+========================================
+   All systems started successfully!    
+========================================
+IPFS URL:  http://127.0.0.1:5001
+API URL:   http://127.0.0.1:8000
+Check status via: ./status.sh
+Stop system via: ./stop_system.sh
+========================================
+[0;32m[OK][0m    Infrastructure started.
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[1;34m[INFO][0m   PHASE 2 — Waiting for API Server to be Ready
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[0;32m[OK][0m    API server is healthy at http://localhost:8000.
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[1;34m[INFO][0m   PHASE 3 — Broadcasting Initial Global Model  
+[1;34m[INFO][0m             (Round 0 — Random Seed Init)       
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+INFO: Generated Round 0 Model (seed=42): hash=f45f2f0498896d70...
+INFO: Uploading Round 0 model to IPFS at http://127.0.0.1:5001
+INFO: Upload successful → CID: QmP2AA8Fagnw2uAwZSYZH7f3NNY3bEZrjSSgfMDVe6kt71
+INFO: Registering Round 0 on Blockchain via API...
+INFO: Successfully registered Round 0 model!
+INFO: 
+=== Round 0 Bootstrap Complete ===
+INFO: Registered CID: QmP2AA8Fagnw2uAwZSYZH7f3NNY3bEZrjSSgfMDVe6kt71
+[0;32m[OK][0m    Round 0 model registered on blockchain.
+[1;34m[INFO][0m  Waiting 5s for ledger to settle before starting training...
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[1;34m[INFO][0m   PHASE 4 — Federated Learning Training Loop   
+[1;34m[INFO][0m             Rounds          : 2            
+[1;34m[INFO][0m             Data            : data/splits/fl_clients  
+[1;34m[INFO][0m             Test set        : data/splits/test/        
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[1;34m[INFO][0m  Each round performs:
+[1;34m[INFO][0m    [A] Intra-cluster training  — branches train locally with Differential Privacy
+[1;34m[INFO][0m    [B] HQ FedAvg              — branches averaged → Cluster Model
+[1;34m[INFO][0m    [C] IPFS upload            — Cluster Model uploaded; CID hash stored on Blockchain
+[1;34m[INFO][0m    [D] CBFT cross-verification — Banks verify each other's models (SHA-256 + PR-AUC)
+[1;34m[INFO][0m    [E] Global aggregation      — Trust-weighted FedAvg across accepted banks
+[1;34m[INFO][0m    [F] Evaluation              — Global model evaluated (F1, PR-AUC, ROC-AUC)
+2026-03-17 08:45:57,366 - INFO: Loading real CCFD datasets from /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/data/splits/fl_clients
+2026-03-17 08:45:57,366 - INFO: Loading dataset from /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/data/splits/fl_clients/BankA/train_ready.csv
+2026-03-17 08:45:58,218 - INFO: [BankA] dataset loaded: 151642 samples
+2026-03-17 08:45:58,218 - INFO: Loading dataset from /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/data/splits/fl_clients/BankB/train_ready.csv
+2026-03-17 08:45:58,684 - INFO: [BankB] dataset loaded: 80980 samples
+2026-03-17 08:45:58,684 - INFO: Loading dataset from /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/data/splits/fl_clients/BankC/train_ready.csv
+2026-03-17 08:45:58,740 - INFO: [BankC] dataset loaded: 7896 samples
+2026-03-17 08:45:59,030 - INFO: Global test set loaded: 43208 rows, fraud=0.407%
+2026-03-17 08:45:59,071 - INFO: Starting from round 2 (ledger latest: 1)
+2026-03-17 08:45:59,071 - INFO: ========== STARTING ROUND 2 ==========
+2026-03-17 08:45:59,071 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 08:46:03,798 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 08:46:03,798 - INFO: === Round 2 start — 1 branch update(s) ===
+2026-03-17 08:46:03,831 - INFO: Downloading global model CID=QmUJdT8iW3RTeSFQNaL6Atg2h2pzV2ZLGhnEzTTF5djvwf from IPFS
+2026-03-17 08:46:03,834 - INFO: Global model verified and loaded (round 1).
+/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+2026-03-17 08:46:03,968 - INFO: Round 2 Evaluation: PR-AUC=0.0000, ROC-AUC=0.5000, F1=0.0000 (threshold=0.0000)
+2026-03-17 08:46:03,973 - INFO: Uploaded CID=QmVPeFdtfZRnsG2TKih1TEN3yjUW3HJpvmFGD4zezCLXFx hash=d7958877d371ec6b...
+2026-03-17 08:46:04,028 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 08:46:06,098 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 08:46:08,172 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.0000 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 08:46:08,172 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 08:46:09,362 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 08:46:09,362 - INFO: === Round 2 start — 1 branch update(s) ===
+2026-03-17 08:46:09,391 - INFO: Downloading global model CID=QmUJdT8iW3RTeSFQNaL6Atg2h2pzV2ZLGhnEzTTF5djvwf from IPFS
+2026-03-17 08:46:09,393 - INFO: Global model verified and loaded (round 1).
+2026-03-17 08:46:09,447 - INFO: Round 2 Evaluation: PR-AUC=0.8202, ROC-AUC=0.9998, F1=0.0021 (threshold=0.0000)
+2026-03-17 08:46:09,451 - INFO: Uploaded CID=QmVWevdR5yFT3iUoodytVMfphqjdGjgSGWMsfRJTkfC3YK hash=03175b247b1bcbe1...
+2026-03-17 08:46:09,489 - INFO: Submitted update — tx_id=None
+2026-03-17 08:46:09,489 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 08:46:09,684 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 08:46:09,684 - INFO: === Round 2 start — 1 branch update(s) ===
+2026-03-17 08:46:09,714 - INFO: Downloading global model CID=QmUJdT8iW3RTeSFQNaL6Atg2h2pzV2ZLGhnEzTTF5djvwf from IPFS
+2026-03-17 08:46:09,716 - INFO: Global model verified and loaded (round 1).
+2026-03-17 08:46:09,729 - INFO: Round 2 Evaluation: PR-AUC=0.8522, ROC-AUC=0.9865, F1=0.0494 (threshold=0.0000)
+2026-03-17 08:46:09,733 - INFO: Uploaded CID=QmNw1dxJQUud39K3A5W8epNAV2sWYLgA7eFYX3TwrSdRp5 hash=b7fde155b4c37440...
+2026-03-17 08:46:09,772 - INFO: Submitted update — tx_id=None
+2026-03-17 08:46:09,772 - INFO: --- Round 2: cluster models submitted ---
+2026-03-17 08:46:09,772 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 08:46:19,772 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 08:46:19,951 - INFO: Verifying BankB round 2: PR-AUC=0.2500 -> True
+2026-03-17 08:46:20,108 - INFO: Verifying BankC round 2: PR-AUC=0.4167 -> True
+2026-03-17 08:46:20,220 - INFO: Verifying BankA round 2: PR-AUC=0.3275 -> True
+2026-03-17 08:46:20,333 - INFO: Verifying BankC round 2: PR-AUC=0.6214 -> True
+2026-03-17 08:46:20,406 - INFO: Verifying BankA round 2: PR-AUC=0.5539 -> True
+2026-03-17 08:46:20,481 - INFO: Verifying BankB round 2: PR-AUC=0.8671 -> True
+2026-03-17 08:46:20,519 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 08:46:30,520 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 08:46:30,612 - INFO: Committed to BankB round 2
+2026-03-17 08:46:30,682 - INFO: Committed to BankC round 2
+2026-03-17 08:46:30,751 - INFO: Committed to BankA round 2
+2026-03-17 08:46:30,823 - INFO: Committed to BankC round 2
+2026-03-17 08:46:30,901 - INFO: Committed to BankA round 2
+2026-03-17 08:46:30,972 - INFO: Committed to BankB round 2
+2026-03-17 08:46:30,972 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 08:46:40,972 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 08:46:40,972 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 08:46:41,030 - INFO: Consensus achieved: ['BankA', 'BankB', 'BankC'] (0.1s elapsed)
+2026-03-17 08:46:41,069 - INFO: Trust-weighted FedAvg over 3 models. Effective weights: {'BankA': '151642.000', 'BankB': '80980.000', 'BankC': '7896.000'}
+2026-03-17 08:46:41,072 - INFO: Global model uploaded — CID=QmbHJNxL4LJGFvX9FZEoPHRXTPSwjDGfUDx2XqEdwKRu6N hash=be32df80a7b9bd76...
+2026-03-17 08:46:41,107 - INFO: Global model stored on ledger.
+2026-03-17 08:46:41,107 - INFO: Round 2 Global CID: QmbHJNxL4LJGFvX9FZEoPHRXTPSwjDGfUDx2XqEdwKRu6N
+2026-03-17 08:46:41,262 - INFO: 
+2026-03-17 08:46:41,262 - INFO: ===> ROUND 2 GLOBAL EVALUATION <===
+2026-03-17 08:46:41,262 - INFO:   F1 Score : 0.0081
+2026-03-17 08:46:41,262 - INFO:   PR-AUC   : 0.7873
+2026-03-17 08:46:41,262 - INFO:   ROC-AUC  : 0.9851
+2026-03-17 08:46:41,262 - INFO:   Precision: 0.0041
+2026-03-17 08:46:41,262 - INFO:   Recall   : 1.0000
+2026-03-17 08:46:41,262 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 08:46:41,262 - INFO:   E2E Latency: 42.04s
+2026-03-17 08:46:41,262 - INFO: =========================================
+
+2026-03-17 08:46:41,262 - INFO: ========== ROUND 2 COMPLETED in 42.04s ==========
+2026-03-17 08:46:41,262 - INFO: ========== STARTING ROUND 3 ==========
+2026-03-17 08:46:41,262 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 08:46:43,432 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 08:46:43,432 - INFO: === Round 3 start — 1 branch update(s) ===
+2026-03-17 08:46:44,127 - INFO: Downloading global model CID=QmbHJNxL4LJGFvX9FZEoPHRXTPSwjDGfUDx2XqEdwKRu6N from IPFS
+2026-03-17 08:46:44,131 - INFO: Global model verified and loaded (round 2).
+2026-03-17 08:46:44,271 - INFO: Round 3 Evaluation: PR-AUC=0.3333, ROC-AUC=0.9999, F1=0.0001 (threshold=0.0000)
+2026-03-17 08:46:44,274 - INFO: Uploaded CID=QmeUdRdngdLgP5mjmTSZKKSYGmH8FXRB2TR7ut1PuktaCg hash=e0162167600be6ae...
+2026-03-17 08:46:44,308 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 08:46:46,372 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 08:46:48,425 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.3333 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 08:46:48,425 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 08:46:49,547 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 08:46:49,547 - INFO: === Round 3 start — 1 branch update(s) ===
+2026-03-17 08:46:49,577 - INFO: Downloading global model CID=QmbHJNxL4LJGFvX9FZEoPHRXTPSwjDGfUDx2XqEdwKRu6N from IPFS
+2026-03-17 08:46:49,579 - INFO: Global model verified and loaded (round 2).
+2026-03-17 08:46:49,624 - INFO: Round 3 Evaluation: PR-AUC=0.7975, ROC-AUC=0.9945, F1=0.0043 (threshold=0.0000)
+2026-03-17 08:46:49,628 - INFO: Uploaded CID=QmXbyVjMkfRRdri3ickkC1XKZtgEmgd5RLG4GVefoXsFrM hash=512b09440ef611c7...
+2026-03-17 08:46:49,665 - INFO: Submitted update — tx_id=None
+2026-03-17 08:46:49,665 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 08:46:49,818 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 08:46:49,818 - INFO: === Round 3 start — 1 branch update(s) ===
+2026-03-17 08:46:49,847 - INFO: Downloading global model CID=QmbHJNxL4LJGFvX9FZEoPHRXTPSwjDGfUDx2XqEdwKRu6N from IPFS
+2026-03-17 08:46:49,849 - INFO: Global model verified and loaded (round 2).
+2026-03-17 08:46:49,858 - INFO: Round 3 Evaluation: PR-AUC=0.7886, ROC-AUC=0.9128, F1=0.0397 (threshold=0.0000)
+2026-03-17 08:46:49,861 - INFO: Uploaded CID=QmaWMypGxFhH4vcH3xgtJ9NifCAHwvjMFSEgzXXTW8WdSF hash=ebf5e9ad254d007a...
+2026-03-17 08:46:49,898 - INFO: Submitted update — tx_id=None
+2026-03-17 08:46:49,898 - INFO: --- Round 3: cluster models submitted ---
+2026-03-17 08:46:49,898 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 08:46:59,898 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 08:47:00,138 - INFO: Verifying BankB round 3: PR-AUC=1.0000 -> True
+2026-03-17 08:47:00,303 - INFO: Verifying BankC round 3: PR-AUC=0.2126 -> True
+2026-03-17 08:47:00,451 - INFO: Verifying BankC round 3: PR-AUC=0.6257 -> True
+2026-03-17 08:47:00,555 - INFO: Verifying BankB round 3: PR-AUC=0.9428 -> True
+2026-03-17 08:47:00,592 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 08:47:10,593 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 08:47:10,689 - INFO: Committed to BankB round 3
+2026-03-17 08:47:10,759 - INFO: Committed to BankC round 3
+2026-03-17 08:47:10,869 - INFO: Committed to BankC round 3
+2026-03-17 08:47:10,991 - INFO: Committed to BankB round 3
+2026-03-17 08:47:10,991 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 08:47:20,991 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 08:47:20,992 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 08:47:21,046 - INFO: Consensus achieved: ['BankB', 'BankC'] (0.1s elapsed)
+2026-03-17 08:47:21,078 - INFO: Trust-weighted FedAvg over 2 models. Effective weights: {'BankB': '80980.000', 'BankC': '7896.000'}
+2026-03-17 08:47:21,082 - INFO: Global model uploaded — CID=QmZZ8oW5XSn21hpdnDJhq8v8kXi6rCPZ2bqnpaHnsdqaTL hash=acebfcb3fd19f589...
+2026-03-17 08:47:21,117 - INFO: Global model stored on ledger.
+2026-03-17 08:47:21,117 - INFO: Round 3 Global CID: QmZZ8oW5XSn21hpdnDJhq8v8kXi6rCPZ2bqnpaHnsdqaTL
+2026-03-17 08:47:21,278 - INFO: 
+2026-03-17 08:47:21,278 - INFO: ===> ROUND 3 GLOBAL EVALUATION <===
+2026-03-17 08:47:21,278 - INFO:   F1 Score : 0.0081
+2026-03-17 08:47:21,278 - INFO:   PR-AUC   : 0.7788
+2026-03-17 08:47:21,278 - INFO:   ROC-AUC  : 0.9773
+2026-03-17 08:47:21,278 - INFO:   Precision: 0.0041
+2026-03-17 08:47:21,278 - INFO:   Recall   : 1.0000
+2026-03-17 08:47:21,278 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 08:47:21,278 - INFO:   E2E Latency: 39.85s
+2026-03-17 08:47:21,278 - INFO: =========================================
+
+2026-03-17 08:47:21,278 - INFO: ========== ROUND 3 COMPLETED in 39.85s ==========
+2026-03-17 08:47:21,296 - INFO: Results saved to /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fl-integration/scripts/benchmark_results.json
+2026-03-17 08:47:21,296 - INFO: 
+2026-03-17 08:47:21,296 - INFO: =================================
+2026-03-17 08:47:21,296 - INFO:    PERFORMANCE BENCHMARK STATS   
+2026-03-17 08:47:21,296 - INFO: =================================
+2026-03-17 08:47:21,296 - INFO: Total Rounds: 2
+2026-03-17 08:47:21,296 - INFO: Total Time: 82.23s
+2026-03-17 08:47:21,296 - INFO: Avg Round Latency: 40.95s
+2026-03-17 08:47:21,296 - INFO: Avg F1 Score: 0.0081
+2026-03-17 08:47:21,296 - INFO: Avg PR-AUC : 0.7831
+2026-03-17 08:47:21,296 - INFO: =================================
+2026-03-17 08:47:21,296 - INFO: ✅ Latency SLA met (<= 120s)
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[1;34m[INFO][0m   PHASE 5 — Final Summary                      
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[0;32m[OK][0m    Benchmark results saved to:
+┌─────────────────────────────────────────────┐
+│          BENCHMARK SUMMARY ACROSS ALL ROUNDS │
+├───────────────────────────┬─────────┬────────┤
+│ Metric                    │  Mean   │  Best  │
+├───────────────────────────┼─────────┼────────┤
+│ F1 Score                  │  0.0081 │ 0.0081 │
+│ PR-AUC                    │  0.7831 │ 0.7873 │
+│ ROC-AUC                   │  0.9812 │ 0.9851 │
+│ E2E Latency (s)           │  40.95  │ 39.85  │
+│ Comm Cost (MB/round)      │  0.49   │ 0.49   │
+└───────────────────────────┴─────────┴────────┘
+
+Latency SLA (≤ 120s avg): ✅ PASSED
+Completed rounds with metrics: 2/2
+[1;34m[INFO][0m  To stop all background services run: ./stop_system.sh
+[1;34m[INFO][0m  To check service status run:         ./status.sh
+[0;32m[OK][0m    Data splits verified for BankA, BankB, BankC.
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[1;34m[INFO][0m   PHASE 1 — Starting Backend Infrastructure    
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+========================================
+    HCFL Framework Setup & Start        
+========================================
+[1/3] Starting Hyperledger Fabric Network...
+[0;32m[INFO][0m  == STEP 1: Generating crypto material with cryptogen ==
+[0;32m[INFO][0m  Crypto material already exists — skipping cryptogen.
+[0;32m[INFO][0m  == STEP 2: Creating channel-artifacts directory ==
+[0;32m[INFO][0m  == STEP 3: Starting all Docker containers ==
+time="2026-03-17T09:08:07+05:30" level=warning msg="/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fabric-network/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+time="2026-03-17T09:08:07+05:30" level=warning msg="No services to build"
+ Network fabric_network Creating 
+ Network fabric_network Created 
+ Container orderer0.orderer.fabricfl.com Creating 
+ Container couchdb1.bankc Creating 
+ Container couchdb1.banka Creating 
+ Container couchdb0.bankc Creating 
+ Container couchdb1.bankb Creating 
+ Container orderer2.orderer.fabricfl.com Creating 
+ Container orderer1.orderer.fabricfl.com Creating 
+ Container couchdb0.bankb Creating 
+ Container couchdb0.banka Creating 
+ Container couchdb0.bankc Created 
+ Container couchdb1.bankc Created 
+ Container peer1.bankc.fabricfl.com Creating 
+ Container peer0.bankc.fabricfl.com Creating 
+ Container couchdb0.banka Created 
+ Container peer0.banka.fabricfl.com Creating 
+ Container couchdb0.bankb Created 
+ Container couchdb1.banka Created 
+ Container peer0.bankb.fabricfl.com Creating 
+ Container couchdb1.bankb Created 
+ Container peer1.banka.fabricfl.com Creating 
+ Container peer1.bankb.fabricfl.com Creating 
+ Container orderer1.orderer.fabricfl.com Created 
+ Container orderer2.orderer.fabricfl.com Created 
+ Container orderer0.orderer.fabricfl.com Created 
+ Container peer1.bankc.fabricfl.com Created 
+ Container peer0.bankc.fabricfl.com Created 
+ Container peer1.banka.fabricfl.com Created 
+ Container peer1.bankb.fabricfl.com Created 
+ Container peer0.banka.fabricfl.com Created 
+ Container peer0.bankb.fabricfl.com Created 
+ Container cli Creating 
+ Container cli Created 
+ Container couchdb0.banka Starting 
+ Container orderer2.orderer.fabricfl.com Starting 
+ Container couchdb1.bankb Starting 
+ Container couchdb0.bankc Starting 
+ Container couchdb1.bankc Starting 
+ Container couchdb1.banka Starting 
+ Container couchdb0.bankb Starting 
+ Container orderer0.orderer.fabricfl.com Starting 
+ Container orderer1.orderer.fabricfl.com Starting 
+ Container couchdb0.bankb Started 
+ Container peer0.bankb.fabricfl.com Starting 
+ Container couchdb1.bankc Started 
+ Container peer1.bankc.fabricfl.com Starting 
+ Container orderer0.orderer.fabricfl.com Started 
+ Container orderer1.orderer.fabricfl.com Started 
+ Container couchdb0.banka Started 
+ Container peer0.banka.fabricfl.com Starting 
+ Container couchdb1.bankb Started 
+ Container peer1.bankb.fabricfl.com Starting 
+ Container couchdb0.bankc Started 
+ Container peer0.bankc.fabricfl.com Starting 
+ Container couchdb1.banka Started 
+ Container orderer2.orderer.fabricfl.com Started 
+ Container peer1.banka.fabricfl.com Starting 
+ Container peer0.bankb.fabricfl.com Started 
+ Container peer1.bankc.fabricfl.com Started 
+ Container peer0.banka.fabricfl.com Started 
+ Container peer1.bankb.fabricfl.com Started 
+ Container peer0.bankc.fabricfl.com Started 
+ Container peer1.banka.fabricfl.com Started 
+ Container cli Starting 
+ Container cli Started 
+[0;32m[INFO][0m  == Network is UP. Run scripts/createChannel.sh next. ==
+[0;32m[INFO][0m  == STEP 1: Generating channel genesis block for 'fraud-detection-global' ==
+[34m2026-03-17 09:08:25.999 +0530 0001 INFO[0m [common.tools.configtxgen] [34;1mmain[0m -> Loading configuration
+[34m2026-03-17 09:08:26.011 +0530 0002 INFO[0m [common.tools.configtxgen.localconfig] [34;1mcompleteInitialization[0m -> orderer type: etcdraft
+[34m2026-03-17 09:08:26.011 +0530 0003 INFO[0m [common.tools.configtxgen.localconfig] [34;1mLoad[0m -> Loaded configuration: /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fabric-network/configtx.yaml
+[34m2026-03-17 09:08:26.012 +0530 0004 INFO[0m [common.tools.configtxgen] [34;1mdoOutputBlock[0m -> Generating genesis block
+[34m2026-03-17 09:08:26.012 +0530 0005 INFO[0m [common.tools.configtxgen] [34;1mdoOutputBlock[0m -> Creating application channel genesis block
+[34m2026-03-17 09:08:26.012 +0530 0006 INFO[0m [common.tools.configtxgen] [34;1mdoOutputBlock[0m -> Writing genesis block
+[0;32m[INFO][0m  Channel genesis block written to: /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fabric-network/channel-artifacts/fraud-detection-global_genesis.block
+[0;32m[INFO][0m  == STEP 2: Joining orderers to channel 'fraud-detection-global' via osnadmin ==
+[0;32m[INFO][0m    Joining orderer0.orderer.fabricfl.com (admin port 7053)...
+[0;32m[INFO][0m    orderer0.orderer.fabricfl.com already a member of channel (skipping).
+[0;32m[INFO][0m    Joining orderer1.orderer.fabricfl.com (admin port 8053)...
+[0;32m[INFO][0m    orderer1.orderer.fabricfl.com already a member of channel (skipping).
+[0;32m[INFO][0m    Joining orderer2.orderer.fabricfl.com (admin port 9053)...
+[0;32m[INFO][0m    orderer2.orderer.fabricfl.com already a member of channel (skipping).
+[0;32m[INFO][0m  All orderers joined channel 'fraud-detection-global'.
+[0;32m[INFO][0m  == STEP 3: Joining all 6 peers to channel 'fraud-detection-global' ==
+[0;32m[INFO][0m    peer0.banka already joined channel (skipping).
+[0;32m[INFO][0m    peer1.banka already joined channel (skipping).
+[0;32m[INFO][0m    peer0.bankb already joined channel (skipping).
+[0;32m[INFO][0m    peer1.bankb already joined channel (skipping).
+[0;32m[INFO][0m    peer0.bankc already joined channel (skipping).
+[0;32m[INFO][0m    peer1.bankc already joined channel (skipping).
+[0;32m[INFO][0m  == STEP 4: Updating anchor peers (peer0 = HQ anchor for each org) ==
+[0;32m[INFO][0m    Setting anchor peer peer0.banka.fabricfl.com:7051 for BankAMSP...
+[0;32m[INFO][0m    Anchor peer already set for BankAMSP — skipping.
+[0;32m[INFO][0m    Setting anchor peer peer0.bankb.fabricfl.com:8051 for BankBMSP...
+[0;32m[INFO][0m    Anchor peer already set for BankBMSP — skipping.
+[0;32m[INFO][0m    Setting anchor peer peer0.bankc.fabricfl.com:9051 for BankCMSP...
+[0;32m[INFO][0m    Anchor peer already set for BankCMSP — skipping.
+[0;32m[INFO][0m  == Channel setup complete. All 6 peers joined, anchor peers configured. ==
+[0;32m[INFO][0m  Next step: run scripts/deployChaincode.sh
+[0;32m[INFO][0m  == STEP 1: Packaging chaincode 'cbft-fl' from /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fabric-network/chaincode/cbft ==
+[0;32m[INFO][0m  Chaincode packaged: /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fabric-network/cbft-fl.tar.gz
+[0;32m[INFO][0m  == STEP 2: Installing chaincode on all 6 peers ==
+[0;32m[INFO][0m    Installing on peer0.banka...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer0.banka
+[0;32m[INFO][0m    Installation step finished for peer0.banka
+[0;32m[INFO][0m    Installing on peer1.banka...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer1.banka
+[0;32m[INFO][0m    Installation step finished for peer1.banka
+[0;32m[INFO][0m    Installing on peer0.bankb...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer0.bankb
+[0;32m[INFO][0m    Installation step finished for peer0.bankb
+[0;32m[INFO][0m    Installing on peer1.bankb...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer1.bankb
+[0;32m[INFO][0m    Installation step finished for peer1.bankb
+[0;32m[INFO][0m    Installing on peer0.bankc...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer0.bankc
+[0;32m[INFO][0m    Installation step finished for peer0.bankc
+[0;32m[INFO][0m    Installing on peer1.bankc...
+Error: chaincode install failed with status: 500 - failed to invoke backing implementation of 'InstallChaincode': chaincode already successfully installed (package ID 'cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723')
+[0;32m[INFO][0m    Already installed on peer1.bankc
+[0;32m[INFO][0m    Installation step finished for peer1.bankc
+[0;32m[INFO][0m  == STEP 3: Querying installed chaincode to get package ID ==
+[0;32m[INFO][0m  Package ID: cbft-fl_1.0:59a806a7e51ccae194d9fb8ccf070092845339f44e50d485a9abf0396d52b723
+[0;32m[INFO][0m  Chaincode 'cbft-fl' already committed at sequence 1 — skipping approve/commit/InitLedger.
+[2/3] Starting IPFS Daemon...
+IPFS started (PID: 282988)
+[3/3] Starting REST API Server...
+API Server started (PID: 283033)
+========================================
+   All systems started successfully!    
+========================================
+IPFS URL:  http://127.0.0.1:5001
+API URL:   http://127.0.0.1:8000
+Check status via: ./status.sh
+Stop system via: ./stop_system.sh
+========================================
+[0;32m[OK][0m    Infrastructure started.
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[1;34m[INFO][0m   PHASE 2 — Waiting for API Server to be Ready
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[0;32m[OK][0m    API server is healthy at http://localhost:8000.
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[1;34m[INFO][0m   PHASE 3 — Broadcasting Initial Global Model  
+[1;34m[INFO][0m             (Round 0 — Random Seed Init)       
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+INFO: Generated Round 0 Model (seed=42): hash=f45f2f0498896d70...
+INFO: Uploading Round 0 model to IPFS at http://127.0.0.1:5001
+INFO: Upload successful → CID: QmP2AA8Fagnw2uAwZSYZH7f3NNY3bEZrjSSgfMDVe6kt71
+INFO: Registering Round 0 on Blockchain via API...
+INFO: Successfully registered Round 0 model!
+INFO: 
+=== Round 0 Bootstrap Complete ===
+INFO: Registered CID: QmP2AA8Fagnw2uAwZSYZH7f3NNY3bEZrjSSgfMDVe6kt71
+[0;32m[OK][0m    Round 0 model registered on blockchain.
+[1;34m[INFO][0m  Waiting 5s for ledger to settle before starting training...
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[1;34m[INFO][0m   PHASE 4 — Federated Learning Training Loop   
+[1;34m[INFO][0m             Rounds          : 20            
+[1;34m[INFO][0m             Data            : data/splits/fl_clients  
+[1;34m[INFO][0m             Test set        : data/splits/test/        
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[1;34m[INFO][0m  Each round performs:
+[1;34m[INFO][0m    [A] Intra-cluster training  — branches train locally with Differential Privacy
+[1;34m[INFO][0m    [B] HQ FedAvg              — branches averaged → Cluster Model
+[1;34m[INFO][0m    [C] IPFS upload            — Cluster Model uploaded; CID hash stored on Blockchain
+[1;34m[INFO][0m    [D] CBFT cross-verification — Banks verify each other's models (SHA-256 + PR-AUC)
+[1;34m[INFO][0m    [E] Global aggregation      — Trust-weighted FedAvg across accepted banks
+[1;34m[INFO][0m    [F] Evaluation              — Global model evaluated (F1, PR-AUC, ROC-AUC)
+2026-03-17 09:08:42,761 - INFO: Loading real CCFD datasets from /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/data/splits/fl_clients
+2026-03-17 09:08:42,761 - INFO: Loading dataset from /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/data/splits/fl_clients/BankA/train_ready.csv
+2026-03-17 09:08:43,298 - INFO: [BankA] dataset loaded: 151642 samples
+2026-03-17 09:08:43,298 - INFO: Loading dataset from /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/data/splits/fl_clients/BankB/train_ready.csv
+2026-03-17 09:08:43,549 - INFO: [BankB] dataset loaded: 80980 samples
+2026-03-17 09:08:43,549 - INFO: Loading dataset from /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/data/splits/fl_clients/BankC/train_ready.csv
+2026-03-17 09:08:43,572 - INFO: [BankC] dataset loaded: 7896 samples
+2026-03-17 09:08:43,709 - INFO: Global test set loaded: 43208 rows, fraud=0.407%
+2026-03-17 09:08:43,741 - INFO: Starting from round 4 (ledger latest: 3)
+2026-03-17 09:08:43,741 - INFO: ========== STARTING ROUND 4 ==========
+2026-03-17 09:08:43,741 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:08:46,358 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:08:46,358 - INFO: === Round 4 start — 1 branch update(s) ===
+2026-03-17 09:08:46,392 - INFO: Downloading global model CID=QmZZ8oW5XSn21hpdnDJhq8v8kXi6rCPZ2bqnpaHnsdqaTL from IPFS
+2026-03-17 09:08:46,394 - INFO: Global model verified and loaded (round 3).
+/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+2026-03-17 09:08:46,472 - INFO: Round 4 Evaluation: PR-AUC=0.0000, ROC-AUC=0.5000, F1=0.0000 (threshold=0.0000)
+2026-03-17 09:08:46,476 - INFO: Uploaded CID=QmYwTyqKRj1BzbfY4ZqhCkdBieJpspLGjQHX6ZPqdECkQb hash=c690eadb58ed1d18...
+2026-03-17 09:08:46,511 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:08:48,553 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:08:50,606 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.0000 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:08:50,606 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:08:51,714 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:08:51,714 - INFO: === Round 4 start — 1 branch update(s) ===
+2026-03-17 09:08:51,742 - INFO: Downloading global model CID=QmZZ8oW5XSn21hpdnDJhq8v8kXi6rCPZ2bqnpaHnsdqaTL from IPFS
+2026-03-17 09:08:51,744 - INFO: Global model verified and loaded (round 3).
+2026-03-17 09:08:51,791 - INFO: Round 4 Evaluation: PR-AUC=0.8183, ROC-AUC=0.9934, F1=0.0025 (threshold=0.0000)
+2026-03-17 09:08:51,797 - INFO: Uploaded CID=QmZvY9P4jCFRQYKPVpFKMRnfcPZQMvvMdzQnM96MowcBA6 hash=28425e954427092f...
+2026-03-17 09:08:51,837 - INFO: Submitted update — tx_id=None
+2026-03-17 09:08:51,837 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:08:52,016 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:08:52,016 - INFO: === Round 4 start — 1 branch update(s) ===
+2026-03-17 09:08:52,044 - INFO: Downloading global model CID=QmZZ8oW5XSn21hpdnDJhq8v8kXi6rCPZ2bqnpaHnsdqaTL from IPFS
+2026-03-17 09:08:52,046 - INFO: Global model verified and loaded (round 3).
+2026-03-17 09:08:52,056 - INFO: Round 4 Evaluation: PR-AUC=0.7226, ROC-AUC=0.9155, F1=0.0478 (threshold=0.0000)
+2026-03-17 09:08:52,059 - INFO: Uploaded CID=QmVHQC1GJhjGUPmLqkoVEzZhYDV6oRQ6yWsJPr5eviZKeb hash=0b043cad53e1d20f...
+2026-03-17 09:08:52,097 - INFO: Submitted update — tx_id=None
+2026-03-17 09:08:52,097 - INFO: --- Round 4: cluster models submitted ---
+2026-03-17 09:08:52,097 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:09:02,098 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:09:02,288 - INFO: Verifying BankB round 4: PR-AUC=0.1429 -> True
+2026-03-17 09:09:02,449 - INFO: Verifying BankC round 4: PR-AUC=0.2000 -> True
+2026-03-17 09:09:02,606 - INFO: Verifying BankC round 4: PR-AUC=0.5705 -> True
+2026-03-17 09:09:02,712 - INFO: Verifying BankB round 4: PR-AUC=0.9475 -> True
+2026-03-17 09:09:02,750 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:09:12,750 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:09:12,841 - INFO: Committed to BankB round 4
+2026-03-17 09:09:12,912 - INFO: Committed to BankC round 4
+2026-03-17 09:09:13,019 - INFO: Committed to BankC round 4
+2026-03-17 09:09:13,118 - INFO: Committed to BankB round 4
+2026-03-17 09:09:13,118 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:09:23,118 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:09:23,118 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:09:23,179 - INFO: Consensus achieved: ['BankB', 'BankC'] (0.1s elapsed)
+2026-03-17 09:09:23,215 - INFO: Trust-weighted FedAvg over 2 models. Effective weights: {'BankB': '80980.000', 'BankC': '7896.000'}
+2026-03-17 09:09:23,219 - INFO: Global model uploaded — CID=QmRG9GvyLVigbLVF5hJCWN16P8WEiM7qEHc1L4SjAzWb6e hash=ca34fa6b2e6722e8...
+2026-03-17 09:09:23,259 - INFO: Global model stored on ledger.
+2026-03-17 09:09:23,259 - INFO: Round 4 Global CID: QmRG9GvyLVigbLVF5hJCWN16P8WEiM7qEHc1L4SjAzWb6e
+2026-03-17 09:09:23,416 - INFO: 
+2026-03-17 09:09:23,416 - INFO: ===> ROUND 4 GLOBAL EVALUATION <===
+2026-03-17 09:09:23,416 - INFO:   F1 Score : 0.0081
+2026-03-17 09:09:23,416 - INFO:   PR-AUC   : 0.7716
+2026-03-17 09:09:23,416 - INFO:   ROC-AUC  : 0.9564
+2026-03-17 09:09:23,416 - INFO:   Precision: 0.0041
+2026-03-17 09:09:23,416 - INFO:   Recall   : 1.0000
+2026-03-17 09:09:23,416 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:09:23,416 - INFO:   E2E Latency: 39.52s
+2026-03-17 09:09:23,416 - INFO: =========================================
+
+2026-03-17 09:09:23,416 - INFO: ========== ROUND 4 COMPLETED in 39.52s ==========
+2026-03-17 09:09:23,416 - INFO: ========== STARTING ROUND 5 ==========
+2026-03-17 09:09:23,416 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:09:25,507 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:09:25,507 - INFO: === Round 5 start — 1 branch update(s) ===
+2026-03-17 09:09:26,378 - INFO: Downloading global model CID=QmRG9GvyLVigbLVF5hJCWN16P8WEiM7qEHc1L4SjAzWb6e from IPFS
+2026-03-17 09:09:26,384 - INFO: Global model verified and loaded (round 4).
+2026-03-17 09:09:26,509 - INFO: Round 5 Evaluation: PR-AUC=0.0032, ROC-AUC=0.9864, F1=0.0001 (threshold=0.0000)
+2026-03-17 09:09:26,513 - INFO: Uploaded CID=QmQabo9Snj3Z85UqE2Xau5qjLaccRS5p1Lh6AkTVryGBMn hash=e6f24327f8172efe...
+2026-03-17 09:09:26,546 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:09:28,607 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:09:30,655 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.0032 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:09:30,655 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:09:31,768 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:09:31,768 - INFO: === Round 5 start — 1 branch update(s) ===
+2026-03-17 09:09:31,798 - INFO: Downloading global model CID=QmRG9GvyLVigbLVF5hJCWN16P8WEiM7qEHc1L4SjAzWb6e from IPFS
+2026-03-17 09:09:31,799 - INFO: Global model verified and loaded (round 4).
+2026-03-17 09:09:31,847 - INFO: Round 5 Evaluation: PR-AUC=0.7137, ROC-AUC=0.9829, F1=0.0018 (threshold=0.0000)
+2026-03-17 09:09:31,851 - INFO: Uploaded CID=QmWvjCZiRcCLX5nBuMfPu4sqnUiFqyJYEZXhz6G9qSL3dz hash=76b89479fd855ea2...
+2026-03-17 09:09:31,889 - INFO: Submitted update — tx_id=None
+2026-03-17 09:09:31,889 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:09:32,013 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:09:32,013 - INFO: === Round 5 start — 1 branch update(s) ===
+2026-03-17 09:09:32,043 - INFO: Downloading global model CID=QmRG9GvyLVigbLVF5hJCWN16P8WEiM7qEHc1L4SjAzWb6e from IPFS
+2026-03-17 09:09:32,045 - INFO: Global model verified and loaded (round 4).
+2026-03-17 09:09:32,054 - INFO: Round 5 Evaluation: PR-AUC=0.7724, ROC-AUC=0.9105, F1=0.0365 (threshold=0.0000)
+2026-03-17 09:09:32,058 - INFO: Uploaded CID=QmU1aCvjbhErrXFK2MLtC9jL44TG7AEQoADtN2X5LgeLkh hash=c5ce93cd8dc94263...
+2026-03-17 09:09:32,097 - INFO: Submitted update — tx_id=None
+2026-03-17 09:09:32,097 - INFO: --- Round 5: cluster models submitted ---
+2026-03-17 09:09:32,097 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:09:42,097 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:09:42,297 - INFO: Verifying BankB round 5: PR-AUC=0.1667 -> True
+2026-03-17 09:09:42,450 - INFO: Verifying BankC round 5: PR-AUC=1.0000 -> True
+2026-03-17 09:09:42,604 - INFO: Verifying BankC round 5: PR-AUC=0.6964 -> True
+2026-03-17 09:09:42,728 - INFO: Verifying BankB round 5: PR-AUC=0.8999 -> True
+2026-03-17 09:09:42,773 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:09:52,773 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:09:52,868 - INFO: Committed to BankB round 5
+2026-03-17 09:09:52,937 - INFO: Committed to BankC round 5
+2026-03-17 09:09:53,051 - INFO: Committed to BankC round 5
+2026-03-17 09:09:53,159 - INFO: Committed to BankB round 5
+2026-03-17 09:09:53,159 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:10:03,159 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:10:03,159 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:10:03,219 - INFO: Consensus achieved: ['BankB', 'BankC'] (0.1s elapsed)
+2026-03-17 09:10:03,250 - INFO: Trust-weighted FedAvg over 2 models. Effective weights: {'BankB': '80980.000', 'BankC': '7896.000'}
+2026-03-17 09:10:03,254 - INFO: Global model uploaded — CID=QmaJ1xKgCg532Wvq2fZQytB8qkYdeK2kCQ3VknpPvGpiFM hash=f5aea9770e3c6d1f...
+2026-03-17 09:10:03,293 - INFO: Global model stored on ledger.
+2026-03-17 09:10:03,293 - INFO: Round 5 Global CID: QmaJ1xKgCg532Wvq2fZQytB8qkYdeK2kCQ3VknpPvGpiFM
+2026-03-17 09:10:03,488 - INFO: 
+2026-03-17 09:10:03,488 - INFO: ===> ROUND 5 GLOBAL EVALUATION <===
+2026-03-17 09:10:03,488 - INFO:   F1 Score : 0.0081
+2026-03-17 09:10:03,488 - INFO:   PR-AUC   : 0.7636
+2026-03-17 09:10:03,488 - INFO:   ROC-AUC  : 0.9664
+2026-03-17 09:10:03,488 - INFO:   Precision: 0.0041
+2026-03-17 09:10:03,488 - INFO:   Recall   : 1.0000
+2026-03-17 09:10:03,488 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:10:03,488 - INFO:   E2E Latency: 39.88s
+2026-03-17 09:10:03,488 - INFO: =========================================
+
+2026-03-17 09:10:03,488 - INFO: ========== ROUND 5 COMPLETED in 39.88s ==========
+2026-03-17 09:10:03,488 - INFO: ========== STARTING ROUND 6 ==========
+2026-03-17 09:10:03,488 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:10:05,572 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:10:05,572 - INFO: === Round 6 start — 1 branch update(s) ===
+2026-03-17 09:10:06,365 - INFO: Downloading global model CID=QmaJ1xKgCg532Wvq2fZQytB8qkYdeK2kCQ3VknpPvGpiFM from IPFS
+2026-03-17 09:10:06,372 - INFO: Global model verified and loaded (round 5).
+2026-03-17 09:10:06,492 - INFO: Round 6 Evaluation: PR-AUC=0.0261, ROC-AUC=0.9976, F1=0.0002 (threshold=0.0000)
+2026-03-17 09:10:06,495 - INFO: Uploaded CID=Qmba1h63A2zVaZjEdGr8fkcr9mLScXLHiivqU4gTqiaQM9 hash=4dbb88450489592b...
+2026-03-17 09:10:06,530 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:10:08,593 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:10:10,646 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.0261 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:10:10,647 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:10:11,725 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:10:11,725 - INFO: === Round 6 start — 1 branch update(s) ===
+2026-03-17 09:10:11,755 - INFO: Downloading global model CID=QmaJ1xKgCg532Wvq2fZQytB8qkYdeK2kCQ3VknpPvGpiFM from IPFS
+2026-03-17 09:10:11,757 - INFO: Global model verified and loaded (round 5).
+2026-03-17 09:10:11,807 - INFO: Round 6 Evaluation: PR-AUC=0.7789, ROC-AUC=0.9811, F1=0.0028 (threshold=0.0000)
+2026-03-17 09:10:11,811 - INFO: Uploaded CID=QmSEaaN6nsSMo8ybViqmMsXpNHK1yVjaZaa5Hbq1idadVi hash=e794a1087ef7af63...
+2026-03-17 09:10:11,848 - INFO: Submitted update — tx_id=None
+2026-03-17 09:10:11,848 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:10:11,954 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:10:11,954 - INFO: === Round 6 start — 1 branch update(s) ===
+2026-03-17 09:10:11,984 - INFO: Downloading global model CID=QmaJ1xKgCg532Wvq2fZQytB8qkYdeK2kCQ3VknpPvGpiFM from IPFS
+2026-03-17 09:10:11,986 - INFO: Global model verified and loaded (round 5).
+2026-03-17 09:10:11,997 - INFO: Round 6 Evaluation: PR-AUC=0.7563, ROC-AUC=0.8549, F1=0.0349 (threshold=0.0000)
+2026-03-17 09:10:12,002 - INFO: Uploaded CID=QmR8va3yKKXtwgHGj8aMKhGVY6uEcVE4SeucAMhBQs3J2y hash=3485e25e31dbea13...
+2026-03-17 09:10:12,040 - INFO: Submitted update — tx_id=None
+2026-03-17 09:10:12,040 - INFO: --- Round 6: cluster models submitted ---
+2026-03-17 09:10:12,040 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:10:22,040 - INFO: --- Initiating CBFT Cross-Verification ---
+/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+2026-03-17 09:10:22,226 - INFO: Verifying BankB round 6: PR-AUC=0.0000 -> True
+2026-03-17 09:10:22,378 - INFO: Verifying BankC round 6: PR-AUC=0.1250 -> True
+2026-03-17 09:10:22,541 - INFO: Verifying BankC round 6: PR-AUC=0.5241 -> True
+2026-03-17 09:10:22,654 - INFO: Verifying BankB round 6: PR-AUC=0.8394 -> True
+2026-03-17 09:10:22,691 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:10:32,691 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:10:32,778 - INFO: Committed to BankB round 6
+2026-03-17 09:10:32,851 - INFO: Committed to BankC round 6
+2026-03-17 09:10:32,960 - INFO: Committed to BankC round 6
+2026-03-17 09:10:33,064 - INFO: Committed to BankB round 6
+2026-03-17 09:10:33,064 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:10:43,064 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:10:43,064 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:10:43,121 - INFO: Consensus achieved: ['BankB', 'BankC'] (0.1s elapsed)
+2026-03-17 09:10:43,152 - INFO: Trust-weighted FedAvg over 2 models. Effective weights: {'BankB': '80980.000', 'BankC': '7896.000'}
+2026-03-17 09:10:43,155 - INFO: Global model uploaded — CID=QmXjLxgzPP55ReZUnaG5nfkUjUVDbzjiS93HTeHAcmycfh hash=13e25a2c3fbdbcfb...
+2026-03-17 09:10:43,191 - INFO: Global model stored on ledger.
+2026-03-17 09:10:43,191 - INFO: Round 6 Global CID: QmXjLxgzPP55ReZUnaG5nfkUjUVDbzjiS93HTeHAcmycfh
+2026-03-17 09:10:43,458 - INFO: 
+2026-03-17 09:10:43,458 - INFO: ===> ROUND 6 GLOBAL EVALUATION <===
+2026-03-17 09:10:43,458 - INFO:   F1 Score : 0.0081
+2026-03-17 09:10:43,458 - INFO:   PR-AUC   : 0.7833
+2026-03-17 09:10:43,458 - INFO:   ROC-AUC  : 0.9544
+2026-03-17 09:10:43,458 - INFO:   Precision: 0.0041
+2026-03-17 09:10:43,458 - INFO:   Recall   : 1.0000
+2026-03-17 09:10:43,458 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:10:43,458 - INFO:   E2E Latency: 39.70s
+2026-03-17 09:10:43,458 - INFO: =========================================
+
+2026-03-17 09:10:43,458 - INFO: ========== ROUND 6 COMPLETED in 39.70s ==========
+2026-03-17 09:10:43,458 - INFO: ========== STARTING ROUND 7 ==========
+2026-03-17 09:10:43,458 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:10:45,510 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:10:45,510 - INFO: === Round 7 start — 1 branch update(s) ===
+2026-03-17 09:10:46,434 - INFO: Downloading global model CID=QmXjLxgzPP55ReZUnaG5nfkUjUVDbzjiS93HTeHAcmycfh from IPFS
+2026-03-17 09:10:46,440 - INFO: Global model verified and loaded (round 6).
+/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+2026-03-17 09:10:46,633 - INFO: Round 7 Evaluation: PR-AUC=0.0000, ROC-AUC=0.5000, F1=0.0000 (threshold=0.0000)
+2026-03-17 09:10:46,637 - INFO: Uploaded CID=Qmd3Z8iai2WZoLJtDV4qwtwYVUCAk842xw4BAP3VXr22Nw hash=6e843304a540e181...
+2026-03-17 09:10:46,671 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:10:48,731 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:10:50,780 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.0000 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:10:50,780 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:10:51,885 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:10:51,885 - INFO: === Round 7 start — 1 branch update(s) ===
+2026-03-17 09:10:51,915 - INFO: Downloading global model CID=QmXjLxgzPP55ReZUnaG5nfkUjUVDbzjiS93HTeHAcmycfh from IPFS
+2026-03-17 09:10:51,917 - INFO: Global model verified and loaded (round 6).
+2026-03-17 09:10:51,979 - INFO: Round 7 Evaluation: PR-AUC=0.5941, ROC-AUC=0.9873, F1=0.0021 (threshold=0.0000)
+2026-03-17 09:10:51,984 - INFO: Uploaded CID=QmXRnSb7Pay4eGqVHTLK6TTJFq6BcShVQMwFfWypoYGfXP hash=a6d304c29054fb38...
+2026-03-17 09:10:52,018 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:10:54,075 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:10:56,128 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.5941 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:10:56,128 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:10:56,263 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:10:56,263 - INFO: === Round 7 start — 1 branch update(s) ===
+2026-03-17 09:10:56,294 - INFO: Downloading global model CID=QmXjLxgzPP55ReZUnaG5nfkUjUVDbzjiS93HTeHAcmycfh from IPFS
+2026-03-17 09:10:56,295 - INFO: Global model verified and loaded (round 6).
+2026-03-17 09:10:56,306 - INFO: Round 7 Evaluation: PR-AUC=0.7642, ROC-AUC=0.8644, F1=0.0414 (threshold=0.0000)
+2026-03-17 09:10:56,310 - INFO: Uploaded CID=Qmd2w8GZgwPmCw1tGokNQ8SbuYL16YnMS9jAMcaPD6iC44 hash=d515cd6cdbeff5b2...
+2026-03-17 09:10:56,398 - INFO: Submitted update — tx_id=None
+2026-03-17 09:10:56,398 - INFO: --- Round 7: cluster models submitted ---
+2026-03-17 09:10:56,398 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:11:06,399 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:11:06,601 - INFO: Verifying BankC round 7: PR-AUC=0.3333 -> True
+2026-03-17 09:11:06,756 - INFO: Verifying BankC round 7: PR-AUC=0.8814 -> True
+2026-03-17 09:11:06,852 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:11:16,852 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:11:16,966 - INFO: Committed to BankC round 7
+2026-03-17 09:11:17,073 - INFO: Committed to BankC round 7
+2026-03-17 09:11:17,134 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:11:27,135 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:11:27,135 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:11:27,198 - INFO: Consensus achieved: ['BankC'] (0.1s elapsed)
+2026-03-17 09:11:27,229 - INFO: Trust-weighted FedAvg over 1 models. Effective weights: {'BankC': '7896.000'}
+2026-03-17 09:11:27,233 - INFO: Global model uploaded — CID=Qmd2w8GZgwPmCw1tGokNQ8SbuYL16YnMS9jAMcaPD6iC44 hash=d515cd6cdbeff5b2...
+2026-03-17 09:11:27,269 - INFO: Global model stored on ledger.
+2026-03-17 09:11:27,269 - INFO: Round 7 Global CID: Qmd2w8GZgwPmCw1tGokNQ8SbuYL16YnMS9jAMcaPD6iC44
+2026-03-17 09:11:27,432 - INFO: 
+2026-03-17 09:11:27,432 - INFO: ===> ROUND 7 GLOBAL EVALUATION <===
+2026-03-17 09:11:27,432 - INFO:   F1 Score : 0.0081
+2026-03-17 09:11:27,432 - INFO:   PR-AUC   : 0.6782
+2026-03-17 09:11:27,432 - INFO:   ROC-AUC  : 0.9286
+2026-03-17 09:11:27,432 - INFO:   Precision: 0.0041
+2026-03-17 09:11:27,432 - INFO:   Recall   : 1.0000
+2026-03-17 09:11:27,432 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:11:27,432 - INFO:   E2E Latency: 43.81s
+2026-03-17 09:11:27,432 - INFO: =========================================
+
+2026-03-17 09:11:27,432 - INFO: ========== ROUND 7 COMPLETED in 43.81s ==========
+2026-03-17 09:11:27,432 - INFO: ========== STARTING ROUND 8 ==========
+2026-03-17 09:11:27,432 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:11:29,550 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:11:29,550 - INFO: === Round 8 start — 1 branch update(s) ===
+2026-03-17 09:11:30,477 - INFO: Downloading global model CID=Qmd2w8GZgwPmCw1tGokNQ8SbuYL16YnMS9jAMcaPD6iC44 from IPFS
+2026-03-17 09:11:30,484 - INFO: Global model verified and loaded (round 7).
+2026-03-17 09:11:30,606 - INFO: Round 8 Evaluation: PR-AUC=0.6250, ROC-AUC=0.9999, F1=0.0002 (threshold=0.0000)
+2026-03-17 09:11:30,610 - INFO: Uploaded CID=QmUPj3H465PLb8hNPuiUsYy4owD5jqhqsp8jbWGsyDfXAr hash=b7c3c28c769fb9e6...
+2026-03-17 09:11:30,645 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:11:32,702 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:11:34,764 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.6250 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:11:34,764 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:11:35,994 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:11:35,994 - INFO: === Round 8 start — 1 branch update(s) ===
+2026-03-17 09:11:36,023 - INFO: Downloading global model CID=Qmd2w8GZgwPmCw1tGokNQ8SbuYL16YnMS9jAMcaPD6iC44 from IPFS
+2026-03-17 09:11:36,025 - INFO: Global model verified and loaded (round 7).
+2026-03-17 09:11:36,069 - INFO: Round 8 Evaluation: PR-AUC=0.5552, ROC-AUC=0.9963, F1=0.0018 (threshold=0.0000)
+2026-03-17 09:11:36,073 - INFO: Uploaded CID=QmacsYZBJS5gfDpSyyUspDrSzvoQmQ69SQ1eP4Pge22iee hash=dc1e527bb09ae88c...
+2026-03-17 09:11:36,108 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:11:38,160 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:11:40,224 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.5552 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:11:40,224 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:11:40,357 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:11:40,357 - INFO: === Round 8 start — 1 branch update(s) ===
+2026-03-17 09:11:40,386 - INFO: Downloading global model CID=Qmd2w8GZgwPmCw1tGokNQ8SbuYL16YnMS9jAMcaPD6iC44 from IPFS
+2026-03-17 09:11:40,388 - INFO: Global model verified and loaded (round 7).
+2026-03-17 09:11:40,398 - INFO: Round 8 Evaluation: PR-AUC=0.8837, ROC-AUC=0.9413, F1=0.0397 (threshold=0.0000)
+2026-03-17 09:11:40,401 - INFO: Uploaded CID=QmXEAsEXMcBSCAwN5ENDokHmxr8eXzitLkNX3RABu8EuSg hash=b926d7a5a00b824c...
+2026-03-17 09:11:40,441 - INFO: Submitted update — tx_id=None
+2026-03-17 09:11:40,441 - INFO: --- Round 8: cluster models submitted ---
+2026-03-17 09:11:40,441 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:11:50,441 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:11:50,619 - INFO: Verifying BankC round 8: PR-AUC=0.2500 -> True
+2026-03-17 09:11:50,767 - INFO: Verifying BankC round 8: PR-AUC=0.6912 -> True
+2026-03-17 09:11:50,867 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:12:00,867 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:12:00,988 - INFO: Committed to BankC round 8
+2026-03-17 09:12:01,087 - INFO: Committed to BankC round 8
+2026-03-17 09:12:01,152 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:12:11,153 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:12:11,153 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:12:11,201 - INFO: Consensus achieved: ['BankC'] (0.0s elapsed)
+2026-03-17 09:12:11,231 - INFO: Trust-weighted FedAvg over 1 models. Effective weights: {'BankC': '7896.000'}
+2026-03-17 09:12:11,235 - INFO: Global model uploaded — CID=QmXEAsEXMcBSCAwN5ENDokHmxr8eXzitLkNX3RABu8EuSg hash=b926d7a5a00b824c...
+2026-03-17 09:12:11,276 - INFO: Global model stored on ledger.
+2026-03-17 09:12:11,276 - INFO: Round 8 Global CID: QmXEAsEXMcBSCAwN5ENDokHmxr8eXzitLkNX3RABu8EuSg
+2026-03-17 09:12:11,445 - INFO: 
+2026-03-17 09:12:11,445 - INFO: ===> ROUND 8 GLOBAL EVALUATION <===
+2026-03-17 09:12:11,445 - INFO:   F1 Score : 0.0081
+2026-03-17 09:12:11,445 - INFO:   PR-AUC   : 0.6896
+2026-03-17 09:12:11,445 - INFO:   ROC-AUC  : 0.9037
+2026-03-17 09:12:11,445 - INFO:   Precision: 0.0041
+2026-03-17 09:12:11,445 - INFO:   Recall   : 1.0000
+2026-03-17 09:12:11,445 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:12:11,445 - INFO:   E2E Latency: 43.84s
+2026-03-17 09:12:11,445 - INFO: =========================================
+
+2026-03-17 09:12:11,445 - INFO: ========== ROUND 8 COMPLETED in 43.84s ==========
+2026-03-17 09:12:11,445 - INFO: ========== STARTING ROUND 9 ==========
+2026-03-17 09:12:11,445 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:12:13,550 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:12:13,550 - INFO: === Round 9 start — 1 branch update(s) ===
+2026-03-17 09:12:14,503 - INFO: Downloading global model CID=QmXEAsEXMcBSCAwN5ENDokHmxr8eXzitLkNX3RABu8EuSg from IPFS
+2026-03-17 09:12:14,509 - INFO: Global model verified and loaded (round 8).
+/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+2026-03-17 09:12:14,634 - INFO: Round 9 Evaluation: PR-AUC=0.0000, ROC-AUC=0.5000, F1=0.0000 (threshold=0.0000)
+2026-03-17 09:12:14,638 - INFO: Uploaded CID=QmWa5NSiBWz6gRAePbAYuCwizBjiHw2oVpYNJCK2CsaarF hash=be26a7aec949ae29...
+2026-03-17 09:12:14,673 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:12:16,720 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:12:18,781 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.0000 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:12:18,781 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:12:19,999 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:12:19,999 - INFO: === Round 9 start — 1 branch update(s) ===
+2026-03-17 09:12:20,029 - INFO: Downloading global model CID=QmXEAsEXMcBSCAwN5ENDokHmxr8eXzitLkNX3RABu8EuSg from IPFS
+2026-03-17 09:12:20,031 - INFO: Global model verified and loaded (round 8).
+2026-03-17 09:12:20,077 - INFO: Round 9 Evaluation: PR-AUC=0.6450, ROC-AUC=0.9533, F1=0.0038 (threshold=0.0000)
+2026-03-17 09:12:20,081 - INFO: Uploaded CID=QmUwEy1nfB8g1vkTgckJmnVU4ne8FnKvABdkes1VCX75LT hash=adfab33081b663ac...
+2026-03-17 09:12:20,115 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:12:22,170 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:12:24,233 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.6450 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:12:24,233 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:12:24,360 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:12:24,360 - INFO: === Round 9 start — 1 branch update(s) ===
+2026-03-17 09:12:24,389 - INFO: Downloading global model CID=QmXEAsEXMcBSCAwN5ENDokHmxr8eXzitLkNX3RABu8EuSg from IPFS
+2026-03-17 09:12:24,391 - INFO: Global model verified and loaded (round 8).
+2026-03-17 09:12:24,402 - INFO: Round 9 Evaluation: PR-AUC=0.8236, ROC-AUC=0.8844, F1=0.0606 (threshold=0.0000)
+2026-03-17 09:12:24,405 - INFO: Uploaded CID=QmXHVuibimtRFEUrXyezWtNU32D33b46P9Ux8wnux2xfwq hash=ab5bf8eaaa821eb9...
+2026-03-17 09:12:24,443 - INFO: Submitted update — tx_id=None
+2026-03-17 09:12:24,443 - INFO: --- Round 9: cluster models submitted ---
+2026-03-17 09:12:24,443 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:12:34,443 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:12:34,618 - INFO: Verifying BankC round 9: PR-AUC=0.2500 -> True
+2026-03-17 09:12:34,759 - INFO: Verifying BankC round 9: PR-AUC=0.6715 -> True
+2026-03-17 09:12:34,853 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:12:44,853 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:12:44,970 - INFO: Committed to BankC round 9
+2026-03-17 09:12:45,082 - INFO: Committed to BankC round 9
+2026-03-17 09:12:45,148 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:12:55,148 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:12:55,148 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:12:55,204 - INFO: Consensus achieved: ['BankC'] (0.1s elapsed)
+2026-03-17 09:12:55,242 - INFO: Trust-weighted FedAvg over 1 models. Effective weights: {'BankC': '7896.000'}
+2026-03-17 09:12:55,246 - INFO: Global model uploaded — CID=QmXHVuibimtRFEUrXyezWtNU32D33b46P9Ux8wnux2xfwq hash=ab5bf8eaaa821eb9...
+2026-03-17 09:12:55,282 - INFO: Global model stored on ledger.
+2026-03-17 09:12:55,282 - INFO: Round 9 Global CID: QmXHVuibimtRFEUrXyezWtNU32D33b46P9Ux8wnux2xfwq
+2026-03-17 09:12:55,449 - INFO: 
+2026-03-17 09:12:55,449 - INFO: ===> ROUND 9 GLOBAL EVALUATION <===
+2026-03-17 09:12:55,449 - INFO:   F1 Score : 0.0081
+2026-03-17 09:12:55,449 - INFO:   PR-AUC   : 0.7088
+2026-03-17 09:12:55,449 - INFO:   ROC-AUC  : 0.8484
+2026-03-17 09:12:55,449 - INFO:   Precision: 0.0041
+2026-03-17 09:12:55,449 - INFO:   Recall   : 1.0000
+2026-03-17 09:12:55,449 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:12:55,449 - INFO:   E2E Latency: 43.84s
+2026-03-17 09:12:55,449 - INFO: =========================================
+
+2026-03-17 09:12:55,449 - INFO: ========== ROUND 9 COMPLETED in 43.84s ==========
+2026-03-17 09:12:55,449 - INFO: ========== STARTING ROUND 10 ==========
+2026-03-17 09:12:55,449 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:12:57,567 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:12:57,567 - INFO: === Round 10 start — 1 branch update(s) ===
+2026-03-17 09:12:58,363 - INFO: Downloading global model CID=QmXHVuibimtRFEUrXyezWtNU32D33b46P9Ux8wnux2xfwq from IPFS
+2026-03-17 09:12:58,365 - INFO: Global model verified and loaded (round 9).
+2026-03-17 09:12:58,455 - INFO: Round 10 Evaluation: PR-AUC=0.1111, ROC-AUC=0.9996, F1=0.0001 (threshold=0.0000)
+2026-03-17 09:12:58,458 - INFO: Uploaded CID=QmeiWfnopDLgjxccDBFzcWECbS1bm2ju7K3rntLzPyDbn8 hash=11d37de8ef40f189...
+2026-03-17 09:12:58,492 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:13:00,550 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:13:02,602 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.1111 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:13:02,602 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:13:03,695 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:13:03,695 - INFO: === Round 10 start — 1 branch update(s) ===
+2026-03-17 09:13:03,726 - INFO: Downloading global model CID=QmXHVuibimtRFEUrXyezWtNU32D33b46P9Ux8wnux2xfwq from IPFS
+2026-03-17 09:13:03,727 - INFO: Global model verified and loaded (round 9).
+2026-03-17 09:13:03,783 - INFO: Round 10 Evaluation: PR-AUC=0.6104, ROC-AUC=0.9605, F1=0.0025 (threshold=0.0000)
+2026-03-17 09:13:03,787 - INFO: Uploaded CID=QmWJ2NW9e28xH2HDJjBo2vJNo3aYS4FxQS6XmHmJjX3E7X hash=6aa0942a4dd42688...
+2026-03-17 09:13:03,823 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:13:05,873 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:13:07,932 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.6104 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:13:07,933 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:13:08,039 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:13:08,039 - INFO: === Round 10 start — 1 branch update(s) ===
+2026-03-17 09:13:08,069 - INFO: Downloading global model CID=QmXHVuibimtRFEUrXyezWtNU32D33b46P9Ux8wnux2xfwq from IPFS
+2026-03-17 09:13:08,071 - INFO: Global model verified and loaded (round 9).
+2026-03-17 09:13:08,080 - INFO: Round 10 Evaluation: PR-AUC=0.8340, ROC-AUC=0.9675, F1=0.0526 (threshold=0.0000)
+2026-03-17 09:13:08,083 - INFO: Uploaded CID=QmPouMwzLYyV6evWTuPmYNaD4sgsQ6MuFG7dizLzbabBkK hash=9232d80998fe1980...
+2026-03-17 09:13:08,121 - INFO: Submitted update — tx_id=None
+2026-03-17 09:13:08,121 - INFO: --- Round 10: cluster models submitted ---
+2026-03-17 09:13:08,121 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:13:18,121 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:13:18,350 - INFO: Verifying BankC round 10: PR-AUC=0.2500 -> True
+2026-03-17 09:13:18,501 - INFO: Verifying BankC round 10: PR-AUC=0.5524 -> True
+2026-03-17 09:13:18,597 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:13:28,597 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:13:28,713 - INFO: Committed to BankC round 10
+2026-03-17 09:13:28,823 - INFO: Committed to BankC round 10
+2026-03-17 09:13:28,887 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:13:38,887 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:13:38,887 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:13:38,970 - INFO: Consensus achieved: ['BankC'] (0.1s elapsed)
+2026-03-17 09:13:39,010 - INFO: Trust-weighted FedAvg over 1 models. Effective weights: {'BankC': '7896.000'}
+2026-03-17 09:13:39,014 - INFO: Global model uploaded — CID=QmPouMwzLYyV6evWTuPmYNaD4sgsQ6MuFG7dizLzbabBkK hash=9232d80998fe1980...
+2026-03-17 09:13:39,059 - INFO: Global model stored on ledger.
+2026-03-17 09:13:39,059 - INFO: Round 10 Global CID: QmPouMwzLYyV6evWTuPmYNaD4sgsQ6MuFG7dizLzbabBkK
+2026-03-17 09:13:39,239 - INFO: 
+2026-03-17 09:13:39,239 - INFO: ===> ROUND 10 GLOBAL EVALUATION <===
+2026-03-17 09:13:39,239 - INFO:   F1 Score : 0.0081
+2026-03-17 09:13:39,239 - INFO:   PR-AUC   : 0.6083
+2026-03-17 09:13:39,239 - INFO:   ROC-AUC  : 0.9001
+2026-03-17 09:13:39,239 - INFO:   Precision: 0.0041
+2026-03-17 09:13:39,239 - INFO:   Recall   : 1.0000
+2026-03-17 09:13:39,239 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:13:39,239 - INFO:   E2E Latency: 43.61s
+2026-03-17 09:13:39,239 - INFO: =========================================
+
+2026-03-17 09:13:39,239 - INFO: ========== ROUND 10 COMPLETED in 43.61s ==========
+2026-03-17 09:13:39,239 - INFO: ========== STARTING ROUND 11 ==========
+2026-03-17 09:13:39,239 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:13:41,320 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:13:41,320 - INFO: === Round 11 start — 1 branch update(s) ===
+2026-03-17 09:13:42,222 - INFO: Downloading global model CID=QmPouMwzLYyV6evWTuPmYNaD4sgsQ6MuFG7dizLzbabBkK from IPFS
+2026-03-17 09:13:42,229 - INFO: Global model verified and loaded (round 10).
+2026-03-17 09:13:42,414 - INFO: Round 11 Evaluation: PR-AUC=0.0833, ROC-AUC=0.9995, F1=0.0001 (threshold=0.0000)
+2026-03-17 09:13:42,418 - INFO: Uploaded CID=QmTrDMDw5Vf3Yxw3kvGeJqcdZnfWvbtwzd3dwCdejveU31 hash=9eede93071da9805...
+2026-03-17 09:13:42,451 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:13:44,506 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:13:46,567 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.0833 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:13:46,567 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:13:47,659 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:13:47,659 - INFO: === Round 11 start — 1 branch update(s) ===
+2026-03-17 09:13:47,689 - INFO: Downloading global model CID=QmPouMwzLYyV6evWTuPmYNaD4sgsQ6MuFG7dizLzbabBkK from IPFS
+2026-03-17 09:13:47,691 - INFO: Global model verified and loaded (round 10).
+2026-03-17 09:13:47,736 - INFO: Round 11 Evaluation: PR-AUC=0.6088, ROC-AUC=0.9373, F1=0.0030 (threshold=0.0000)
+2026-03-17 09:13:47,740 - INFO: Uploaded CID=QmT88n6U1aFeVtCvLGNjYH4wYf4B2TsqLPdr4DYv7nnrrx hash=3edffb10e725a769...
+2026-03-17 09:13:47,775 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:13:49,843 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:13:51,906 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.6088 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:13:51,906 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:13:52,018 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:13:52,018 - INFO: === Round 11 start — 1 branch update(s) ===
+2026-03-17 09:13:52,048 - INFO: Downloading global model CID=QmPouMwzLYyV6evWTuPmYNaD4sgsQ6MuFG7dizLzbabBkK from IPFS
+2026-03-17 09:13:52,050 - INFO: Global model verified and loaded (round 10).
+2026-03-17 09:13:52,062 - INFO: Round 11 Evaluation: PR-AUC=0.8005, ROC-AUC=0.8742, F1=0.0558 (threshold=0.0000)
+2026-03-17 09:13:52,066 - INFO: Uploaded CID=QmWjQw2rBTnX1W37yPXF5nescGNBsPLiGp6ezL49yrcidA hash=fbd3c8ec5c74e2f0...
+2026-03-17 09:13:52,103 - INFO: Submitted update — tx_id=None
+2026-03-17 09:13:52,103 - INFO: --- Round 11: cluster models submitted ---
+2026-03-17 09:13:52,103 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:14:02,103 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:14:02,325 - INFO: Verifying BankC round 11: PR-AUC=0.2500 -> True
+2026-03-17 09:14:02,479 - INFO: Verifying BankC round 11: PR-AUC=0.4772 -> True
+2026-03-17 09:14:02,574 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:14:12,574 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:14:12,715 - INFO: Committed to BankC round 11
+2026-03-17 09:14:12,815 - INFO: Committed to BankC round 11
+2026-03-17 09:14:12,878 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:14:22,878 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:14:22,878 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:14:22,931 - INFO: Consensus achieved: ['BankC'] (0.1s elapsed)
+2026-03-17 09:14:22,962 - INFO: Trust-weighted FedAvg over 1 models. Effective weights: {'BankC': '7896.000'}
+2026-03-17 09:14:22,966 - INFO: Global model uploaded — CID=QmWjQw2rBTnX1W37yPXF5nescGNBsPLiGp6ezL49yrcidA hash=fbd3c8ec5c74e2f0...
+2026-03-17 09:14:23,003 - INFO: Global model stored on ledger.
+2026-03-17 09:14:23,003 - INFO: Round 11 Global CID: QmWjQw2rBTnX1W37yPXF5nescGNBsPLiGp6ezL49yrcidA
+2026-03-17 09:14:23,225 - INFO: 
+2026-03-17 09:14:23,225 - INFO: ===> ROUND 11 GLOBAL EVALUATION <===
+2026-03-17 09:14:23,225 - INFO:   F1 Score : 0.0081
+2026-03-17 09:14:23,225 - INFO:   PR-AUC   : 0.7151
+2026-03-17 09:14:23,225 - INFO:   ROC-AUC  : 0.9380
+2026-03-17 09:14:23,225 - INFO:   Precision: 0.0041
+2026-03-17 09:14:23,225 - INFO:   Recall   : 1.0000
+2026-03-17 09:14:23,225 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:14:23,225 - INFO:   E2E Latency: 43.76s
+2026-03-17 09:14:23,225 - INFO: =========================================
+
+2026-03-17 09:14:23,225 - INFO: ========== ROUND 11 COMPLETED in 43.76s ==========
+2026-03-17 09:14:23,225 - INFO: ========== STARTING ROUND 12 ==========
+2026-03-17 09:14:23,225 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:14:25,283 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:14:25,283 - INFO: === Round 12 start — 1 branch update(s) ===
+2026-03-17 09:14:26,160 - INFO: Downloading global model CID=QmWjQw2rBTnX1W37yPXF5nescGNBsPLiGp6ezL49yrcidA from IPFS
+2026-03-17 09:14:26,167 - INFO: Global model verified and loaded (round 11).
+2026-03-17 09:14:26,296 - INFO: Round 12 Evaluation: PR-AUC=0.6429, ROC-AUC=0.9999, F1=0.0003 (threshold=0.0000)
+2026-03-17 09:14:26,300 - INFO: Uploaded CID=QmV2TjzrtmJ6w2prGzu5cXQsJBJgvU9SvEe7XVZzgxhEp8 hash=c08facc740fd09a0...
+2026-03-17 09:14:26,335 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:14:28,390 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:14:30,445 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.6429 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:14:30,445 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:14:31,608 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:14:31,608 - INFO: === Round 12 start — 1 branch update(s) ===
+2026-03-17 09:14:31,638 - INFO: Downloading global model CID=QmWjQw2rBTnX1W37yPXF5nescGNBsPLiGp6ezL49yrcidA from IPFS
+2026-03-17 09:14:31,640 - INFO: Global model verified and loaded (round 11).
+2026-03-17 09:14:31,687 - INFO: Round 12 Evaluation: PR-AUC=0.8844, ROC-AUC=0.9999, F1=0.0025 (threshold=0.0000)
+2026-03-17 09:14:31,690 - INFO: Uploaded CID=QmQvmv8C9mrgSDnwMHKCiZh24xiuWUeEK8tPfwTdpWk1i6 hash=46d3bdfd7a38a369...
+2026-03-17 09:14:31,727 - INFO: Submitted update — tx_id=None
+2026-03-17 09:14:31,727 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:14:31,832 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:14:31,832 - INFO: === Round 12 start — 1 branch update(s) ===
+2026-03-17 09:14:31,863 - INFO: Downloading global model CID=QmWjQw2rBTnX1W37yPXF5nescGNBsPLiGp6ezL49yrcidA from IPFS
+2026-03-17 09:14:31,864 - INFO: Global model verified and loaded (round 11).
+2026-03-17 09:14:31,874 - INFO: Round 12 Evaluation: PR-AUC=0.9144, ROC-AUC=0.9869, F1=0.0430 (threshold=0.0000)
+2026-03-17 09:14:31,878 - INFO: Uploaded CID=QmfTtKhz3LRnm7HWnMS6Xjyp4SngoGzwpwK8yY5Lctvkgy hash=177ebd1f2aaa5fa6...
+2026-03-17 09:14:31,914 - INFO: Submitted update — tx_id=None
+2026-03-17 09:14:31,915 - INFO: --- Round 12: cluster models submitted ---
+2026-03-17 09:14:31,915 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:14:41,915 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:14:42,068 - INFO: Verifying BankB round 12: PR-AUC=0.2262 -> True
+2026-03-17 09:14:42,228 - INFO: Verifying BankC round 12: PR-AUC=0.1000 -> True
+2026-03-17 09:14:42,374 - INFO: Verifying BankC round 12: PR-AUC=0.4609 -> True
+2026-03-17 09:14:42,483 - INFO: Verifying BankB round 12: PR-AUC=0.8713 -> True
+2026-03-17 09:14:42,522 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:14:52,522 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:14:52,601 - INFO: Committed to BankB round 12
+2026-03-17 09:14:52,673 - INFO: Committed to BankC round 12
+2026-03-17 09:14:52,781 - INFO: Committed to BankC round 12
+2026-03-17 09:14:52,883 - INFO: Committed to BankB round 12
+2026-03-17 09:14:52,883 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:15:02,883 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:15:02,883 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:15:02,950 - INFO: Consensus achieved: ['BankB', 'BankC'] (0.1s elapsed)
+2026-03-17 09:15:02,983 - INFO: Trust-weighted FedAvg over 2 models. Effective weights: {'BankB': '80980.000', 'BankC': '7896.000'}
+2026-03-17 09:15:02,986 - INFO: Global model uploaded — CID=QmdragSG2ENqeWYEx1tofTgZjkcgwCXXMZizZVVBX24vsq hash=f899903746ed4ba3...
+2026-03-17 09:15:03,026 - INFO: Global model stored on ledger.
+2026-03-17 09:15:03,026 - INFO: Round 12 Global CID: QmdragSG2ENqeWYEx1tofTgZjkcgwCXXMZizZVVBX24vsq
+2026-03-17 09:15:03,200 - INFO: 
+2026-03-17 09:15:03,200 - INFO: ===> ROUND 12 GLOBAL EVALUATION <===
+2026-03-17 09:15:03,200 - INFO:   F1 Score : 0.0081
+2026-03-17 09:15:03,200 - INFO:   PR-AUC   : 0.8032
+2026-03-17 09:15:03,200 - INFO:   ROC-AUC  : 0.9668
+2026-03-17 09:15:03,200 - INFO:   Precision: 0.0041
+2026-03-17 09:15:03,200 - INFO:   Recall   : 1.0000
+2026-03-17 09:15:03,200 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:15:03,200 - INFO:   E2E Latency: 39.80s
+2026-03-17 09:15:03,200 - INFO: =========================================
+
+2026-03-17 09:15:03,200 - INFO: ========== ROUND 12 COMPLETED in 39.80s ==========
+2026-03-17 09:15:03,200 - INFO: ========== STARTING ROUND 13 ==========
+2026-03-17 09:15:03,200 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:15:05,336 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:15:05,336 - INFO: === Round 13 start — 1 branch update(s) ===
+2026-03-17 09:15:06,079 - INFO: Downloading global model CID=QmdragSG2ENqeWYEx1tofTgZjkcgwCXXMZizZVVBX24vsq from IPFS
+2026-03-17 09:15:06,093 - INFO: Global model verified and loaded (round 12).
+2026-03-17 09:15:06,218 - INFO: Round 13 Evaluation: PR-AUC=0.1852, ROC-AUC=0.9988, F1=0.0002 (threshold=0.0000)
+2026-03-17 09:15:06,222 - INFO: Uploaded CID=Qmf2sv75uMadeL55G3VWEzpjmZsVKbpxRgth9kmwMbSBTk hash=5d6df86a890e0381...
+2026-03-17 09:15:06,256 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:15:08,307 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:15:10,351 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.1852 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:15:10,351 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:15:11,515 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:15:11,515 - INFO: === Round 13 start — 1 branch update(s) ===
+2026-03-17 09:15:11,545 - INFO: Downloading global model CID=QmdragSG2ENqeWYEx1tofTgZjkcgwCXXMZizZVVBX24vsq from IPFS
+2026-03-17 09:15:11,546 - INFO: Global model verified and loaded (round 12).
+2026-03-17 09:15:11,592 - INFO: Round 13 Evaluation: PR-AUC=0.7973, ROC-AUC=0.9047, F1=0.0031 (threshold=0.0000)
+2026-03-17 09:15:11,596 - INFO: Uploaded CID=QmbA93GbNv1JbMJPhZmMcyWMyVoCku6vxCezqm456mPWYB hash=13e2443b0000fa15...
+2026-03-17 09:15:11,636 - INFO: Submitted update — tx_id=None
+2026-03-17 09:15:11,636 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:15:11,751 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:15:11,751 - INFO: === Round 13 start — 1 branch update(s) ===
+2026-03-17 09:15:11,781 - INFO: Downloading global model CID=QmdragSG2ENqeWYEx1tofTgZjkcgwCXXMZizZVVBX24vsq from IPFS
+2026-03-17 09:15:11,783 - INFO: Global model verified and loaded (round 12).
+2026-03-17 09:15:11,792 - INFO: Round 13 Evaluation: PR-AUC=0.7958, ROC-AUC=0.8918, F1=0.0478 (threshold=0.0000)
+2026-03-17 09:15:11,796 - INFO: Uploaded CID=QmSR5iCTJtSnDuExoTt1nU7xVABhpDRuumHBcK8X9o7Tkw hash=8324ff3a9808e1ce...
+2026-03-17 09:15:11,833 - INFO: Submitted update — tx_id=None
+2026-03-17 09:15:11,833 - INFO: --- Round 13: cluster models submitted ---
+2026-03-17 09:15:11,833 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:15:21,833 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:15:21,966 - INFO: Verifying BankB round 13: PR-AUC=0.1736 -> True
+2026-03-17 09:15:22,115 - INFO: Verifying BankC round 13: PR-AUC=0.5769 -> True
+2026-03-17 09:15:22,262 - INFO: Verifying BankC round 13: PR-AUC=0.5679 -> True
+2026-03-17 09:15:22,375 - INFO: Verifying BankB round 13: PR-AUC=0.9318 -> True
+2026-03-17 09:15:22,417 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:15:32,417 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:15:32,511 - INFO: Committed to BankB round 13
+2026-03-17 09:15:32,585 - INFO: Committed to BankC round 13
+2026-03-17 09:15:32,684 - INFO: Committed to BankC round 13
+2026-03-17 09:15:32,785 - INFO: Committed to BankB round 13
+2026-03-17 09:15:32,785 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:15:42,785 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:15:42,785 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:15:42,837 - INFO: Consensus achieved: ['BankB', 'BankC'] (0.1s elapsed)
+2026-03-17 09:15:42,879 - INFO: Trust-weighted FedAvg over 2 models. Effective weights: {'BankB': '80980.000', 'BankC': '7896.000'}
+2026-03-17 09:15:42,883 - INFO: Global model uploaded — CID=QmXeVouD9bBenGbyLpvrVLEQCkRJMBhmP5LmkU4q3zeKTE hash=dcf0e17a72f62d97...
+2026-03-17 09:15:42,930 - INFO: Global model stored on ledger.
+2026-03-17 09:15:42,930 - INFO: Round 13 Global CID: QmXeVouD9bBenGbyLpvrVLEQCkRJMBhmP5LmkU4q3zeKTE
+2026-03-17 09:15:43,101 - INFO: 
+2026-03-17 09:15:43,101 - INFO: ===> ROUND 13 GLOBAL EVALUATION <===
+2026-03-17 09:15:43,101 - INFO:   F1 Score : 0.0081
+2026-03-17 09:15:43,102 - INFO:   PR-AUC   : 0.8084
+2026-03-17 09:15:43,102 - INFO:   ROC-AUC  : 0.9582
+2026-03-17 09:15:43,102 - INFO:   Precision: 0.0041
+2026-03-17 09:15:43,102 - INFO:   Recall   : 1.0000
+2026-03-17 09:15:43,102 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:15:43,102 - INFO:   E2E Latency: 39.73s
+2026-03-17 09:15:43,102 - INFO: =========================================
+
+2026-03-17 09:15:43,102 - INFO: ========== ROUND 13 COMPLETED in 39.73s ==========
+2026-03-17 09:15:43,102 - INFO: ========== STARTING ROUND 14 ==========
+2026-03-17 09:15:43,102 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:15:45,235 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:15:45,235 - INFO: === Round 14 start — 1 branch update(s) ===
+2026-03-17 09:15:45,883 - INFO: Downloading global model CID=QmXeVouD9bBenGbyLpvrVLEQCkRJMBhmP5LmkU4q3zeKTE from IPFS
+2026-03-17 09:15:45,888 - INFO: Global model verified and loaded (round 13).
+2026-03-17 09:15:46,017 - INFO: Round 14 Evaluation: PR-AUC=0.0909, ROC-AUC=0.9996, F1=0.0001 (threshold=0.0000)
+2026-03-17 09:15:46,020 - INFO: Uploaded CID=QmWa63HLQRY5PceuAKcn2J5oDuAPBoJazgJwp7C7k5MjSQ hash=476376fd227d7498...
+2026-03-17 09:15:46,054 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:15:48,114 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:15:50,156 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.0909 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:15:50,156 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:15:51,340 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:15:51,340 - INFO: === Round 14 start — 1 branch update(s) ===
+2026-03-17 09:15:51,370 - INFO: Downloading global model CID=QmXeVouD9bBenGbyLpvrVLEQCkRJMBhmP5LmkU4q3zeKTE from IPFS
+2026-03-17 09:15:51,371 - INFO: Global model verified and loaded (round 13).
+2026-03-17 09:15:51,420 - INFO: Round 14 Evaluation: PR-AUC=0.6733, ROC-AUC=0.9712, F1=0.0026 (threshold=0.0000)
+2026-03-17 09:15:51,424 - INFO: Uploaded CID=QmVGmkqYLa1QMSPvuVmG2bKgaGQKsQSr22QbTqBahd8TTS hash=bd49abbcf191fc33...
+2026-03-17 09:15:51,459 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:15:53,515 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:15:55,557 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.6733 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:15:55,557 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:15:55,679 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:15:55,679 - INFO: === Round 14 start — 1 branch update(s) ===
+2026-03-17 09:15:55,708 - INFO: Downloading global model CID=QmXeVouD9bBenGbyLpvrVLEQCkRJMBhmP5LmkU4q3zeKTE from IPFS
+2026-03-17 09:15:55,709 - INFO: Global model verified and loaded (round 13).
+2026-03-17 09:15:55,718 - INFO: Round 14 Evaluation: PR-AUC=0.7290, ROC-AUC=0.8815, F1=0.0446 (threshold=0.0000)
+2026-03-17 09:15:55,722 - INFO: Uploaded CID=QmXXSBCAVGZw8c97HN8EB2a4ZMWBVZBfvH3MQRAWFQUtmK hash=f305656baac25e3b...
+2026-03-17 09:15:55,761 - INFO: Submitted update — tx_id=None
+2026-03-17 09:15:55,761 - INFO: --- Round 14: cluster models submitted ---
+2026-03-17 09:15:55,761 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:16:05,762 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:16:05,924 - INFO: Verifying BankC round 14: PR-AUC=0.1000 -> True
+2026-03-17 09:16:06,063 - INFO: Verifying BankC round 14: PR-AUC=0.6246 -> True
+2026-03-17 09:16:06,158 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:16:16,158 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:16:16,281 - INFO: Committed to BankC round 14
+2026-03-17 09:16:16,385 - INFO: Committed to BankC round 14
+2026-03-17 09:16:16,446 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:16:26,446 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:16:26,446 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:16:26,499 - INFO: Consensus achieved: ['BankC'] (0.1s elapsed)
+2026-03-17 09:16:26,531 - INFO: Trust-weighted FedAvg over 1 models. Effective weights: {'BankC': '7896.000'}
+2026-03-17 09:16:26,535 - INFO: Global model uploaded — CID=QmXXSBCAVGZw8c97HN8EB2a4ZMWBVZBfvH3MQRAWFQUtmK hash=f305656baac25e3b...
+2026-03-17 09:16:26,571 - INFO: Global model stored on ledger.
+2026-03-17 09:16:26,571 - INFO: Round 14 Global CID: QmXXSBCAVGZw8c97HN8EB2a4ZMWBVZBfvH3MQRAWFQUtmK
+2026-03-17 09:16:26,741 - INFO: 
+2026-03-17 09:16:26,741 - INFO: ===> ROUND 14 GLOBAL EVALUATION <===
+2026-03-17 09:16:26,741 - INFO:   F1 Score : 0.0081
+2026-03-17 09:16:26,741 - INFO:   PR-AUC   : 0.6828
+2026-03-17 09:16:26,741 - INFO:   ROC-AUC  : 0.9446
+2026-03-17 09:16:26,741 - INFO:   Precision: 0.0041
+2026-03-17 09:16:26,741 - INFO:   Recall   : 1.0000
+2026-03-17 09:16:26,741 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:16:26,741 - INFO:   E2E Latency: 43.47s
+2026-03-17 09:16:26,741 - INFO: =========================================
+
+2026-03-17 09:16:26,741 - INFO: ========== ROUND 14 COMPLETED in 43.47s ==========
+2026-03-17 09:16:26,741 - INFO: ========== STARTING ROUND 15 ==========
+2026-03-17 09:16:26,741 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:16:28,864 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:16:28,864 - INFO: === Round 15 start — 1 branch update(s) ===
+2026-03-17 09:16:29,819 - INFO: Downloading global model CID=QmXXSBCAVGZw8c97HN8EB2a4ZMWBVZBfvH3MQRAWFQUtmK from IPFS
+2026-03-17 09:16:29,826 - INFO: Global model verified and loaded (round 14).
+2026-03-17 09:16:29,960 - INFO: Round 15 Evaluation: PR-AUC=0.0544, ROC-AUC=0.9948, F1=0.0002 (threshold=0.0000)
+2026-03-17 09:16:29,964 - INFO: Uploaded CID=QmUAtAu6AYrvNXikhChLuqynh5vB7NJGUgEWJG4ZLxj1mi hash=c1a061e55b04adbb...
+2026-03-17 09:16:29,997 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:16:32,048 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:16:34,106 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.0544 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:16:34,106 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:16:35,276 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:16:35,276 - INFO: === Round 15 start — 1 branch update(s) ===
+2026-03-17 09:16:35,306 - INFO: Downloading global model CID=QmXXSBCAVGZw8c97HN8EB2a4ZMWBVZBfvH3MQRAWFQUtmK from IPFS
+2026-03-17 09:16:35,308 - INFO: Global model verified and loaded (round 14).
+2026-03-17 09:16:35,358 - INFO: Round 15 Evaluation: PR-AUC=0.7478, ROC-AUC=0.9952, F1=0.0028 (threshold=0.0000)
+2026-03-17 09:16:35,361 - INFO: Uploaded CID=QmVc5WWJj2BqpJ4XcBmdVGtspcTTt9yER6CMGCDZ4rXNLr hash=4ede35614729e2a8...
+2026-03-17 09:16:35,399 - INFO: Submitted update — tx_id=None
+2026-03-17 09:16:35,399 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:16:35,505 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:16:35,505 - INFO: === Round 15 start — 1 branch update(s) ===
+2026-03-17 09:16:35,534 - INFO: Downloading global model CID=QmXXSBCAVGZw8c97HN8EB2a4ZMWBVZBfvH3MQRAWFQUtmK from IPFS
+2026-03-17 09:16:35,536 - INFO: Global model verified and loaded (round 14).
+2026-03-17 09:16:35,545 - INFO: Round 15 Evaluation: PR-AUC=0.7799, ROC-AUC=0.9421, F1=0.0494 (threshold=0.0000)
+2026-03-17 09:16:35,548 - INFO: Uploaded CID=QmT11gHAi2yEKygosm4XGYfhTKc5mJHLCSdLz11MmUF3PW hash=12b8f70a70f9bdab...
+2026-03-17 09:16:35,587 - INFO: Submitted update — tx_id=None
+2026-03-17 09:16:35,587 - INFO: --- Round 15: cluster models submitted ---
+2026-03-17 09:16:35,587 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:16:45,587 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:16:45,727 - INFO: Verifying BankB round 15: PR-AUC=0.7000 -> True
+2026-03-17 09:16:45,884 - INFO: Verifying BankC round 15: PR-AUC=0.5000 -> True
+2026-03-17 09:16:46,026 - INFO: Verifying BankC round 15: PR-AUC=0.7804 -> True
+2026-03-17 09:16:46,140 - INFO: Verifying BankB round 15: PR-AUC=0.8503 -> True
+2026-03-17 09:16:46,181 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:16:56,181 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:16:56,279 - INFO: Committed to BankB round 15
+2026-03-17 09:16:56,351 - INFO: Committed to BankC round 15
+2026-03-17 09:16:56,452 - INFO: Committed to BankC round 15
+2026-03-17 09:16:56,563 - INFO: Committed to BankB round 15
+2026-03-17 09:16:56,563 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:17:06,564 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:17:06,564 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:17:06,620 - INFO: Consensus achieved: ['BankB', 'BankC'] (0.1s elapsed)
+2026-03-17 09:17:06,651 - INFO: Trust-weighted FedAvg over 2 models. Effective weights: {'BankB': '80980.000', 'BankC': '7896.000'}
+2026-03-17 09:17:06,655 - INFO: Global model uploaded — CID=QmTb9aVgRjvf241zMB1G7XSeCG5gtYX6pzpF5Uq2PG88GN hash=40a4b2e592bc3b90...
+2026-03-17 09:17:06,713 - INFO: Global model stored on ledger.
+2026-03-17 09:17:06,713 - INFO: Round 15 Global CID: QmTb9aVgRjvf241zMB1G7XSeCG5gtYX6pzpF5Uq2PG88GN
+2026-03-17 09:17:06,877 - INFO: 
+2026-03-17 09:17:06,877 - INFO: ===> ROUND 15 GLOBAL EVALUATION <===
+2026-03-17 09:17:06,877 - INFO:   F1 Score : 0.0081
+2026-03-17 09:17:06,877 - INFO:   PR-AUC   : 0.7512
+2026-03-17 09:17:06,877 - INFO:   ROC-AUC  : 0.9632
+2026-03-17 09:17:06,877 - INFO:   Precision: 0.0041
+2026-03-17 09:17:06,877 - INFO:   Recall   : 1.0000
+2026-03-17 09:17:06,877 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:17:06,877 - INFO:   E2E Latency: 39.97s
+2026-03-17 09:17:06,877 - INFO: =========================================
+
+2026-03-17 09:17:06,877 - INFO: ========== ROUND 15 COMPLETED in 39.97s ==========
+2026-03-17 09:17:06,877 - INFO: ========== STARTING ROUND 16 ==========
+2026-03-17 09:17:06,877 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:17:09,050 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:17:09,050 - INFO: === Round 16 start — 1 branch update(s) ===
+2026-03-17 09:17:09,880 - INFO: Downloading global model CID=QmTb9aVgRjvf241zMB1G7XSeCG5gtYX6pzpF5Uq2PG88GN from IPFS
+2026-03-17 09:17:09,886 - INFO: Global model verified and loaded (round 15).
+/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+2026-03-17 09:17:10,003 - INFO: Round 16 Evaluation: PR-AUC=0.0000, ROC-AUC=0.5000, F1=0.0000 (threshold=0.0000)
+2026-03-17 09:17:10,006 - INFO: Uploaded CID=QmeENNKvpJir2fePamVj92CuZRHgU53UUi7o6QqGnqwBe7 hash=d6133d421680e0a4...
+2026-03-17 09:17:10,041 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:17:12,095 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:17:14,151 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.0000 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:17:14,151 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:17:15,255 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:17:15,255 - INFO: === Round 16 start — 1 branch update(s) ===
+2026-03-17 09:17:15,286 - INFO: Downloading global model CID=QmTb9aVgRjvf241zMB1G7XSeCG5gtYX6pzpF5Uq2PG88GN from IPFS
+2026-03-17 09:17:15,288 - INFO: Global model verified and loaded (round 15).
+2026-03-17 09:17:15,334 - INFO: Round 16 Evaluation: PR-AUC=0.7711, ROC-AUC=0.9668, F1=0.0018 (threshold=0.0000)
+2026-03-17 09:17:15,338 - INFO: Uploaded CID=QmcnGCz1Y9qAnBsqmPLVygFmqnZ8o4yjMRUxnZc8XjyiFR hash=1d81c42671c5e83a...
+2026-03-17 09:17:15,375 - INFO: Submitted update — tx_id=None
+2026-03-17 09:17:15,375 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:17:15,547 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:17:15,547 - INFO: === Round 16 start — 1 branch update(s) ===
+2026-03-17 09:17:15,575 - INFO: Downloading global model CID=QmTb9aVgRjvf241zMB1G7XSeCG5gtYX6pzpF5Uq2PG88GN from IPFS
+2026-03-17 09:17:15,577 - INFO: Global model verified and loaded (round 15).
+2026-03-17 09:17:15,586 - INFO: Round 16 Evaluation: PR-AUC=0.8861, ROC-AUC=0.9540, F1=0.0542 (threshold=0.0000)
+2026-03-17 09:17:15,589 - INFO: Uploaded CID=QmfAD7acJ6KekRxs71t731c661k9Ei6Hd2p8xSZXgQnQj3 hash=f111b22c7e11251e...
+2026-03-17 09:17:15,627 - INFO: Submitted update — tx_id=None
+2026-03-17 09:17:15,627 - INFO: --- Round 16: cluster models submitted ---
+2026-03-17 09:17:15,627 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:17:25,627 - INFO: --- Initiating CBFT Cross-Verification ---
+/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+2026-03-17 09:17:25,756 - INFO: Verifying BankB round 16: PR-AUC=0.0000 -> True
+2026-03-17 09:17:25,937 - INFO: Verifying BankC round 16: PR-AUC=0.5000 -> True
+2026-03-17 09:17:26,125 - INFO: Verifying BankC round 16: PR-AUC=0.3635 -> True
+2026-03-17 09:17:26,235 - INFO: Verifying BankB round 16: PR-AUC=0.8511 -> True
+2026-03-17 09:17:26,272 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:17:36,272 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:17:36,347 - INFO: Committed to BankB round 16
+2026-03-17 09:17:36,415 - INFO: Committed to BankC round 16
+2026-03-17 09:17:36,515 - INFO: Committed to BankC round 16
+2026-03-17 09:17:36,617 - INFO: Committed to BankB round 16
+2026-03-17 09:17:36,617 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:17:46,617 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:17:46,618 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:17:46,669 - INFO: Consensus achieved: ['BankB', 'BankC'] (0.1s elapsed)
+2026-03-17 09:17:46,702 - INFO: Trust-weighted FedAvg over 2 models. Effective weights: {'BankB': '80980.000', 'BankC': '7896.000'}
+2026-03-17 09:17:46,710 - INFO: Global model uploaded — CID=QmXo11GKx8JUAcFDLie1VUFaFunKx13EYmtduqMWDc1gfK hash=5b1349d81277f780...
+2026-03-17 09:17:46,747 - INFO: Global model stored on ledger.
+2026-03-17 09:17:46,747 - INFO: Round 16 Global CID: QmXo11GKx8JUAcFDLie1VUFaFunKx13EYmtduqMWDc1gfK
+2026-03-17 09:17:46,930 - INFO: 
+2026-03-17 09:17:46,930 - INFO: ===> ROUND 16 GLOBAL EVALUATION <===
+2026-03-17 09:17:46,930 - INFO:   F1 Score : 0.0081
+2026-03-17 09:17:46,930 - INFO:   PR-AUC   : 0.7615
+2026-03-17 09:17:46,930 - INFO:   ROC-AUC  : 0.9560
+2026-03-17 09:17:46,930 - INFO:   Precision: 0.0041
+2026-03-17 09:17:46,930 - INFO:   Recall   : 1.0000
+2026-03-17 09:17:46,930 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:17:46,930 - INFO:   E2E Latency: 39.87s
+2026-03-17 09:17:46,930 - INFO: =========================================
+
+2026-03-17 09:17:46,930 - INFO: ========== ROUND 16 COMPLETED in 39.87s ==========
+2026-03-17 09:17:46,930 - INFO: ========== STARTING ROUND 17 ==========
+2026-03-17 09:17:46,930 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:17:49,023 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:17:49,023 - INFO: === Round 17 start — 1 branch update(s) ===
+2026-03-17 09:17:49,727 - INFO: Downloading global model CID=QmXo11GKx8JUAcFDLie1VUFaFunKx13EYmtduqMWDc1gfK from IPFS
+2026-03-17 09:17:49,734 - INFO: Global model verified and loaded (round 16).
+2026-03-17 09:17:49,854 - INFO: Round 17 Evaluation: PR-AUC=0.0667, ROC-AUC=0.9994, F1=0.0001 (threshold=0.0000)
+2026-03-17 09:17:49,859 - INFO: Uploaded CID=QmNhTDJDtj58sqB7eUDuiRanmTY2VQvoEGc9Km12x1bbkx hash=d2bd23a3ae8753c2...
+2026-03-17 09:17:49,894 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:17:51,937 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:17:53,984 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.0667 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:17:53,985 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:17:55,122 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:17:55,122 - INFO: === Round 17 start — 1 branch update(s) ===
+2026-03-17 09:17:55,152 - INFO: Downloading global model CID=QmXo11GKx8JUAcFDLie1VUFaFunKx13EYmtduqMWDc1gfK from IPFS
+2026-03-17 09:17:55,154 - INFO: Global model verified and loaded (round 16).
+2026-03-17 09:17:55,198 - INFO: Round 17 Evaluation: PR-AUC=0.7931, ROC-AUC=0.9754, F1=0.0033 (threshold=0.0000)
+2026-03-17 09:17:55,202 - INFO: Uploaded CID=QmfRwJ85U7PgGPhzTgM6A7CiScqcA4G1edkxgNQyaJwFTE hash=b6de01271f2f72a1...
+2026-03-17 09:17:55,239 - INFO: Submitted update — tx_id=None
+2026-03-17 09:17:55,239 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:17:55,351 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:17:55,351 - INFO: === Round 17 start — 1 branch update(s) ===
+2026-03-17 09:17:55,381 - INFO: Downloading global model CID=QmXo11GKx8JUAcFDLie1VUFaFunKx13EYmtduqMWDc1gfK from IPFS
+2026-03-17 09:17:55,383 - INFO: Global model verified and loaded (round 16).
+2026-03-17 09:17:55,394 - INFO: Round 17 Evaluation: PR-AUC=0.8803, ROC-AUC=0.9446, F1=0.0381 (threshold=0.0000)
+2026-03-17 09:17:55,397 - INFO: Uploaded CID=QmVJKmyAxVDwsZfdKkGiivVvZdtx1d6qSmRgyWez8F4QEA hash=0c2e3baec3624163...
+2026-03-17 09:17:55,435 - INFO: Submitted update — tx_id=None
+2026-03-17 09:17:55,435 - INFO: --- Round 17: cluster models submitted ---
+2026-03-17 09:17:55,435 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:18:05,435 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:18:05,669 - INFO: Verifying BankB round 17: PR-AUC=0.5000 -> True
+/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+2026-03-17 09:18:05,829 - INFO: Verifying BankC round 17: PR-AUC=0.0000 -> True
+2026-03-17 09:18:05,980 - INFO: Verifying BankC round 17: PR-AUC=0.5600 -> True
+2026-03-17 09:18:06,084 - INFO: Verifying BankB round 17: PR-AUC=0.9077 -> True
+2026-03-17 09:18:06,120 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:18:16,120 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:18:16,225 - INFO: Committed to BankB round 17
+2026-03-17 09:18:16,301 - INFO: Committed to BankC round 17
+2026-03-17 09:18:16,400 - INFO: Committed to BankC round 17
+2026-03-17 09:18:16,502 - INFO: Committed to BankB round 17
+2026-03-17 09:18:16,502 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:18:26,502 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:18:26,502 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:18:26,557 - INFO: Consensus achieved: ['BankB', 'BankC'] (0.1s elapsed)
+2026-03-17 09:18:26,591 - INFO: Trust-weighted FedAvg over 2 models. Effective weights: {'BankB': '80980.000', 'BankC': '7896.000'}
+2026-03-17 09:18:26,594 - INFO: Global model uploaded — CID=QmQ3kEA7TRif3TNFESe8UP68bWSFMBSUoFERzVah557xoy hash=1a15a909e550388e...
+2026-03-17 09:18:26,629 - INFO: Global model stored on ledger.
+2026-03-17 09:18:26,630 - INFO: Round 17 Global CID: QmQ3kEA7TRif3TNFESe8UP68bWSFMBSUoFERzVah557xoy
+2026-03-17 09:18:26,776 - INFO: 
+2026-03-17 09:18:26,776 - INFO: ===> ROUND 17 GLOBAL EVALUATION <===
+2026-03-17 09:18:26,776 - INFO:   F1 Score : 0.0081
+2026-03-17 09:18:26,777 - INFO:   PR-AUC   : 0.7858
+2026-03-17 09:18:26,777 - INFO:   ROC-AUC  : 0.9472
+2026-03-17 09:18:26,777 - INFO:   Precision: 0.0041
+2026-03-17 09:18:26,777 - INFO:   Recall   : 1.0000
+2026-03-17 09:18:26,777 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:18:26,777 - INFO:   E2E Latency: 39.70s
+2026-03-17 09:18:26,777 - INFO: =========================================
+
+2026-03-17 09:18:26,777 - INFO: ========== ROUND 17 COMPLETED in 39.70s ==========
+2026-03-17 09:18:26,777 - INFO: ========== STARTING ROUND 18 ==========
+2026-03-17 09:18:26,777 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:18:28,896 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:18:28,896 - INFO: === Round 18 start — 1 branch update(s) ===
+2026-03-17 09:18:28,926 - INFO: No global model recorded for round 17; fresh start.
+2026-03-17 09:18:29,008 - INFO: Round 18 Evaluation: PR-AUC=0.0588, ROC-AUC=0.9993, F1=0.0024 (threshold=0.0000)
+2026-03-17 09:18:29,012 - INFO: Uploaded CID=Qmb6P6hs5nyMqN3CN1W9uVuw1gMAeYD6jhJkZ4Rpm7hi9b hash=8c372c7eca4044bd...
+2026-03-17 09:18:29,687 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:18:31,730 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:18:33,788 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.0588 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:18:33,788 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:18:34,898 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:18:34,898 - INFO: === Round 18 start — 1 branch update(s) ===
+2026-03-17 09:18:34,927 - INFO: Downloading global model CID=QmQ3kEA7TRif3TNFESe8UP68bWSFMBSUoFERzVah557xoy from IPFS
+2026-03-17 09:18:34,929 - INFO: Global model verified and loaded (round 17).
+2026-03-17 09:18:34,975 - INFO: Round 18 Evaluation: PR-AUC=0.6771, ROC-AUC=0.9970, F1=0.0025 (threshold=0.0000)
+2026-03-17 09:18:34,979 - INFO: Uploaded CID=QmbCQTZrFKu47wnR9qvgJRhhNhBUHTgbP6SLSERM58qGJt hash=86fbff699ba714ce...
+2026-03-17 09:18:35,013 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:18:37,067 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:18:39,122 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.6771 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:18:39,122 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:18:39,237 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:18:39,237 - INFO: === Round 18 start — 1 branch update(s) ===
+2026-03-17 09:18:39,267 - INFO: Downloading global model CID=QmQ3kEA7TRif3TNFESe8UP68bWSFMBSUoFERzVah557xoy from IPFS
+2026-03-17 09:18:39,269 - INFO: Global model verified and loaded (round 17).
+2026-03-17 09:18:39,278 - INFO: Round 18 Evaluation: PR-AUC=0.9270, ROC-AUC=0.9852, F1=0.0494 (threshold=0.0000)
+2026-03-17 09:18:39,282 - INFO: Uploaded CID=QmQe25dGPDUoFRKjahEsbDxvLZKJaDRsUheWAHM9y5ZZv5 hash=74dccdc76b1e2dfb...
+2026-03-17 09:18:39,319 - INFO: Submitted update — tx_id=None
+2026-03-17 09:18:39,319 - INFO: --- Round 18: cluster models submitted ---
+2026-03-17 09:18:39,319 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:18:49,320 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:18:49,541 - INFO: Verifying BankC round 18: PR-AUC=0.5476 -> True
+2026-03-17 09:18:49,752 - INFO: Verifying BankC round 18: PR-AUC=0.6381 -> True
+2026-03-17 09:18:49,847 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:18:59,847 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:18:59,972 - INFO: Committed to BankC round 18
+2026-03-17 09:19:00,077 - INFO: Committed to BankC round 18
+2026-03-17 09:19:00,139 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:19:10,140 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:19:10,140 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:19:10,191 - INFO: Consensus achieved: ['BankC'] (0.1s elapsed)
+2026-03-17 09:19:10,223 - INFO: Trust-weighted FedAvg over 1 models. Effective weights: {'BankC': '7896.000'}
+2026-03-17 09:19:10,226 - INFO: Global model uploaded — CID=QmQe25dGPDUoFRKjahEsbDxvLZKJaDRsUheWAHM9y5ZZv5 hash=74dccdc76b1e2dfb...
+2026-03-17 09:19:10,264 - INFO: Global model stored on ledger.
+2026-03-17 09:19:10,264 - INFO: Round 18 Global CID: QmQe25dGPDUoFRKjahEsbDxvLZKJaDRsUheWAHM9y5ZZv5
+2026-03-17 09:19:10,437 - INFO: 
+2026-03-17 09:19:10,437 - INFO: ===> ROUND 18 GLOBAL EVALUATION <===
+2026-03-17 09:19:10,437 - INFO:   F1 Score : 0.0081
+2026-03-17 09:19:10,437 - INFO:   PR-AUC   : 0.6389
+2026-03-17 09:19:10,437 - INFO:   ROC-AUC  : 0.8644
+2026-03-17 09:19:10,437 - INFO:   Precision: 0.0041
+2026-03-17 09:19:10,437 - INFO:   Recall   : 1.0000
+2026-03-17 09:19:10,437 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:19:10,437 - INFO:   E2E Latency: 43.49s
+2026-03-17 09:19:10,437 - INFO: =========================================
+
+2026-03-17 09:19:10,437 - INFO: ========== ROUND 18 COMPLETED in 43.49s ==========
+2026-03-17 09:19:10,437 - INFO: ========== STARTING ROUND 19 ==========
+2026-03-17 09:19:10,437 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:19:12,548 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:19:12,548 - INFO: === Round 19 start — 1 branch update(s) ===
+2026-03-17 09:19:13,452 - INFO: Downloading global model CID=QmQe25dGPDUoFRKjahEsbDxvLZKJaDRsUheWAHM9y5ZZv5 from IPFS
+2026-03-17 09:19:13,457 - INFO: Global model verified and loaded (round 18).
+/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+2026-03-17 09:19:13,582 - INFO: Round 19 Evaluation: PR-AUC=0.0000, ROC-AUC=0.5000, F1=0.0000 (threshold=0.0000)
+2026-03-17 09:19:13,586 - INFO: Uploaded CID=QmPpMUJSiMx1WoNCZ1CLMwXMYkvWAfzvYLYSaG3FJzfH1W hash=cc5f9bb82a2f5bc1...
+2026-03-17 09:19:13,620 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:19:15,666 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:19:17,716 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.0000 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:19:17,716 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:19:18,784 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:19:18,785 - INFO: === Round 19 start — 1 branch update(s) ===
+2026-03-17 09:19:18,813 - INFO: Downloading global model CID=QmQe25dGPDUoFRKjahEsbDxvLZKJaDRsUheWAHM9y5ZZv5 from IPFS
+2026-03-17 09:19:18,815 - INFO: Global model verified and loaded (round 18).
+2026-03-17 09:19:18,860 - INFO: Round 19 Evaluation: PR-AUC=0.6383, ROC-AUC=0.9973, F1=0.0030 (threshold=0.0000)
+2026-03-17 09:19:18,864 - INFO: Uploaded CID=QmS6kR8sPVNngKbE8LL16Pdx6uBCmKJBTiDQTMdZaswwnZ hash=39ad1e6e608f6309...
+2026-03-17 09:19:18,896 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:19:20,949 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:19:23,013 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.6383 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:19:23,013 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:19:23,154 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:19:23,154 - INFO: === Round 19 start — 1 branch update(s) ===
+2026-03-17 09:19:23,182 - INFO: Downloading global model CID=QmQe25dGPDUoFRKjahEsbDxvLZKJaDRsUheWAHM9y5ZZv5 from IPFS
+2026-03-17 09:19:23,184 - INFO: Global model verified and loaded (round 18).
+2026-03-17 09:19:23,193 - INFO: Round 19 Evaluation: PR-AUC=0.6479, ROC-AUC=0.8392, F1=0.0365 (threshold=0.0000)
+2026-03-17 09:19:23,197 - INFO: Uploaded CID=QmUFEcSqDjk5ZFvDoWYW2moNK68MFxmqo3CAXKSRtj1e7h hash=ae7eeb3058371e7f...
+2026-03-17 09:19:23,230 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:19:25,282 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:19:27,329 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.6479 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:19:27,329 - INFO: --- Round 19: cluster models submitted ---
+2026-03-17 09:19:27,329 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:19:37,330 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:19:37,541 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:19:47,542 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:19:47,743 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:19:57,743 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:19:57,744 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:21:58,827 - WARNING: Consensus timeout after 121.1s — proceeding with 0 banks.
+2026-03-17 09:21:58,827 - WARNING: aggregate_round: accepted_banks is empty — nothing to aggregate.
+2026-03-17 09:21:58,827 - ERROR: Round 19 Aggregation Failed!
+2026-03-17 09:21:58,827 - INFO: ========== ROUND 19 COMPLETED in 168.39s ==========
+2026-03-17 09:21:58,827 - INFO: ========== STARTING ROUND 20 ==========
+2026-03-17 09:21:58,827 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:22:00,983 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:22:00,983 - INFO: === Round 20 start — 1 branch update(s) ===
+2026-03-17 09:22:01,014 - INFO: No global model recorded for round 19; fresh start.
+2026-03-17 09:22:01,097 - INFO: Round 20 Evaluation: PR-AUC=0.3333, ROC-AUC=0.9999, F1=0.0020 (threshold=0.0000)
+2026-03-17 09:22:01,100 - INFO: Uploaded CID=QmX36Ej4YAfDgQ3aj4AVPDmx3z41RNq7a4HQ2hnXRDctR1 hash=24a049e372683b95...
+2026-03-17 09:22:01,135 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:22:03,175 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:22:05,230 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.3333 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:22:05,230 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:22:06,387 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:22:06,387 - INFO: === Round 20 start — 1 branch update(s) ===
+2026-03-17 09:22:06,418 - INFO: No global model recorded for round 19; fresh start.
+2026-03-17 09:22:06,463 - INFO: Round 20 Evaluation: PR-AUC=0.6185, ROC-AUC=0.9412, F1=0.0031 (threshold=0.0000)
+2026-03-17 09:22:06,467 - INFO: Uploaded CID=QmSURfJPeZnX64gZmPKh3kd5XdD8RNqSvShwA4BG5vjpkR hash=75be675da08eaf2f...
+2026-03-17 09:22:06,500 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:22:08,543 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:22:10,582 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.6185 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:22:10,582 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:22:10,754 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:22:10,754 - INFO: === Round 20 start — 1 branch update(s) ===
+2026-03-17 09:22:10,783 - INFO: No global model recorded for round 19; fresh start.
+2026-03-17 09:22:10,803 - INFO: Round 20 Evaluation: PR-AUC=0.8211, ROC-AUC=0.9350, F1=0.0526 (threshold=0.0000)
+2026-03-17 09:22:10,809 - INFO: Uploaded CID=QmcTU4opStLYjK3uxSfLXE7Ai8JumtumeWMf9faBgpQJ5y hash=5e66659122d24821...
+2026-03-17 09:22:10,852 - INFO: Submitted update — tx_id=None
+2026-03-17 09:22:10,852 - INFO: --- Round 20: cluster models submitted ---
+2026-03-17 09:22:10,852 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:22:20,852 - INFO: --- Initiating CBFT Cross-Verification ---
+/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+2026-03-17 09:22:21,039 - INFO: Verifying BankC round 20: PR-AUC=0.0000 -> True
+2026-03-17 09:22:21,210 - INFO: Verifying BankC round 20: PR-AUC=0.6891 -> True
+2026-03-17 09:22:21,308 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:22:31,308 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:22:31,425 - INFO: Committed to BankC round 20
+2026-03-17 09:22:31,528 - INFO: Committed to BankC round 20
+2026-03-17 09:22:31,589 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:22:41,589 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:22:41,589 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:22:41,662 - INFO: Consensus achieved: ['BankC'] (0.1s elapsed)
+2026-03-17 09:22:41,692 - INFO: Trust-weighted FedAvg over 1 models. Effective weights: {'BankC': '7896.000'}
+2026-03-17 09:22:41,696 - INFO: Global model uploaded — CID=QmcTU4opStLYjK3uxSfLXE7Ai8JumtumeWMf9faBgpQJ5y hash=5e66659122d24821...
+2026-03-17 09:22:41,730 - INFO: Global model stored on ledger.
+2026-03-17 09:22:41,731 - INFO: Round 20 Global CID: QmcTU4opStLYjK3uxSfLXE7Ai8JumtumeWMf9faBgpQJ5y
+2026-03-17 09:22:41,875 - INFO: 
+2026-03-17 09:22:41,875 - INFO: ===> ROUND 20 GLOBAL EVALUATION <===
+2026-03-17 09:22:41,875 - INFO:   F1 Score : 0.0081
+2026-03-17 09:22:41,876 - INFO:   PR-AUC   : 0.7371
+2026-03-17 09:22:41,876 - INFO:   ROC-AUC  : 0.9495
+2026-03-17 09:22:41,876 - INFO:   Precision: 0.0041
+2026-03-17 09:22:41,876 - INFO:   Recall   : 1.0000
+2026-03-17 09:22:41,876 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:22:41,876 - INFO:   E2E Latency: 42.90s
+2026-03-17 09:22:41,876 - INFO: =========================================
+
+2026-03-17 09:22:41,876 - INFO: ========== ROUND 20 COMPLETED in 42.90s ==========
+2026-03-17 09:22:41,876 - INFO: ========== STARTING ROUND 21 ==========
+2026-03-17 09:22:41,876 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:22:43,957 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:22:43,957 - INFO: === Round 21 start — 1 branch update(s) ===
+2026-03-17 09:22:44,992 - INFO: Downloading global model CID=QmcTU4opStLYjK3uxSfLXE7Ai8JumtumeWMf9faBgpQJ5y from IPFS
+2026-03-17 09:22:44,998 - INFO: Global model verified and loaded (round 20).
+/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+2026-03-17 09:22:45,116 - INFO: Round 21 Evaluation: PR-AUC=0.0000, ROC-AUC=0.5000, F1=0.0000 (threshold=0.0000)
+2026-03-17 09:22:45,120 - INFO: Uploaded CID=QmRNeFcQxpbNxUz9ZaaBBQUDegcGC27A2UdnAGN2NqWhWe hash=aed5afee8b50b92b...
+2026-03-17 09:22:45,153 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:22:47,210 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:22:49,264 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.0000 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:22:49,264 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:22:50,352 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:22:50,352 - INFO: === Round 21 start — 1 branch update(s) ===
+2026-03-17 09:22:50,382 - INFO: Downloading global model CID=QmcTU4opStLYjK3uxSfLXE7Ai8JumtumeWMf9faBgpQJ5y from IPFS
+2026-03-17 09:22:50,384 - INFO: Global model verified and loaded (round 20).
+2026-03-17 09:22:50,429 - INFO: Round 21 Evaluation: PR-AUC=0.6087, ROC-AUC=0.9985, F1=0.0021 (threshold=0.0000)
+2026-03-17 09:22:50,433 - INFO: Uploaded CID=QmdqH8aVePdkM5dTK9g89NB33KGXbjZbtiCMTKdxZBMbcC hash=6ef577ce52bf6016...
+2026-03-17 09:22:50,467 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:22:52,507 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:22:54,573 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.6087 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:22:54,574 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:22:54,707 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:22:54,707 - INFO: === Round 21 start — 1 branch update(s) ===
+2026-03-17 09:22:54,738 - INFO: Downloading global model CID=QmcTU4opStLYjK3uxSfLXE7Ai8JumtumeWMf9faBgpQJ5y from IPFS
+2026-03-17 09:22:54,739 - INFO: Global model verified and loaded (round 20).
+2026-03-17 09:22:54,751 - INFO: Round 21 Evaluation: PR-AUC=0.7094, ROC-AUC=0.8840, F1=0.0510 (threshold=0.0000)
+2026-03-17 09:22:54,755 - INFO: Uploaded CID=QmfSm1RcZ8Nf5EGbh133NFQt8CCAbwVSgk7JDwiKjCNTqC hash=38b1cd37082cb06c...
+2026-03-17 09:22:54,795 - INFO: Submitted update — tx_id=None
+2026-03-17 09:22:54,795 - INFO: --- Round 21: cluster models submitted ---
+2026-03-17 09:22:54,795 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:23:04,795 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:23:05,035 - INFO: Verifying BankC round 21: PR-AUC=0.2944 -> True
+2026-03-17 09:23:05,198 - INFO: Verifying BankC round 21: PR-AUC=0.5431 -> True
+2026-03-17 09:23:05,293 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:23:15,293 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:23:15,411 - INFO: Committed to BankC round 21
+2026-03-17 09:23:15,513 - INFO: Committed to BankC round 21
+2026-03-17 09:23:15,573 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:23:25,573 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:23:25,573 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:23:25,635 - INFO: Consensus achieved: ['BankC'] (0.1s elapsed)
+2026-03-17 09:23:25,666 - INFO: Trust-weighted FedAvg over 1 models. Effective weights: {'BankC': '7896.000'}
+2026-03-17 09:23:25,677 - INFO: Global model uploaded — CID=QmfSm1RcZ8Nf5EGbh133NFQt8CCAbwVSgk7JDwiKjCNTqC hash=38b1cd37082cb06c...
+2026-03-17 09:23:25,714 - INFO: Global model stored on ledger.
+2026-03-17 09:23:25,714 - INFO: Round 21 Global CID: QmfSm1RcZ8Nf5EGbh133NFQt8CCAbwVSgk7JDwiKjCNTqC
+2026-03-17 09:23:25,868 - INFO: 
+2026-03-17 09:23:25,868 - INFO: ===> ROUND 21 GLOBAL EVALUATION <===
+2026-03-17 09:23:25,868 - INFO:   F1 Score : 0.0081
+2026-03-17 09:23:25,868 - INFO:   PR-AUC   : 0.6776
+2026-03-17 09:23:25,868 - INFO:   ROC-AUC  : 0.9410
+2026-03-17 09:23:25,868 - INFO:   Precision: 0.0041
+2026-03-17 09:23:25,868 - INFO:   Recall   : 1.0000
+2026-03-17 09:23:25,868 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:23:25,868 - INFO:   E2E Latency: 43.84s
+2026-03-17 09:23:25,868 - INFO: =========================================
+
+2026-03-17 09:23:25,868 - INFO: ========== ROUND 21 COMPLETED in 43.84s ==========
+2026-03-17 09:23:25,868 - INFO: ========== STARTING ROUND 22 ==========
+2026-03-17 09:23:25,868 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:23:27,900 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:23:27,900 - INFO: === Round 22 start — 1 branch update(s) ===
+2026-03-17 09:23:27,931 - INFO: No global model recorded for round 21; fresh start.
+2026-03-17 09:23:28,077 - INFO: Round 22 Evaluation: PR-AUC=0.1667, ROC-AUC=0.9998, F1=0.0017 (threshold=0.0000)
+2026-03-17 09:23:28,081 - INFO: Uploaded CID=QmdnX9yQdqKUz6XkJmH3P1jTMQDY7Gd5xGGy1LPERQW7h7 hash=89af5941c8e344b3...
+2026-03-17 09:23:28,943 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:23:31,001 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:23:33,037 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.1667 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:23:33,037 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:23:34,118 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:23:34,118 - INFO: === Round 22 start — 1 branch update(s) ===
+2026-03-17 09:23:34,147 - INFO: Downloading global model CID=QmfSm1RcZ8Nf5EGbh133NFQt8CCAbwVSgk7JDwiKjCNTqC from IPFS
+2026-03-17 09:23:34,149 - INFO: Global model verified and loaded (round 21).
+2026-03-17 09:23:34,193 - INFO: Round 22 Evaluation: PR-AUC=0.5353, ROC-AUC=0.9996, F1=0.0010 (threshold=0.0000)
+2026-03-17 09:23:34,197 - INFO: Uploaded CID=QmbSs6nVWcmeqzjGbTEcLA8VEYkD9XSXoWzx9H4rBwegRz hash=3c7882f139aba96f...
+2026-03-17 09:23:34,230 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:23:36,271 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:23:38,321 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.5353 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:23:38,321 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:23:38,446 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:23:38,446 - INFO: === Round 22 start — 1 branch update(s) ===
+2026-03-17 09:23:38,476 - INFO: Downloading global model CID=QmfSm1RcZ8Nf5EGbh133NFQt8CCAbwVSgk7JDwiKjCNTqC from IPFS
+2026-03-17 09:23:38,478 - INFO: Global model verified and loaded (round 21).
+2026-03-17 09:23:38,487 - INFO: Round 22 Evaluation: PR-AUC=0.8399, ROC-AUC=0.9243, F1=0.0414 (threshold=0.0000)
+2026-03-17 09:23:38,491 - INFO: Uploaded CID=QmSrF8iz2k4kNfuZWJhbav6G8h6BQJPFmzX9PDCo9z2wyu hash=0939e5def744ec86...
+2026-03-17 09:23:38,545 - INFO: Submitted update — tx_id=None
+2026-03-17 09:23:38,545 - INFO: --- Round 22: cluster models submitted ---
+2026-03-17 09:23:38,545 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:23:48,545 - INFO: --- Initiating CBFT Cross-Verification ---
+/media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/.venv/lib/python3.12/site-packages/sklearn/metrics/_ranking.py:1131: UserWarning: No positive class found in y_true, recall is set to one for all thresholds.
+  warnings.warn(
+2026-03-17 09:23:48,742 - INFO: Verifying BankC round 22: PR-AUC=0.0000 -> True
+2026-03-17 09:23:48,900 - INFO: Verifying BankC round 22: PR-AUC=0.5854 -> True
+2026-03-17 09:23:48,995 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:23:58,995 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:23:59,118 - INFO: Committed to BankC round 22
+2026-03-17 09:23:59,224 - INFO: Committed to BankC round 22
+2026-03-17 09:23:59,286 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:24:09,286 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:24:09,286 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:24:09,339 - INFO: Consensus achieved: ['BankC'] (0.1s elapsed)
+2026-03-17 09:24:09,370 - INFO: Trust-weighted FedAvg over 1 models. Effective weights: {'BankC': '7896.000'}
+2026-03-17 09:24:09,373 - INFO: Global model uploaded — CID=QmSrF8iz2k4kNfuZWJhbav6G8h6BQJPFmzX9PDCo9z2wyu hash=0939e5def744ec86...
+2026-03-17 09:24:09,408 - INFO: Global model stored on ledger.
+2026-03-17 09:24:09,409 - INFO: Round 22 Global CID: QmSrF8iz2k4kNfuZWJhbav6G8h6BQJPFmzX9PDCo9z2wyu
+2026-03-17 09:24:09,648 - INFO: 
+2026-03-17 09:24:09,649 - INFO: ===> ROUND 22 GLOBAL EVALUATION <===
+2026-03-17 09:24:09,649 - INFO:   F1 Score : 0.0081
+2026-03-17 09:24:09,649 - INFO:   PR-AUC   : 0.7218
+2026-03-17 09:24:09,649 - INFO:   ROC-AUC  : 0.8661
+2026-03-17 09:24:09,649 - INFO:   Precision: 0.0041
+2026-03-17 09:24:09,649 - INFO:   Recall   : 1.0000
+2026-03-17 09:24:09,649 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:24:09,649 - INFO:   E2E Latency: 43.54s
+2026-03-17 09:24:09,649 - INFO: =========================================
+
+2026-03-17 09:24:09,649 - INFO: ========== ROUND 22 COMPLETED in 43.54s ==========
+2026-03-17 09:24:09,649 - INFO: ========== STARTING ROUND 23 ==========
+2026-03-17 09:24:09,649 - INFO: [BankA] Training on real local dataset (151642 samples)...
+2026-03-17 09:24:11,682 - INFO: [BankA] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:24:11,682 - INFO: === Round 23 start — 1 branch update(s) ===
+2026-03-17 09:24:12,518 - INFO: Downloading global model CID=QmSrF8iz2k4kNfuZWJhbav6G8h6BQJPFmzX9PDCo9z2wyu from IPFS
+2026-03-17 09:24:12,526 - INFO: Global model verified and loaded (round 22).
+2026-03-17 09:24:12,649 - INFO: Round 23 Evaluation: PR-AUC=0.5000, ROC-AUC=1.0000, F1=0.0001 (threshold=0.0000)
+2026-03-17 09:24:12,653 - INFO: Uploaded CID=QmUcREJdpeXGG5rgmeJML4k2HR8H7re1cqvb3kA8fVvWY5 hash=ffd99ff7dac7a254...
+2026-03-17 09:24:12,689 - WARNING: 503 on /submit-update — retry 1/3 in 2.0s
+2026-03-17 09:24:14,750 - WARNING: 503 on /submit-update — retry 2/3 in 2.0s
+2026-03-17 09:24:16,819 - ERROR: submit_update failed: HTTP 503: Fabric network error: Error: endorsement failure during invoke. response: status:500 message:"SubmitClusterUpdate: valScore 0.5000 below threshold 0.7000 \342\200\224 submission rejected"
+2026-03-17 09:24:16,819 - INFO: [BankB] Training on real local dataset (80980 samples)...
+2026-03-17 09:24:17,967 - INFO: [BankB] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:24:17,968 - INFO: === Round 23 start — 1 branch update(s) ===
+2026-03-17 09:24:17,996 - INFO: Downloading global model CID=QmSrF8iz2k4kNfuZWJhbav6G8h6BQJPFmzX9PDCo9z2wyu from IPFS
+2026-03-17 09:24:17,998 - INFO: Global model verified and loaded (round 22).
+2026-03-17 09:24:18,043 - INFO: Round 23 Evaluation: PR-AUC=0.8187, ROC-AUC=0.9764, F1=0.0026 (threshold=0.0000)
+2026-03-17 09:24:18,047 - INFO: Uploaded CID=QmRvGvBaHE7b2T1Any55zxLRXHNEmN8E8yskpfSdtg8s2G hash=bb5c7af6bd97d62a...
+2026-03-17 09:24:18,086 - INFO: Submitted update — tx_id=None
+2026-03-17 09:24:18,086 - INFO: [BankC] Training on real local dataset (7896 samples)...
+2026-03-17 09:24:18,216 - INFO: [BankC] Running HQ Agent (IPFS upload + CBFT)...
+2026-03-17 09:24:18,216 - INFO: === Round 23 start — 1 branch update(s) ===
+2026-03-17 09:24:18,246 - INFO: Downloading global model CID=QmSrF8iz2k4kNfuZWJhbav6G8h6BQJPFmzX9PDCo9z2wyu from IPFS
+2026-03-17 09:24:18,248 - INFO: Global model verified and loaded (round 22).
+2026-03-17 09:24:18,259 - INFO: Round 23 Evaluation: PR-AUC=0.8166, ROC-AUC=0.9352, F1=0.0332 (threshold=0.0000)
+2026-03-17 09:24:18,265 - INFO: Uploaded CID=QmXF9Hj5v33cSWfWYQh8rFHkUmaz73HpWNKiLhMUphWVzq hash=a72fb0f5425875d1...
+2026-03-17 09:24:18,303 - INFO: Submitted update — tx_id=None
+2026-03-17 09:24:18,303 - INFO: --- Round 23: cluster models submitted ---
+2026-03-17 09:24:18,304 - INFO: Waiting 10s for models to settle on ledger before CBFT verification...
+2026-03-17 09:24:28,304 - INFO: --- Initiating CBFT Cross-Verification ---
+2026-03-17 09:24:28,433 - INFO: Verifying BankB round 23: PR-AUC=0.5833 -> True
+2026-03-17 09:24:28,581 - INFO: Verifying BankC round 23: PR-AUC=0.0909 -> True
+2026-03-17 09:24:28,760 - INFO: Verifying BankC round 23: PR-AUC=0.7196 -> True
+2026-03-17 09:24:28,873 - INFO: Verifying BankB round 23: PR-AUC=0.9371 -> True
+2026-03-17 09:24:28,908 - INFO: Waiting 10s for CBFT verification to finalise...
+2026-03-17 09:24:38,908 - INFO: --- Initiating CBFT Commits ---
+2026-03-17 09:24:39,000 - INFO: Committed to BankB round 23
+2026-03-17 09:24:39,074 - INFO: Committed to BankC round 23
+2026-03-17 09:24:39,180 - INFO: Committed to BankC round 23
+2026-03-17 09:24:39,281 - INFO: Committed to BankB round 23
+2026-03-17 09:24:39,281 - INFO: Waiting 10s for CBFT commits to finalise...
+2026-03-17 09:24:49,281 - INFO: [GlobalAggregator] Performing trust-weighted cross-cluster aggregation...
+2026-03-17 09:24:49,282 - INFO: Waiting for consensus (timeout=120s) ...
+2026-03-17 09:24:49,345 - INFO: Consensus achieved: ['BankB', 'BankC'] (0.1s elapsed)
+2026-03-17 09:24:49,378 - INFO: Trust-weighted FedAvg over 2 models. Effective weights: {'BankB': '80980.000', 'BankC': '7896.000'}
+2026-03-17 09:24:49,381 - INFO: Global model uploaded — CID=QmbxJtetBRzCZW5sEZvc16Yy2JbsMNQYjN13XaV3jtcnVe hash=3e61aba175d6f890...
+2026-03-17 09:24:49,417 - INFO: Global model stored on ledger.
+2026-03-17 09:24:49,417 - INFO: Round 23 Global CID: QmbxJtetBRzCZW5sEZvc16Yy2JbsMNQYjN13XaV3jtcnVe
+2026-03-17 09:24:49,580 - INFO: 
+2026-03-17 09:24:49,580 - INFO: ===> ROUND 23 GLOBAL EVALUATION <===
+2026-03-17 09:24:49,581 - INFO:   F1 Score : 0.0081
+2026-03-17 09:24:49,581 - INFO:   PR-AUC   : 0.7757
+2026-03-17 09:24:49,581 - INFO:   ROC-AUC  : 0.9667
+2026-03-17 09:24:49,581 - INFO:   Precision: 0.0041
+2026-03-17 09:24:49,581 - INFO:   Recall   : 1.0000
+2026-03-17 09:24:49,581 - INFO:   Comm Cost: 0.49 MB
+2026-03-17 09:24:49,581 - INFO:   E2E Latency: 39.77s
+2026-03-17 09:24:49,581 - INFO: =========================================
+
+2026-03-17 09:24:49,581 - INFO: ========== ROUND 23 COMPLETED in 39.77s ==========
+2026-03-17 09:24:49,581 - INFO: Results saved to /media/fyp-group-18/1TB-Hard/FYP-Group18/experiments/6_proposed_framework/fl-integration/scripts/benchmark_results.json
+2026-03-17 09:24:49,581 - INFO: 
+2026-03-17 09:24:49,581 - INFO: =================================
+2026-03-17 09:24:49,581 - INFO:    PERFORMANCE BENCHMARK STATS   
+2026-03-17 09:24:49,581 - INFO: =================================
+2026-03-17 09:24:49,581 - INFO: Total Rounds: 20
+2026-03-17 09:24:49,581 - INFO: Total Time: 965.84s
+2026-03-17 09:24:49,581 - INFO: Avg Round Latency: 48.12s
+2026-03-17 09:24:49,581 - INFO: Avg F1 Score: 0.0081
+2026-03-17 09:24:49,581 - INFO: Avg PR-AUC : 0.7296
+2026-03-17 09:24:49,581 - INFO: =================================
+2026-03-17 09:24:49,581 - INFO: ✅ Latency SLA met (<= 120s)
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[1;34m[INFO][0m   PHASE 5 — Final Summary                      
+[1;34m[INFO][0m  ══════════════════════════════════════════════
+[0;32m[OK][0m    Benchmark results saved to:
+┌─────────────────────────────────────────────┐
+│          BENCHMARK SUMMARY ACROSS ALL ROUNDS │
+├───────────────────────────┬─────────┬────────┤
+│ Metric                    │  Mean   │  Best  │
+├───────────────────────────┼─────────┼────────┤
+│ F1 Score                  │  0.0081 │ 0.0081 │
+│ PR-AUC                    │  0.7296 │ 0.8084 │
+│ ROC-AUC                   │  0.9326 │ 0.9668 │
+│ E2E Latency (s)           │  48.12  │ 39.52  │
+│ Comm Cost (MB/round)      │  0.49   │ 0.49   │
+└───────────────────────────┴─────────┴────────┘
+
+Latency SLA (≤ 120s avg): ✅ PASSED
+Completed rounds with metrics: 19/20
+[1;34m[INFO][0m  To stop all background services run: ./stop_system.sh
+[1;34m[INFO][0m  To check service status run:         ./status.sh
