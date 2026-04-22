@@ -75,7 +75,7 @@ RQ3: Is it possible to integrate differential privacy into the local training st
 
 ---
 
-<img width="1361" height="742" alt="Image" src="https://github.com/user-attachments/assets/327997f5-2d00-4c0b-809e-325dd2c78f3d" />
+<img alt="Image" src="https://github.com/user-attachments/assets/327997f5-2d00-4c0b-809e-325dd2c78f3d" width="100%" alt="Image"/>
 
 ## Objectives
 
@@ -148,7 +148,7 @@ Given the severe class imbalance (0.17% fraud), standard accuracy is uninformati
 
 ## System Architecture
 
-<img width="1360" height="762" alt="Image" src="https://github.com/user-attachments/assets/d05fa46b-1ba1-4a72-ac90-5a8ead5760a5" />
+<img width="100%" alt="Image" src="https://github.com/user-attachments/assets/d05fa46b-1ba1-4a72-ac90-5a8ead5760a5" />
 
 The proposed architecture follows a **two-tier hierarchical design**.
 
@@ -179,11 +179,12 @@ By limiting blockchain participation to HQ nodes instead of all branch nodes, th
 ### Off-Chain Storage
 
 To avoid storing large model files directly on-chain, model artifacts are uploaded to **IPFS**, and only compact metadata such as CID, hash, validation status, and trust information are stored on the blockchain ledger.
+
 ---
 
-<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/790c0478-e528-4fc8-befe-91a40493747f" />
+<img width="100%" alt="Image" src="https://github.com/user-attachments/assets/790c0478-e528-4fc8-befe-91a40493747f" />
 
-<img width="4083" height="2226" alt="Image" src="https://github.com/user-attachments/assets/abdeafc0-1baf-4ce1-a948-a14f397f6f58" />
+<img width="100%" alt="Image" src="https://github.com/user-attachments/assets/abdeafc0-1baf-4ce1-a948-a14f397f6f58" />
 
 ## Experimental Setup and Implementation
 
