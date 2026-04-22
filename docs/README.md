@@ -180,6 +180,9 @@ By limiting blockchain participation to HQ nodes instead of all branch nodes, th
 
 To avoid storing large model files directly on-chain, model artifacts are uploaded to **IPFS**, and only compact metadata such as CID, hash, validation status, and trust information are stored on the blockchain ledger.
 ---
+
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/790c0478-e528-4fc8-befe-91a40493747f" />
+
 <img width="4083" height="2226" alt="Image" src="https://github.com/user-attachments/assets/abdeafc0-1baf-4ce1-a948-a14f397f6f58" />
 
 ## Experimental Setup and Implementation
