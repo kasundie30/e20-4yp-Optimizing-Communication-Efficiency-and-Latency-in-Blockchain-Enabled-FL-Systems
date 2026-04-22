@@ -186,7 +186,11 @@ To avoid storing large model files directly on-chain, model artifacts are upload
 
 <img width="100%" alt="Image" src="https://github.com/user-attachments/assets/790c0478-e528-4fc8-befe-91a40493747f" />
 
+</br>
+
 ---
+
+</br>
 
 <img width="100%" alt="Image" src="https://github.com/user-attachments/assets/abdeafc0-1baf-4ce1-a948-a14f397f6f58" />
 
