@@ -68,14 +68,14 @@ Research Questions
 This project addresses three core research questions:
 
 RQ1: Can a two-tier hierarchical FL architecture reduce inter-bank communication overhead compared to flat FL baselines while maintaining competitive fraud detection performance?
+
 RQ2: Can blockchain-enforced Clustered Byzantine Fault Tolerance (CBFT) provide model integrity guarantees that prevent poisoning attacks in a multi-bank consortium setting without incurring prohibitive latency?
+
 RQ3: Is it possible to integrate differential privacy into the local training step of a hierarchical FL system without unacceptable degradation of fraud detection metrics on a highly class-imbalanced dataset?
 
 ---
 
 ## Objectives
-
-### Primary Objective
 
 To design, implement, and evaluate a Hierarchical Clustered Federated Learning (HCFL) framework for credit card fraud detection that simultaneously optimises:
 
@@ -197,7 +197,7 @@ Global Model Publication: The global model is uploaded to IPFS and its CID + has
 
 ### 4.4 Evaluation Metrics
 
-Given the severe class imbalance (**0.17% fraud**), standard accuracy is uninformative. The following metrics are computed at the **optimal threshold** (sweep of the precision-recall curve to maximise F1):
+Given the severe class imbalance (0.17% fraud), standard accuracy is uninformative. The following metrics are computed at the optimal threshold (sweep of the precision-recall curve to maximise F1):
 
 | Metric | Definition | Why used |
 |--------|------------|----------|
@@ -208,6 +208,7 @@ Given the severe class imbalance (**0.17% fraud**), standard accuracy is uninfor
 | Recall | TP / (TP + FN) | Rate of actual fraud that is caught |
 | Comm (MB) | Total bytes transferred per round across all nodes | Communication efficiency |
 | E2E (sec) | Wall-clock time from training start to global model stored | Latency efficiency |
+
 ---
 
 ## System Architecture
