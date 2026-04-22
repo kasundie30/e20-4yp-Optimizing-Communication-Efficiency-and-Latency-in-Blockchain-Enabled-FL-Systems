@@ -413,7 +413,6 @@ RQ3 (DP + Hierarchical FL): Differential Privacy (clip=1.0, noise_multiplier=0.0
 
 The primary differentiating contribution of HCFL over existing work is the simultaneous and co-optimised treatment of communication efficiency, latency, Byzantine security, differential privacy, and blockchain auditability in a unified, production-oriented framework. No existing published work in the FL-for-CCFD domain combines all five of these properties in a single system.
 
-Future work will focus on: (i) formal DP budget composition accounting across federated rounds using the Rényi differential privacy accountant; (ii) dynamic consortium membership — enabling banks to join or leave rounds without chaincode redeployment; (iii) integration of post-hoc explainability (SHAP) at the global inference layer without adding per-round training overhead; and (iv) evaluation on a second financial dataset (e.g., PaySim) to assess generalisation of the HCFL architecture.
 ---
 
 ## Publications
@@ -425,12 +424,7 @@ Future work will focus on: (i) formal DP budget composition accounting across fe
 <!-- 3. [Semester 8 report](./) -->
 <!-- 4. [Semester 8 slides](./) -->
 <!-- 5. Author 1, Author 2 and Author 3, "Optimizing Communication Efficiency and Latency in Blockchain-Enabled FL Systems", [PDF](./) -->
-Reference Baselines
-The following published works were used as baseline comparisons and are independently replicated in the experimental directories:
 
-Baabdullah, T., Alzahrani, A., Rawat, D. B., & Liu, C. (2024). Efficiency of Federated Learning and Blockchain in Preserving Privacy and Enhancing the Performance of Credit Card Fraud Detection (CCFD) Systems. Future Internet, 16(6), 196. https://doi.org/10.3390/fi16060196
-
-Aljunaid, S. K., Almheiri, S. J., Dawood, H., & Khan, M. A. (2025). Secure and Transparent Banking: Explainable AI-Driven Federated Learning Model for Financial Fraud Detection. Journal of Risk and Financial Management, 18(4), 179. https://doi.org/10.3390/jrfm18040179
 ---
 
 ## Links
