@@ -150,9 +150,12 @@ Given the severe class imbalance (0.17% fraud), standard accuracy is uninformati
 
 ## 5. System Architecture
 
+The proposed architecture follows a **two-tier hierarchical design**.
+
+### 
+
 <img width="100%" alt="Image" src="https://github.com/user-attachments/assets/d05fa46b-1ba1-4a72-ac90-5a8ead5760a5" />
 
-The proposed architecture follows a **two-tier hierarchical design**.
 
 ### Tier 1 – Institutional / Intra-Cluster Layer
 
@@ -186,11 +189,11 @@ To avoid storing large model files directly on-chain, model artifacts are upload
 
 <img width="100%" alt="Image" src="https://github.com/user-attachments/assets/790c0478-e528-4fc8-befe-91a40493747f" />
 
-</br>
+##
 
 ---
 
-</br>
+##
 
 <img width="100%" alt="Image" src="https://github.com/user-attachments/assets/abdeafc0-1baf-4ce1-a948-a14f397f6f58" />
 
