@@ -151,6 +151,8 @@ Given the severe class imbalance (0.17% fraud), standard accuracy is uninformati
 
 <img width="1348" alt="high level architecture" src="https://github.com/cepdnaclk/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/blob/main/docs/images/Two_tier_architecture.png" />
 
+<img width="1360" height="762" alt="Image" src="https://github.com/user-attachments/assets/d05fa46b-1ba1-4a72-ac90-5a8ead5760a5" />
+
 <img width="1348" alt="work flow" src="https://github.com/cepdnaclk/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/blob/main/docs/images/Workflow_1.png" />
 
 
