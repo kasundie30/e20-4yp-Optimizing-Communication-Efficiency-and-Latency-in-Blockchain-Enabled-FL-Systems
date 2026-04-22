@@ -121,77 +121,14 @@ Data Partitioning: A non-IID (non-independent, non-identically distributed) hete
 
 The fraud detector at all levels of the hierarchy is a **LSTMTabular** — a single-layer Long Short-Term Memory network adapted for tabular transaction data.
 
-Input (29 features per transaction)
-    │
-    ▼
-LSTM Layer: input_dim=29, hidden_dim=30, num_layers=1
-    │
-    ▼
-Linear FC Layer: hidden_dim=30 → 1 (logit output)
-    │
-    ▼
-Sigmoid → P(fraud)
 
 Loss function: BCEWithLogitsLoss with positive class weighting (pos_weight = n_negatives / n_positives) to address the severe class imbalance without oversampling.
 Model size: ~50,000 parameters (~0.0489 MB serialised), deliberately minimal to minimise communication overhead per FL round.
 Optimizer: Adam, lr = 1×10⁻³, batch_size = 256, epochs = 1 per local round.
 LSTM was chosen over simpler feedforward networks because it naturally captures sequential dependencies within transaction streams. Unlike tree-based methods, LSTM is differentiable and compatible with both FedAvg weight averaging and gradient-based Differential Privacy. 
 
-### 4.3 Federated Learning Protocol
 
-The HCFL system executes a structured **two-tier aggregation protocol** per round:
-
-#### Tier 1 — Intra-Bank Aggregation (Branch → HQ)
-
-**Local DP Training:** Each branch node trains the LSTM model on its private transaction shard using **DP-SGD**:
-
-- `loss.backward()` — compute per-batch gradients
-- `clip_grad_norm_(l2_norm_clip=1.0)` — clip gradient L2 norm to bound sensitivity
-- `p.grad += N(0, (l2_norm_clip × noise_multiplier)²)` — add Gaussian noise, `noise_multiplier = 0.05`
-- `optimizer.step()` — update weights post-clipping and noise injection
-
-This implements **(ε, δ)-Differential Privacy**: the clipping bounds the maximum influence of any single transaction on the gradient, and the Gaussian noise provides plausible deniability.
-
-**Deadline-Aware Collection:** The HQ waits for branch updates up to a configurable deadline (`deadline_seconds = 5.0`). Stragglers are excluded rather than blocking the round. A minimum of 2 branch submissions is required to proceed.
-
-**Intra-Cluster FedAvg:** The HQ computes a sample-count-weighted average of branch model weights: θ_cluster = ( Σ(i=1 to B) n_i · θ_i ) / ( Σ(i=1 to B) n_i )
-
-where:
-
-B is the number of branch updates collected before the deadline
-n_i is the branch's training sample count
-θ_i is the branch's state_dict
-
-Global Model Blending (Resilience): From Round 2 onwards, the cluster model is blended with the prior global model to prevent catastrophic forgetting:
-
-θ_blended = β · θ_global + (1 − β) · θ_cluster
-β = 0.30
-
-Intra-Cluster Validation Gate: The HQ evaluates the blended model against 15% of its local validation data using PR-AUC. If PR-AUC < 0.20, the model is withheld from Tier 2 submission.
-
-Tier 2 — Inter-Bank Aggregation (HQ → Blockchain → Global)
-
-IPFS Upload + On-Chain Registration: The cluster model is serialised and uploaded to IPFS, obtaining a Content Identifier (CID). The HQ records {bank_id, round, model_cid, sha256_hash, val_score} on the Hyperledger Fabric ledger via POST /submit-update. The CID is the content-addressed cryptographic identifier — modifying the model file changes the CID, immediately revealing tampering.
-
-CBFT Cross-Verification (3-Phase Consensus):
-
-Phase 1 (Propose): The SubmitClusterUpdate chaincode transaction is the implicit broadcast. All peers can observe the proposal on the shared ledger.
-Phase 2 (Verify): Each peer HQ downloads other banks' models from IPFS by CID, recomputes SHA-256, compares against the on-chain hash, evaluates the model on its own validation data, and casts a True/False vote via POST /submit-verification. Self-verification is prohibited by both the API layer and chaincode enforcement (verifier_id ≠ target_bank_id).
-Phase 3 (Commit): When a quorum of ≥ 2 positive votes accumulates, the submitting HQ calls POST /submit-commit to mark the model as "Accepted" on the ledger.
-
-Trust-Weighted Global FedAvg: The Global Aggregator polls the ledger for the list of accepted banks, fetches each accepted model from IPFS (with final SHA-256 re-verification), and computes: θ_global = ( Σ(b ∈ accepted) w_b · θ_b ) / ( Σ(b ∈ accepted) w_b )
-
-w_b = trust_score_b × n_b
-
-Trust scores are stored on-chain and updated each round:
-
-reward α = 0.1 for models that improved the global
-penalty β = 0.2 for rejected models
-floor = 0.1 to prevent permanent exclusion
-
-Global Model Publication: The global model is uploaded to IPFS and its CID + hash are recorded on-chain via POST /store-global-model, advancing the latest_round pointer. All banks download the new global model at the start of the next round.
-
-### 4.4 Evaluation Metrics
+### 4.3 Evaluation Metrics
 
 Given the severe class imbalance (0.17% fraud), standard accuracy is uninformative. The following metrics are computed at the optimal threshold (sweep of the precision-recall curve to maximise F1):
 
