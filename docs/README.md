@@ -148,6 +148,10 @@ Given the severe class imbalance (0.17% fraud), standard accuracy is uninformati
 
 The proposed architecture follows a **two-tier hierarchical design**.
 
+![Two-tier Hierarchical Architecture](docs/images/Two_tier_architecture.png)
+
+
+
 ### Tier 1 – Institutional / Intra-Cluster Layer
 
 Each participating financial institution is treated as an independent cluster. A cluster contains:
@@ -157,6 +161,8 @@ Each participating financial institution is treated as an independent cluster. A
 - and one **Backup node**.
 
 Branch nodes perform local model training on private transaction datasets. The HQ collects branch updates and generates a cluster-level aggregated model. The Backup node remains synchronized with the HQ and can take over in the event of HQ failure, reducing the risk of a single point of failure.
+
+<img src="docs/images/Two_tier_architecture.png" alt="Two-tier Hierarchical Architecture" width="100%">
 
 ### Tier 2 – Blockchain / Inter-Cluster Layer
 
