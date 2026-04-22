@@ -35,7 +35,7 @@ title: Optimizing Communication Efficiency and Latency in Blockchain-Enabled Fed
 
 ---
 
-## Abstract
+## 1. Abstract
 
 Credit card fraud detection (CCFD) in the banking sector faces a fundamental tension between the need for collaborative model training and strict data privacy regulations. Existing federated learning (FL) approaches that integrate blockchain for auditability treat all participants equally and do not address the hierarchical nature of real-world banking organisations, leading to suboptimal communication efficiency and round latency. This research presents the Hierarchical Clustered Federated Learning (HCFL) framework — a two-tier privacy-preserving FL system for credit card fraud detection that integrates Hyperledger Fabric blockchain, IPFS-based off-chain model storage, Differential Privacy (DP), and a novel Consensus-Based Federated Trust (CBFT) consensus protocol.
 
@@ -46,7 +46,7 @@ Keywords: Federated Learning, Credit Card Fraud Detection, Blockchain, Different
 
 ---
 
-## Research Problem
+## 2. Research Problem
 
 Background
 Credit card fraud imposes billions of dollars in losses annually on financial institutions worldwide. Accurate fraud detection requires machine learning models trained on large volumes of transaction data. However, banking transaction data is among the most sensitive personal data categories — sharing raw records across organisations violates customer privacy agreements and breaches data protection regulations such as the General Data Protection Regulation (GDPR) and the Payment Card Industry Data Security Standard (PCI-DSS).
@@ -77,7 +77,9 @@ RQ3: Is it possible to integrate differential privacy into the local training st
 
 <img alt="Image" src="https://github.com/user-attachments/assets/327997f5-2d00-4c0b-809e-325dd2c78f3d" width="100%" alt="Image"/>
 
-## Objectives
+---
+
+## 3. Objectives
 
 To design, implement, and evaluate a Hierarchical Clustered Federated Learning (HCFL) framework for credit card fraud detection that simultaneously optimises:
 
@@ -101,7 +103,7 @@ To design, implement, and evaluate a Hierarchical Clustered Federated Learning (
 
 ---
 
-## Methodology
+## 4. Methodology
 
 ### 4.1 Dataset
 
@@ -146,7 +148,7 @@ Given the severe class imbalance (0.17% fraud), standard accuracy is uninformati
 
 ---
 
-## System Architecture
+## 5. System Architecture
 
 <img width="100%" alt="Image" src="https://github.com/user-attachments/assets/d05fa46b-1ba1-4a72-ac90-5a8ead5760a5" />
 
@@ -184,9 +186,13 @@ To avoid storing large model files directly on-chain, model artifacts are upload
 
 <img width="100%" alt="Image" src="https://github.com/user-attachments/assets/790c0478-e528-4fc8-befe-91a40493747f" />
 
+---
+
 <img width="100%" alt="Image" src="https://github.com/user-attachments/assets/abdeafc0-1baf-4ce1-a948-a14f397f6f58" />
 
-## Experimental Setup and Implementation
+---
+
+## 6. Experimental Setup and Implementation
 
 The framework is implemented using the following technologies:
 
@@ -197,11 +203,7 @@ The framework is implemented using the following technologies:
 - **FastAPI** for the middleware API layer
 - **Docker** for reproducible multi-service deployment
 
-### Dataset
-
 Experiments use the **Credit Card Fraud Detection dataset**, partitioned across multiple simulated institutions and branches. The training setup reflects a realistic **non-IID multi-institution environment**, where each branch has access only to its local transaction subset.
-
-### Federation Setup
 
 The experimental setup consists of:
 
@@ -210,7 +212,7 @@ The experimental setup consists of:
 - **HQ aggregation per institution**
 - **permissioned blockchain coordination across HQs**
 
-### Key Implemented Components
+#### Key Implemented Components
 
 - Local branch training with DP-inspired clipping and Gaussian noise
 - LSTM-based fraud detection model
@@ -224,7 +226,7 @@ The experimental setup consists of:
 
 ---
 
-## Results and Analysis
+## 7. Results and Analysis
 
 ### Proposed HCFL Framework — Per-Round Results
 
@@ -319,7 +321,7 @@ In live mode (Fabric + IPFS), HCFL measured **~33–37 s/round**, within the **1
 
 ---
 
-## Impact and Limitations
+## 8. Impact and Limitations
 
 ### Research Impact
 Communication Efficiency: The HCFL two-tier hierarchy is the primary architectural contribution to communication efficiency. By ensuring that only one consolidated cluster model per bank reaches the global tier (rather than all branch-level models), inter-bank communication is reduced by a factor of the number of branches per bank. As banks scale to dozens of regional branches, this compression benefit grows proportionally.
@@ -349,7 +351,7 @@ Precision for Banking Operations: HCFL's average Precision of 0.905 means that 9
 
 ---
 
-## Conclusion
+## 9. Conclusion
 
 This paper presented the Hierarchical Clustered Federated Learning (HCFL) framework — a two-tier, privacy-preserving, blockchain-enforced federated learning system for credit card fraud detection in banking consortia. The framework addresses three research questions posed at the outset:
 
@@ -363,7 +365,7 @@ The primary differentiating contribution of HCFL over existing work is the simul
 
 ---
 
-## Publications
+## 10. Publications
 
 [//]: # "Uncomment and update once files are uploaded"
 
@@ -375,7 +377,7 @@ The primary differentiating contribution of HCFL over existing work is the simul
 
 ---
 
-## Links
+## 11. Links
 
 - [Project Repository](https://github.com/cepdnaclk/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems)
 - [Project Page](https://cepdnaclk.github.io/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems)
