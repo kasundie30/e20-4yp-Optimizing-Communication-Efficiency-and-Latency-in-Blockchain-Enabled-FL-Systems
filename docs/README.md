@@ -75,6 +75,8 @@ RQ3: Is it possible to integrate differential privacy into the local training st
 
 ---
 
+<img width="1361" height="742" alt="Image" src="https://github.com/user-attachments/assets/327997f5-2d00-4c0b-809e-325dd2c78f3d" />
+
 ## Objectives
 
 To design, implement, and evaluate a Hierarchical Clustered Federated Learning (HCFL) framework for credit card fraud detection that simultaneously optimises:
@@ -150,8 +152,6 @@ Given the severe class imbalance (0.17% fraud), standard accuracy is uninformati
 
 The proposed architecture follows a **two-tier hierarchical design**.
 
-
-
 ### Tier 1 – Institutional / Intra-Cluster Layer
 
 Each participating financial institution is treated as an independent cluster. A cluster contains:
@@ -162,7 +162,7 @@ Each participating financial institution is treated as an independent cluster. A
 
 Branch nodes perform local model training on private transaction datasets. The HQ collects branch updates and generates a cluster-level aggregated model. The Backup node remains synchronized with the HQ and can take over in the event of HQ failure, reducing the risk of a single point of failure.
 
-<img width="1361" height="742" alt="Image" src="https://github.com/user-attachments/assets/327997f5-2d00-4c0b-809e-325dd2c78f3d" />
+
 
 ### Tier 2 – Blockchain / Inter-Cluster Layer
 
@@ -180,7 +180,7 @@ By limiting blockchain participation to HQ nodes instead of all branch nodes, th
 
 To avoid storing large model files directly on-chain, model artifacts are uploaded to **IPFS**, and only compact metadata such as CID, hash, validation status, and trust information are stored on the blockchain ledger.
 ---
-<img width="7606" height="8192" alt="Image" src="https://github.com/user-attachments/assets/abdeafc0-1baf-4ce1-a948-a14f397f6f58" />
+<img width="4083" height="2226" alt="Image" src="https://github.com/user-attachments/assets/abdeafc0-1baf-4ce1-a948-a14f397f6f58" />
 
 ## Experimental Setup and Implementation
 
