@@ -34,6 +34,7 @@ to address **privacy, trust, communication efficiency, and auditability** in col
 ---
 
 ##  System Architecture
+<img width="1348" alt="solution architecture" src="https://github.com/cepdnaclk/e20-4yp-Optimizing-Communication-Efficiency-and-Latency-in-Blockchain-Enabled-FL-Systems/blob/main/docs/images/System_overview.png "/>
 
 ### Tier 1: Intra-Bank Layer
 - Branch nodes train local models
